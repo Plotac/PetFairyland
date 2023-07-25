@@ -1,0 +1,599 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		09C584E02A6F605B00D41D3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C584DF2A6F605B00D41D3C /* AppDelegate.swift */; };
+		09C584E72A6F605B00D41D3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09C584E52A6F605B00D41D3C /* Main.storyboard */; };
+		09C584E92A6F605C00D41D3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09C584E82A6F605C00D41D3C /* Assets.xcassets */; };
+		09C584EC2A6F605C00D41D3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09C584EA2A6F605C00D41D3C /* LaunchScreen.storyboard */; };
+		09C584F82A6F626600D41D3C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C584F72A6F626600D41D3C /* HomeViewController.swift */; };
+		09C584FB2A6F62DC00D41D3C /* PFNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C584FA2A6F62DC00D41D3C /* PFNavigationController.swift */; };
+		09C584FF2A6F65B100D41D3C /* UIColor+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C584FE2A6F65B100D41D3C /* UIColor+Common.swift */; };
+		09C585022A6F665800D41D3C /* UIImage+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C585012A6F665800D41D3C /* UIImage+Common.swift */; };
+		09C585052A6F6C4900D41D3C /* Defines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C585042A6F6C4900D41D3C /* Defines.swift */; };
+		09C585082A6F712700D41D3C /* UIDevice+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C585072A6F712700D41D3C /* UIDevice+Common.swift */; };
+		09C5850B2A6F732E00D41D3C /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C5850A2A6F732E00D41D3C /* UIViewController+Navigation.swift */; };
+		09C5850E2A6F750B00D41D3C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C5850D2A6F750B00D41D3C /* HomeViewModel.swift */; };
+		09C585112A6F770200D41D3C /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C585102A6F770200D41D3C /* HomeCell.swift */; };
+		09C585142A6F775D00D41D3C /* NSObject+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C585132A6F775D00D41D3C /* NSObject+Common.swift */; };
+		09C585172A6F781000D41D3C /* HomeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C585162A6F781000D41D3C /* HomeItem.swift */; };
+		9D66A517BF6E3A125B2E565F /* Pods_PetFairyland.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C9EA8381102C5CB194DEE7 /* Pods_PetFairyland.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		09C584DC2A6F605B00D41D3C /* PetFairyland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetFairyland.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		09C584DF2A6F605B00D41D3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		09C584E62A6F605B00D41D3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		09C584E82A6F605C00D41D3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		09C584EB2A6F605C00D41D3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		09C584ED2A6F605C00D41D3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09C584F72A6F626600D41D3C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		09C584FA2A6F62DC00D41D3C /* PFNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PFNavigationController.swift; sourceTree = "<group>"; };
+		09C584FE2A6F65B100D41D3C /* UIColor+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Common.swift"; sourceTree = "<group>"; };
+		09C585012A6F665800D41D3C /* UIImage+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Common.swift"; sourceTree = "<group>"; };
+		09C585042A6F6C4900D41D3C /* Defines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defines.swift; sourceTree = "<group>"; };
+		09C585072A6F712700D41D3C /* UIDevice+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Common.swift"; sourceTree = "<group>"; };
+		09C5850A2A6F732E00D41D3C /* UIViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Navigation.swift"; sourceTree = "<group>"; };
+		09C5850D2A6F750B00D41D3C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		09C585102A6F770200D41D3C /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
+		09C585132A6F775D00D41D3C /* NSObject+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Common.swift"; sourceTree = "<group>"; };
+		09C585162A6F781000D41D3C /* HomeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItem.swift; sourceTree = "<group>"; };
+		48AF1A4E2B2DEC6F26A2CE92 /* Pods-PetFairyland.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetFairyland.debug.xcconfig"; path = "Target Support Files/Pods-PetFairyland/Pods-PetFairyland.debug.xcconfig"; sourceTree = "<group>"; };
+		51C9EA8381102C5CB194DEE7 /* Pods_PetFairyland.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetFairyland.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91D8C0AD1854FB4618D3B25E /* Pods-PetFairyland.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetFairyland.release.xcconfig"; path = "Target Support Files/Pods-PetFairyland/Pods-PetFairyland.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		09C584D92A6F605B00D41D3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D66A517BF6E3A125B2E565F /* Pods_PetFairyland.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		09C584D32A6F605B00D41D3C = {
+			isa = PBXGroup;
+			children = (
+				09C584DE2A6F605B00D41D3C /* PetFairyland */,
+				09C584DD2A6F605B00D41D3C /* Products */,
+				AD9F5F1D611E80E3BF4FDE47 /* Pods */,
+				68F4A7272DE6F0EA808699DE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		09C584DD2A6F605B00D41D3C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				09C584DC2A6F605B00D41D3C /* PetFairyland.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		09C584DE2A6F605B00D41D3C /* PetFairyland */ = {
+			isa = PBXGroup;
+			children = (
+				09C584DF2A6F605B00D41D3C /* AppDelegate.swift */,
+				09C584F32A6F61E900D41D3C /* srcs */,
+				09C584E52A6F605B00D41D3C /* Main.storyboard */,
+				09C584E82A6F605C00D41D3C /* Assets.xcassets */,
+				09C584EA2A6F605C00D41D3C /* LaunchScreen.storyboard */,
+				09C584ED2A6F605C00D41D3C /* Info.plist */,
+			);
+			path = PetFairyland;
+			sourceTree = "<group>";
+		};
+		09C584F32A6F61E900D41D3C /* srcs */ = {
+			isa = PBXGroup;
+			children = (
+				09C585032A6F6C3D00D41D3C /* Common */,
+				09C584FC2A6F658200D41D3C /* Extension */,
+				09C584F52A6F623000D41D3C /* Base */,
+				09C584F42A6F622800D41D3C /* App */,
+			);
+			path = srcs;
+			sourceTree = "<group>";
+		};
+		09C584F42A6F622800D41D3C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				09C588742A6FC53400D41D3C /* Login */,
+				09C584F62A6F624F00D41D3C /* Home */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		09C584F52A6F623000D41D3C /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				09C584F92A6F627F00D41D3C /* Navigation */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		09C584F62A6F624F00D41D3C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				09C585152A6F780500D41D3C /* Model */,
+				09C5850F2A6F76EE00D41D3C /* View */,
+				09C5850C2A6F74FB00D41D3C /* ViewModel */,
+				09C584F72A6F626600D41D3C /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		09C584F92A6F627F00D41D3C /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				09C584FA2A6F62DC00D41D3C /* PFNavigationController.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		09C584FC2A6F658200D41D3C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				09C585122A6F774800D41D3C /* NSObject */,
+				09C585092A6F731700D41D3C /* UIViewController */,
+				09C585062A6F711300D41D3C /* UIDevice */,
+				09C585002A6F664300D41D3C /* UIImage */,
+				09C584FD2A6F659500D41D3C /* UIColor */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		09C584FD2A6F659500D41D3C /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				09C584FE2A6F65B100D41D3C /* UIColor+Common.swift */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		09C585002A6F664300D41D3C /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				09C585012A6F665800D41D3C /* UIImage+Common.swift */,
+			);
+			path = UIImage;
+			sourceTree = "<group>";
+		};
+		09C585032A6F6C3D00D41D3C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				09C585042A6F6C4900D41D3C /* Defines.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		09C585062A6F711300D41D3C /* UIDevice */ = {
+			isa = PBXGroup;
+			children = (
+				09C585072A6F712700D41D3C /* UIDevice+Common.swift */,
+			);
+			path = UIDevice;
+			sourceTree = "<group>";
+		};
+		09C585092A6F731700D41D3C /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				09C5850A2A6F732E00D41D3C /* UIViewController+Navigation.swift */,
+			);
+			path = UIViewController;
+			sourceTree = "<group>";
+		};
+		09C5850C2A6F74FB00D41D3C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				09C5850D2A6F750B00D41D3C /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		09C5850F2A6F76EE00D41D3C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				09C585102A6F770200D41D3C /* HomeCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		09C585122A6F774800D41D3C /* NSObject */ = {
+			isa = PBXGroup;
+			children = (
+				09C585132A6F775D00D41D3C /* NSObject+Common.swift */,
+			);
+			path = NSObject;
+			sourceTree = "<group>";
+		};
+		09C585152A6F780500D41D3C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				09C585162A6F781000D41D3C /* HomeItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		09C588742A6FC53400D41D3C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		68F4A7272DE6F0EA808699DE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				51C9EA8381102C5CB194DEE7 /* Pods_PetFairyland.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AD9F5F1D611E80E3BF4FDE47 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				48AF1A4E2B2DEC6F26A2CE92 /* Pods-PetFairyland.debug.xcconfig */,
+				91D8C0AD1854FB4618D3B25E /* Pods-PetFairyland.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		09C584DB2A6F605B00D41D3C /* PetFairyland */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09C584F02A6F605C00D41D3C /* Build configuration list for PBXNativeTarget "PetFairyland" */;
+			buildPhases = (
+				657F9F6AD84D13027DB62B30 /* [CP] Check Pods Manifest.lock */,
+				09C584D82A6F605B00D41D3C /* Sources */,
+				09C584D92A6F605B00D41D3C /* Frameworks */,
+				09C584DA2A6F605B00D41D3C /* Resources */,
+				EE40DF65DB1DB73D452EC7E6 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PetFairyland;
+			productName = PetFairyland;
+			productReference = 09C584DC2A6F605B00D41D3C /* PetFairyland.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		09C584D42A6F605B00D41D3C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					09C584DB2A6F605B00D41D3C = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 09C584D72A6F605B00D41D3C /* Build configuration list for PBXProject "PetFairyland" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 09C584D32A6F605B00D41D3C;
+			productRefGroup = 09C584DD2A6F605B00D41D3C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				09C584DB2A6F605B00D41D3C /* PetFairyland */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		09C584DA2A6F605B00D41D3C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09C584EC2A6F605C00D41D3C /* LaunchScreen.storyboard in Resources */,
+				09C584E92A6F605C00D41D3C /* Assets.xcassets in Resources */,
+				09C584E72A6F605B00D41D3C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		657F9F6AD84D13027DB62B30 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PetFairyland-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE40DF65DB1DB73D452EC7E6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PetFairyland/Pods-PetFairyland-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PetFairyland/Pods-PetFairyland-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PetFairyland/Pods-PetFairyland-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		09C584D82A6F605B00D41D3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09C584FF2A6F65B100D41D3C /* UIColor+Common.swift in Sources */,
+				09C585172A6F781000D41D3C /* HomeItem.swift in Sources */,
+				09C5850E2A6F750B00D41D3C /* HomeViewModel.swift in Sources */,
+				09C584F82A6F626600D41D3C /* HomeViewController.swift in Sources */,
+				09C585082A6F712700D41D3C /* UIDevice+Common.swift in Sources */,
+				09C585142A6F775D00D41D3C /* NSObject+Common.swift in Sources */,
+				09C585112A6F770200D41D3C /* HomeCell.swift in Sources */,
+				09C585052A6F6C4900D41D3C /* Defines.swift in Sources */,
+				09C5850B2A6F732E00D41D3C /* UIViewController+Navigation.swift in Sources */,
+				09C584E02A6F605B00D41D3C /* AppDelegate.swift in Sources */,
+				09C585022A6F665800D41D3C /* UIImage+Common.swift in Sources */,
+				09C584FB2A6F62DC00D41D3C /* PFNavigationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		09C584E52A6F605B00D41D3C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				09C584E62A6F605B00D41D3C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		09C584EA2A6F605C00D41D3C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				09C584EB2A6F605C00D41D3C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		09C584EE2A6F605C00D41D3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		09C584EF2A6F605C00D41D3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		09C584F12A6F605C00D41D3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48AF1A4E2B2DEC6F26A2CE92 /* Pods-PetFairyland.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PetFairyland/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.petfairyland.unique;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		09C584F22A6F605C00D41D3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91D8C0AD1854FB4618D3B25E /* Pods-PetFairyland.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PetFairyland/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.petfairyland.unique;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		09C584D72A6F605B00D41D3C /* Build configuration list for PBXProject "PetFairyland" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09C584EE2A6F605C00D41D3C /* Debug */,
+				09C584EF2A6F605C00D41D3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		09C584F02A6F605C00D41D3C /* Build configuration list for PBXNativeTarget "PetFairyland" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09C584F12A6F605C00D41D3C /* Debug */,
+				09C584F22A6F605C00D41D3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 09C584D42A6F605B00D41D3C /* Project object */;
+}
