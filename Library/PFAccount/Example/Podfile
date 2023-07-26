@@ -1,0 +1,7 @@
+use_frameworks!
+
+platform :ios, '13.0'
+
+target 'PFAccount_Example' do
+  pod 'PFAccount', :path => '../'
+end

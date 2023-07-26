@@ -1,0 +1,6 @@
+framework module Pods_PFAccount_Example {
+  umbrella header "Pods-PFAccount_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

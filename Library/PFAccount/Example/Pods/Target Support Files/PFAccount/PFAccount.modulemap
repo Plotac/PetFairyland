@@ -1,0 +1,6 @@
+framework module PFAccount {
+  umbrella header "PFAccount-umbrella.h"
+
+  export *
+  module * { export * }
+}

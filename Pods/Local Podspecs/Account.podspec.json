@@ -1,0 +1,35 @@
+{
+  "name": "Account",
+  "version": "0.1.0",
+  "summary": "A short description of Account.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/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/Account",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "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": "jinan@junying-tech.com"
+  },
+  "source": {
+    "git": "https://github.com/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/Account.git",
+    "tag": "0.1.0"
+  },
+  "source_files": "Account/Classes/**/*",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.0",
+  "static_framework": true,
+  "resource_bundles": {
+    "Account": [
+      "IWDebugger/Assert/*.xcassets"
+    ]
+  },
+  "dependencies": {
+    "SnapKit": [
+
+    ]
+  },
+  "swift_version": "5.0"
+}

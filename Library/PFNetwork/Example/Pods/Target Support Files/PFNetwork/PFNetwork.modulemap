@@ -1,0 +1,6 @@
+framework module PFNetwork {
+  umbrella header "PFNetwork-umbrella.h"
+
+  export *
+  module * { export * }
+}

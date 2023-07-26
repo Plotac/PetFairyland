@@ -2,18 +2,23 @@ PODS:
   - Alamofire (5.7.1)
   - FDFullscreenPopGesture (1.1)
   - Kingfisher (7.7.0)
-  - lottie-ios (4.2.0)
   - MBProgressHUD (1.2.0)
   - ObjectMapper (4.2.0)
+  - PFAccount (0.1.0):
+    - PFNetwork
+  - PFNetwork (0.1.0):
+    - Alamofire
+    - ObjectMapper
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
   - Alamofire
   - FDFullscreenPopGesture
   - Kingfisher (~> 7.0)
-  - lottie-ios
   - MBProgressHUD
   - ObjectMapper
+  - PFAccount (from `Library/PFAccount`)
+  - PFNetwork (from `Library/PFNetwork`)
   - SnapKit
 
 SPEC REPOS:
@@ -21,20 +26,26 @@ SPEC REPOS:
     - Alamofire
     - FDFullscreenPopGesture
     - Kingfisher
-    - lottie-ios
     - MBProgressHUD
     - ObjectMapper
     - SnapKit
+
+EXTERNAL SOURCES:
+  PFAccount:
+    :path: Library/PFAccount
+  PFNetwork:
+    :path: Library/PFNetwork
 
 SPEC CHECKSUMS:
   Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   Kingfisher: f043ac666dfc96c1f37604f93effb45a7ee3a3e1
-  lottie-ios: 809ecf2d460ed650a6aed7aa88b2ec45fab4779c
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
+  PFAccount: 1bd0dabe83a620f9b289dd02143f13fee3585ca9
+  PFNetwork: 9ef293f22e05b17b81778ae86cfcd3e1ac8df64b
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 7a2a98619f86c38df5354194dad6eecabf636237
+PODFILE CHECKSUM: 18169dbc521e80622945d25a84d2a577cdc54236
 
 COCOAPODS: 1.11.3
