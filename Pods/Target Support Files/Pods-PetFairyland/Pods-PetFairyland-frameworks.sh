@@ -183,6 +183,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PFAccount/PFAccount.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PFNetwork/PFNetwork.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/PFUIKit/PFUIKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/PFUtility/PFUtility.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -193,6 +195,8 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PFAccount/PFAccount.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PFNetwork/PFNetwork.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/PFUIKit/PFUIKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/PFUtility/PFUtility.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

@@ -26,7 +26,16 @@
     ]
   },
   "dependencies": {
+    "SnapKit": [
+
+    ],
     "PFNetwork": [
+
+    ],
+    "PFUtility": [
+
+    ],
+    "PFUIKit": [
 
     ]
   },

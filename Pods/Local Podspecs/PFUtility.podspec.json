@@ -1,0 +1,24 @@
+{
+  "name": "PFUtility",
+  "version": "0.1.0",
+  "summary": "A short description of PFUtility.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/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/PFUtility",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "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": "jinan@junying-tech.com"
+  },
+  "source": {
+    "git": "https://github.com/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/PFUtility.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.0",
+  "source_files": "PFUtility/Classes/**/*",
+  "swift_version": "5.0"
+}

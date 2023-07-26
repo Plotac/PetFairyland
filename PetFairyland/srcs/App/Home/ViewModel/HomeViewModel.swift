@@ -6,8 +6,15 @@
 //
 
 import UIKit
+import PFUtility
+
+protocol HomeViewModelDelegate: NSObjectProtocol {
+    func didSelectHomeItem(item: HomeItem)
+}
 
 class HomeViewModel: NSObject {
+    
+    weak var delegate: HomeViewModelDelegate?
     
     private(set) var mainCollectinView: UICollectionView!
     
@@ -27,6 +34,10 @@ extension HomeViewModel: UICollectionViewDataSource, UICollectionViewDelegate {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCell.reuseIdentity(), for: indexPath) as? HomeCell ?? HomeCell()
         cell.model = homeItems[indexPath.item]
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.didSelectHomeItem(item: homeItems[indexPath.item])
     }
     
 }

@@ -14,6 +14,8 @@ def openPods
 end
 
 def localPods
+  pod 'PFUIKit',   :path => 'Library/PFUIKit'
+  pod 'PFUtility',   :path => 'Library/PFUtility'
   pod 'PFNetwork', :path => 'Library/PFNetwork'
   pod 'PFAccount', :path => 'Library/PFAccount'
 end

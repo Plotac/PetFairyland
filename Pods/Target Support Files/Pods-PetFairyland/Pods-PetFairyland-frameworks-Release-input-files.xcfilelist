@@ -6,4 +6,6 @@ ${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework
 ${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework
 ${BUILT_PRODUCTS_DIR}/PFAccount/PFAccount.framework
 ${BUILT_PRODUCTS_DIR}/PFNetwork/PFNetwork.framework
+${BUILT_PRODUCTS_DIR}/PFUIKit/PFUIKit.framework
+${BUILT_PRODUCTS_DIR}/PFUtility/PFUtility.framework
 ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework

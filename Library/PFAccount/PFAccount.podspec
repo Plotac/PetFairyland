@@ -35,6 +35,8 @@ TODO: Add long description of the pod here.
   s.resource_bundles = {
     'PFAccount' => ['PFAccount/Assert/*.xcassets']
   }
-  
+  s.dependency 'SnapKit'
   s.dependency 'PFNetwork'
+  s.dependency 'PFUtility'
+  s.dependency 'PFUIKit'
 end

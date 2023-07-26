@@ -1,0 +1,32 @@
+{
+  "name": "PFUIKit",
+  "version": "0.1.0",
+  "summary": "A short description of PFUIKit.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/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/PFUIKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "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": "jinan@junying-tech.com"
+  },
+  "source": {
+    "git": "https://github.com/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/PFUIKit.git",
+    "tag": "0.1.0"
+  },
+  "source_files": "PFUIKit/Classes/**/*",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.0",
+  "dependencies": {
+    "SnapKit": [
+
+    ],
+    "PFUtility": [
+
+    ]
+  },
+  "swift_version": "5.0"
+}

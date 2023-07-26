@@ -1,0 +1,6 @@
+framework module PFUIKit {
+  umbrella header "PFUIKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
