@@ -50,8 +50,12 @@ class LoginViewModel: NSObject {
         tf.tintColor = SystemColor.main
         tf.isSecureTextEntry = true
         let secureBtn = UIButton(type: .custom)
+        secureBtn.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        secureBtn.setImage(UIImage(named: "password_hide"), for: .normal)
+        secureBtn.setImage(UIImage(named: "password_show"), for: .selected)
+        secureBtn.addTarget(self, action: #selector(passwordSecure(sender:)), for: .touchUpInside)
         tf.rightView = secureBtn
-        tf.rightViewMode = .whileEditing
+        tf.rightViewMode = .always
         return tf
     }()
     
@@ -154,6 +158,11 @@ class LoginViewModel: NSObject {
         super.init()
         loadChannelData()
         buildUI()
+        NotificationCenter.default.addObserver(self, selector: #selector(textfieldTextDidChange(notification:)), name: UITextField.textDidChangeNotification, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
@@ -199,6 +208,11 @@ extension LoginViewModel {
         sender.isSelected = !sender.isSelected
     }
     
+    @objc func passwordSecure(sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        passwordTF.isSecureTextEntry = !sender.isSelected
+    }
+    
     @objc func login(sender: UIButton) {
         
     }
@@ -222,6 +236,21 @@ extension LoginViewModel {
     
     @objc func question(sender: UIButton) {
     }
+    
+    @objc func textfieldTextDidChange(notification: Notification) {
+        let phoneIsEmpty: Bool = phoneTF.text?.isEmpty ?? true
+        let passwordIsEmpty: Bool = passwordTF.text?.isEmpty ?? true
+        if loginType == .sms {
+            loginBtn.backgroundColor = phoneIsEmpty ? SystemColor.main.withAlphaComponent(0.3) : SystemColor.main
+            loginBtn.isEnabled = !phoneIsEmpty
+            loginBtn.setTitleColor(phoneIsEmpty ? .black.withAlphaComponent(0.3) : .black, for: .normal)
+        } else {
+            loginBtn.backgroundColor = (phoneIsEmpty || passwordIsEmpty) ? SystemColor.main.withAlphaComponent(0.3) : SystemColor.main
+            loginBtn.isEnabled = !phoneIsEmpty || passwordIsEmpty
+            loginBtn.setTitleColor(phoneIsEmpty || passwordIsEmpty ? .black.withAlphaComponent(0.3) : .black, for: .normal)
+        }
+    }
+    
 }
 
 
