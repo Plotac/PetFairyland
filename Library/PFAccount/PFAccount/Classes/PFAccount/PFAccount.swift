@@ -13,7 +13,19 @@ public final class PFAccount: NSObject {
     
     public static let shared: PFAccount = PFAccount()
     
-    public internal(set) var userInfo:  UserInfo = UserInfo()
+    public var userInfo: UserInfo {
+        get {
+            let info = UserInfo()
+            if let mn = UserDefaults.standard.object(forKey: "PFAccount.mobileNumber") as? String {
+                info.mobileNumber = mn
+            }
+            return info
+        }
+        set {
+            UserDefaults.standard.set(newValue.mobileNumber, forKey: "PFAccount.mobileNumber")
+            UserDefaults.standard.synchronize()
+        }
+    }
     
     public internal(set) var tokenInfo: TokenInfo = TokenInfo()
     

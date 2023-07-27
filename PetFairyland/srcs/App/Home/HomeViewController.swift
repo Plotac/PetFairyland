@@ -9,7 +9,7 @@ import UIKit
 import PFAccount
 import PFUtility
 
-class HomeViewController: UIViewController {
+class HomeViewController: PFBaseViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
     
@@ -28,9 +28,13 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         title = "Home"
         setupUI()
-        PFAccount.login(with: SMSRequest(mobileNumber: "")) {
-            
+        
+        if PFAccount.shared.userInfo.isValid == false {
+            PFAccount.login(with: SMSRequest(mobileNumber: "")) {
+                
+            }
         }
+        
     }
 }
 
@@ -38,8 +42,15 @@ extension HomeViewController: HomeViewModelDelegate {
     func didSelectHomeItem(item: HomeItem) {
         if PFAccount.shared.userInfo.isValid == false {
             PFAccount.login(with: SMSRequest(mobileNumber: "")) {
-                
+
             }
+            return
+        }
+        switch item.type {
+        case .appointment:
+            navigationController?.pushViewController(AppointmentListController(), animated: true)
+        default:
+            break
         }
     }
 }

@@ -46,13 +46,13 @@ extension HomeViewModel: UICollectionViewDataSource, UICollectionViewDelegate {
 extension HomeViewModel {
     
     func setupItems() {
-        let appointment = HomeItem(title: "预约列表", imageStr: "home_list")
-        let productManagement = HomeItem(title: "产品管理", imageStr: "home_product")
-        let memberManagement = HomeItem(title: "会员管理", imageStr: "home_membership")
-        let membershipCard = HomeItem(title: "会员卡", imageStr: "home_vip")
-        let storeManagement = HomeItem(title: "门店管理", imageStr: "home_store")
-        let staffManagement = HomeItem(title: "员工管理", imageStr: "home_staff")
-        let financialSituation = HomeItem(title: "财务状况", imageStr: "home_finance")
+        let appointment = HomeItem(title: "预约列表", imageStr: "home_list", type: .appointment)
+        let productManagement = HomeItem(title: "产品管理", imageStr: "home_product", type: .productManagement)
+        let memberManagement = HomeItem(title: "会员管理", imageStr: "home_membership", type: .memberManagement)
+        let membershipCard = HomeItem(title: "会员卡", imageStr: "home_vip", type: .membershipCard)
+        let storeManagement = HomeItem(title: "门店管理", imageStr: "home_store", type: .storeManagement)
+        let staffManagement = HomeItem(title: "员工管理", imageStr: "home_staff", type: .staffManagement)
+        let financialSituation = HomeItem(title: "财务状况", imageStr: "home_finance", type: .financialSituation)
         
         homeItems = [appointment, productManagement, storeManagement, membershipCard, memberManagement, staffManagement, financialSituation]
     }

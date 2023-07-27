@@ -20,7 +20,7 @@ class LoginNavigationController: UINavigationController {
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         if self.viewControllers.count != 0 {
-            viewController.setupBackBtn()
+            viewController.setupBackBtn(backImageStr: "nav_backicon_black")
             viewController.hidesBottomBarWhenPushed = true
         }
         super.pushViewController(viewController, animated: animated)

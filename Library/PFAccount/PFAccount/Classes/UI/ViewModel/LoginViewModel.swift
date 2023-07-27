@@ -214,7 +214,17 @@ extension LoginViewModel {
     }
     
     @objc func login(sender: UIButton) {
-        
+        if loginType == .password {
+            if phoneTF.text == "18201884830", passwordTF.text == "123456" {
+                let userInfo = UserInfo()
+                userInfo.mobileNumber = phoneTF.text!
+                
+                PFAccount.shared.userInfo = userInfo
+                if let parentVC = delegate as? UIViewController  {
+                    parentVC.dismiss(animated: true)
+                }
+            }
+        }
     }
     
     @objc func changeLoginWay(sender: UIButton) {

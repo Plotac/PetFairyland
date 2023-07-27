@@ -13,5 +13,5 @@ public final class UserInfo: NSObject {
     
     public var mobileNumber: String = ""
     
-    public var isValid: Bool { !name.isEmpty && !mobileNumber.isEmpty }
+    public var isValid: Bool { !mobileNumber.isEmpty }
 }
