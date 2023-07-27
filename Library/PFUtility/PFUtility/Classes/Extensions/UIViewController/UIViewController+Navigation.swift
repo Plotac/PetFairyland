@@ -9,7 +9,10 @@ import UIKit
 
 public extension UIViewController {
     func setupBackBtn() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "nav_backicon_black"), style: .done, target: self, action: #selector(originalBackAction))
+        let backBtn = UIButton(type: .custom)
+        backBtn.setImage(UIImage(named: "nav_backicon_black"), for: .normal)
+        backBtn.addTarget(self, action: #selector(originalBackAction), for: .touchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backBtn)
     }
     
     @objc func originalBackAction() {

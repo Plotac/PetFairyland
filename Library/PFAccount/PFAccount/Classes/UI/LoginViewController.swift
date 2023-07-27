@@ -16,6 +16,8 @@ class LoginViewController: UIViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         viewModel.delegate = self
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tap)
     }
     
     required init?(coder: NSCoder) {
@@ -24,10 +26,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
     }
-    
     
 }
 
@@ -39,6 +39,15 @@ extension LoginViewController {
     
     @objc func help() {
         
+    }
+    
+    @objc func hideKeyboard() {
+        if viewModel.phoneTF.isFirstResponder {
+            viewModel.phoneTF.resignFirstResponder()
+        }
+        if viewModel.passwordTF.isFirstResponder {
+            viewModel.passwordTF.resignFirstResponder()
+        }
     }
 }
 

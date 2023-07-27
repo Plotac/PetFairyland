@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (5.7.1)
   - FDFullscreenPopGesture (1.1)
+  - IQKeyboardManager (6.5.11)
   - Kingfisher (7.7.0)
   - MBProgressHUD (1.2.0)
   - ObjectMapper (4.2.0)
@@ -21,6 +22,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - FDFullscreenPopGesture
+  - IQKeyboardManager
   - Kingfisher (~> 7.0)
   - MBProgressHUD
   - ObjectMapper
@@ -34,6 +36,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - FDFullscreenPopGesture
+    - IQKeyboardManager
     - Kingfisher
     - MBProgressHUD
     - ObjectMapper
@@ -52,6 +55,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  IQKeyboardManager: ef43ce1ba1e5aaf4adf222c0a46f39761f246879
   Kingfisher: f043ac666dfc96c1f37604f93effb45a7ee3a3e1
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
@@ -61,6 +65,6 @@ SPEC CHECKSUMS:
   PFUtility: 0ea52b74fccd94cb8b35e848dfa942f56071ca56
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: a8c1410978f5079d8c8362f406c36f6206a8fea5
+PODFILE CHECKSUM: 7620ef545148f0c99d2a547147a376e7bfee5c82
 
 COCOAPODS: 1.11.3
