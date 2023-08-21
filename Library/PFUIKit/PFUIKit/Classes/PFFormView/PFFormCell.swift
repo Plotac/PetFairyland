@@ -81,16 +81,16 @@ open class PFFormCell: UITableViewCell {
             }
         }
         
-        textField.isHidden = !(model.editMode == .textfield)
+        textField.isHidden = !(model.rightViewMode == .textfield)
         textField.placeholder = model.placeholder
         textField.snp.remakeConstraints { make in
             make.centerY.equalToSuperview()
-            make.left.equalToSuperview().offset(model.editViewLeftOffset)
+            make.left.equalToSuperview().offset(model.rightViewLeftOffset)
             make.right.equalToSuperview().inset(15)
             make.height.equalTo(model.rowHeight)
         }
         
-        textView.isHidden = model.editMode == .textfield
+        textView.isHidden = model.rightViewMode == .textfield
         if textView.isHidden == false, model.placeholder.isEmpty == false {
             textView.text = model.placeholder
             textView.textColor = .placeholderText
@@ -100,7 +100,7 @@ open class PFFormCell: UITableViewCell {
         }
         textView.snp.remakeConstraints { make in
             make.centerY.equalToSuperview()
-            make.left.equalToSuperview().offset(model.editViewLeftOffset)
+            make.left.equalToSuperview().offset(model.rightViewLeftOffset)
             make.right.equalToSuperview().inset(15)
             make.height.equalTo(model.rowHeight)
         }

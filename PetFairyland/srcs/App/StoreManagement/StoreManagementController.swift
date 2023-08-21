@@ -18,7 +18,7 @@ class StoreManagementController: PFBaseViewController {
         case storeIntroduction
         case storeLocation
         
-        var typeName: String {
+        var typeDescription: String {
             let prefix: String = "StoreManagementController.FormType."
             switch self {
             case .storeName:
@@ -75,14 +75,14 @@ extension StoreManagementController {
         storePhoneNumer.type = StoreManagementController.FormType.storePhoneNumer
         
         let storeIntroduction = PFFormModel()
-        storeIntroduction.editMode = .textView
+        storeIntroduction.rightViewMode = .textView
         storeIntroduction.rowHeight = 100
         storeIntroduction.title = "门店介绍"
         storeIntroduction.placeholder = "请输入门店介绍"
         storeIntroduction.type = StoreManagementController.FormType.storeIntroduction
         
         let storeLocation = PFFormModel()
-        storeLocation.editMode = .textView
+        storeLocation.rightViewMode = .textView
         storeLocation.rowHeight = 80
         storeLocation.title = "门店位置"
         storeLocation.placeholder = "请输入门店位置"
