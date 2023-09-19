@@ -11,8 +11,6 @@ import PFUtility
 
 class HomeViewController: PFBaseViewController {
     
-    override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
-    
     private(set) var viewModel: HomeViewModel = HomeViewModel()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {

@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         viewModel.delegate = self
         let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        tap.delegate = self
         view.addGestureRecognizer(tap)
     }
     
@@ -53,9 +54,19 @@ extension LoginViewController {
 
 
 extension LoginViewController: LoginViewModelDelegate {
-
+    func handleOtherLogin(channel: LoginChannel) {
+        print(channel.title)
+    }
 }
 
+extension LoginViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if let touchView = touch.view, touchView.isDescendant(of: viewModel.loginChannelCV) {
+            return false
+        }
+        return true
+    }
+}
 
 extension LoginViewController {
     
@@ -100,38 +111,37 @@ extension LoginViewController {
             make.left.equalTo(viewModel.phoneTF)
         }
         
-        view.addSubview(viewModel.checkBtn)
-        viewModel.checkBtn.snp.makeConstraints { make in
-            make.top.equalTo(viewModel.phoneLine.snp.bottom).offset(55)
-            make.left.equalTo(viewModel.phoneTF)
-            make.size.equalTo(30)
-        }
-        
-        view.addSubview(viewModel.textView)
-        viewModel.textView.snp.makeConstraints { make in
-            make.top.equalTo(viewModel.checkBtn).offset(5)
-            make.left.equalTo(viewModel.checkBtn.snp.right)
-            make.right.equalTo(viewModel.phoneTF)
-            make.height.equalTo(80)
-        }
-
         view.addSubview(viewModel.loginBtn)
         viewModel.loginBtn.snp.makeConstraints { make in
-            make.top.equalTo(viewModel.textView.snp.bottom).offset(5)
+            make.top.equalTo(viewModel.smsTipLab.snp.bottom).offset(20)
             make.left.right.equalTo(viewModel.phoneLine)
-            make.height.equalTo(55)
+            make.height.equalTo(50)
         }
         
         view.addSubview(viewModel.loginTypeBtn)
         viewModel.loginTypeBtn.snp.makeConstraints { make in
-            make.top.equalTo(viewModel.loginBtn.snp.bottom).offset(30)
+            make.top.equalTo(viewModel.loginBtn.snp.bottom).offset(15)
             make.left.equalTo(viewModel.phoneLine)
         }
         
         view.addSubview(viewModel.questionBtn)
         viewModel.questionBtn.snp.makeConstraints { make in
-            make.top.equalTo(viewModel.loginBtn.snp.bottom).offset(30)
+            make.top.equalTo(viewModel.loginBtn.snp.bottom).offset(15)
             make.right.equalTo(viewModel.phoneLine)
+        }
+        
+        view.addSubview(viewModel.checkBtn)
+        viewModel.checkBtn.snp.makeConstraints { make in
+            make.top.equalTo(viewModel.loginTypeBtn.snp.bottom).offset(25)
+            make.left.equalTo(viewModel.loginTypeBtn)
+            make.size.equalTo(17)
+        }
+        
+        view.addSubview(viewModel.textView)
+        viewModel.textView.snp.makeConstraints { make in
+            make.centerY.equalTo(viewModel.checkBtn)
+            make.left.equalTo(viewModel.checkBtn.snp.right).offset(5)
+            make.right.equalTo(viewModel.phoneTF)
         }
         
         view.addSubview(viewModel.loginChannelCV)
@@ -139,6 +149,12 @@ extension LoginViewController {
             make.bottom.equalToSuperview().offset(-(kBottomSafeMargin + 40))
             make.left.right.equalTo(viewModel.phoneLine)
             make.height.equalTo(60)
+        }
+        
+        view.addSubview(viewModel.otherLoginLab)
+        viewModel.otherLoginLab.snp.makeConstraints { make in
+            make.bottom.equalTo(viewModel.loginChannelCV.snp.top).offset(-15)
+            make.centerX.equalToSuperview()
         }
     }
     
@@ -149,11 +165,11 @@ extension LoginViewController {
         closeBtn.addTarget(self, action: #selector(close), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: closeBtn)
                                          
-        let helpBtn = UIButton(type: .custom)
-        helpBtn.titleLabel?.font = UIFont.systemFont(ofSize: 19)
-        helpBtn.setTitle("帮助", for: .normal)
-        helpBtn.setTitleColor(.black, for: .normal)
-        helpBtn.addTarget(self, action: #selector(help), for: .touchUpInside)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: helpBtn)
+//        let helpBtn = UIButton(type: .custom)
+//        helpBtn.titleLabel?.font = UIFont.systemFont(ofSize: 19)
+//        helpBtn.setTitle("帮助", for: .normal)
+//        helpBtn.setTitleColor(.black, for: .normal)
+//        helpBtn.addTarget(self, action: #selector(help), for: .touchUpInside)
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: helpBtn)
     }
 }

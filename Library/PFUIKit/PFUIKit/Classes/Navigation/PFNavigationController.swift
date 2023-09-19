@@ -7,9 +7,9 @@
 
 import PFUtility
 
-public class PFNavigationController: UINavigationController {
+open class PFNavigationController: UINavigationController {
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
@@ -18,7 +18,7 @@ public class PFNavigationController: UINavigationController {
         resetNavigationBarAppearance()
     }
     
-    public override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+    open override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         if self.viewControllers.count != 0 {
             viewController.setupBackBtn()
             viewController.hidesBottomBarWhenPushed = true
@@ -26,7 +26,7 @@ public class PFNavigationController: UINavigationController {
         super.pushViewController(viewController, animated: animated)
     }
     
-    public override var preferredStatusBarStyle: UIStatusBarStyle {
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
         return topViewController?.preferredStatusBarStyle ?? .default
     }
 }

@@ -57,4 +57,34 @@ public extension UIImage {
 
         return nil
     }
+    
+    convenience init?(gradientColors: (startColor: UIColor, endColor: UIColor), size: CGSize) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = CGRect(origin: .zero, size: size)
+        gradientLayer.colors = [gradientColors.startColor.cgColor, gradientColors.endColor.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0) // 从顶部开始
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)   // 到底部结束
+//        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5) // 从左侧开始
+//        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5) // 到右侧结束
+
+        UIGraphicsBeginImageContextWithOptions(size, true, 0.0)
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return nil
+        }
+
+        gradientLayer.render(in: context)
+
+        guard let gradientImage = UIGraphicsGetImageFromCurrentImageContext() else {
+            return nil
+        }
+        
+        UIGraphicsEndImageContext()
+
+        if let _cgImage = gradientImage.cgImage {
+            self.init(cgImage: _cgImage)
+        } else {
+            return nil
+        }
+    }
+    
 }

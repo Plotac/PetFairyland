@@ -19,13 +19,16 @@ public extension UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    func resetNavigationBarAppearance(color: UIColor = SystemColor.main) {
+    func resetNavigationBarAppearance(color: UIColor? = nil) {
         
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = color
-        appearance.backgroundEffect = nil
-        appearance.shadowColor = nil
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont.boldSystemFont(ofSize: 18)]
+        if let color = color {
+            appearance.backgroundColor = color
+        } else {
+            appearance.backgroundImage = UIImage(gradientColors: (SystemColor.nav.startColor, SystemColor.nav.endColor), size: CGSize(width: Screen.width, height: kTopHeight))
+        }
+        appearance.shadowImage = UIImage(color: SystemColor.nav.endColor)
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.black, .font: UIFont.boldSystemFont(ofSize: 18)]
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }

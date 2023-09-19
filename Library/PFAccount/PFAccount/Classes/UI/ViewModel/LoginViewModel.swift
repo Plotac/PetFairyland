@@ -10,7 +10,7 @@ import PFUtility
 import PFUIKit
 
 protocol LoginViewModelDelegate: NSObjectProtocol {
-    
+    func handleOtherLogin(channel: LoginChannel)
 }
 
 class LoginViewModel: NSObject {
@@ -30,7 +30,7 @@ class LoginViewModel: NSObject {
     lazy var phoneTF: UITextField = {
         let tf = UITextField()
         tf.placeholder = "请输入手机号"
-        tf.font = UIFont.systemFont(ofSize: 19)
+        tf.font = UIFont.pingfang(style: .semibold, size: 20)
         tf.keyboardType = .numberPad
         tf.tintColor = SystemColor.main
         return tf
@@ -38,7 +38,7 @@ class LoginViewModel: NSObject {
     
     lazy var phoneLine: UIView = {
         let view = UIView()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = UIColor(hexString: "#F2F2F2")
         return view
     }()
     
@@ -62,7 +62,7 @@ class LoginViewModel: NSObject {
     lazy var passwordLine: UIView = {
         let view = UIView()
         view.isHidden = true
-        view.backgroundColor = .lightGray
+        view.backgroundColor = UIColor(hexString: "#F2F2F2")
         return view
     }()
     
@@ -70,64 +70,19 @@ class LoginViewModel: NSObject {
         let lab = UILabel()
         lab.text = "未注册手机号验证后会自动创建账号"
         lab.textColor = UIColor(hexString: "#B3B3B3")
-        lab.font = UIFont.systemFont(ofSize: 15)
+        lab.font = UIFont.pingfang(style: .regular, size: 13)
         return lab
-    }()
-    
-    lazy var checkBtn: UIButton = {
-        let btn = UIButton(type: .custom)
-        btn.imageView?.contentMode = .scaleAspectFill
-        btn.setImage(UIImage(named: "checkBox_unselect"), for: .normal)
-        btn.setImage(UIImage(named: "checkBox_select"), for: .selected)
-        btn.addTarget(self, action: #selector(check(sender:)), for: .touchUpInside)
-        return btn
-    }()
-    
-    lazy var textView: UITextView = {
-        let tv = UITextView()
-        tv.backgroundColor = .clear
-        tv.showsHorizontalScrollIndicator = false
-        tv.delegate = self
-        tv.isEditable = false
-        tv.isScrollEnabled = false
-        tv.textContainerInset = .zero
-        tv.font = UIFont.systemFont(ofSize: 13)
-        
-        let userAgreement = "《用户协议》"
-        let privacyPolicy = "《隐私政策》"
-        let totalText = String(format: "我已阅读并同意%@、%@，并授权本应用使用该账号信息（如昵称、头像、手机号）进行统一管理。", userAgreement, privacyPolicy)
-        var attStr = NSMutableAttributedString(string: totalText)
-        
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 2
-        
-        let userAgreementRange = NSRange(attStr.string.range(of: userAgreement)!, in: attStr.string)
-        let privacyPolicyRange = NSRange(attStr.string.range(of: privacyPolicy)!, in: attStr.string)
-        
-        attStr.addAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14),
-                              NSAttributedString.Key.foregroundColor: UIColor(hexString: "#808080"),
-                              NSAttributedString.Key.paragraphStyle: paragraphStyle,
-                              NSAttributedString.Key.kern: 1], range: NSRange(attStr.string.range(of: attStr.string)!, in: attStr.string))
-        attStr.addAttributes([NSAttributedString.Key.link: kUserAgreementUrl,
-                              NSAttributedString.Key.kern: 1], range: userAgreementRange)
-        attStr.addAttributes([NSAttributedString.Key.link: kPrivacyPolicyUrl,
-                              NSAttributedString.Key.kern: 1], range: privacyPolicyRange)
-        
-        tv.attributedText = attStr
-        tv.linkTextAttributes = [.foregroundColor: SystemColor.main,
-            .font: UIFont.systemFont(ofSize: 14)]
-        return tv
     }()
     
     lazy var loginBtn: UIButton = {
         let btn = UIButton(type: .custom)
-        btn.setTitle("获取短信验证码", for: .normal)
-        btn.layer.cornerRadius = 7
-        btn.backgroundColor = SystemColor.main.withAlphaComponent(0.3)
+        btn.setTitle("获取验证码", for: .normal)
+        btn.layer.cornerRadius = 25
+        btn.backgroundColor = SystemColor.Button.disable
         btn.layer.masksToBounds = true
         btn.isEnabled = false
-        btn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        btn.setTitleColor(.black.withAlphaComponent(0.3), for: .normal)
+        btn.titleLabel?.font = UIFont.pingfang(style: .medium, size: 17)
+        btn.setTitleColor(UIColor(hexString: "#B28457"), for: .normal)
         btn.addTarget(self, action: #selector(login(sender:)), for: .touchUpInside)
         return btn
     }()
@@ -150,7 +105,58 @@ class LoginViewModel: NSObject {
         return btn
     }()
     
+    lazy var checkBtn: UIButton = {
+        let btn = UIButton(type: .custom)
+        btn.imageView?.contentMode = .scaleAspectFill
+        btn.setImage(UIImage(named: "checkBox_unselect"), for: .normal)
+        btn.setImage(UIImage(named: "checkBox_select"), for: .selected)
+        btn.addTarget(self, action: #selector(check(sender:)), for: .touchUpInside)
+        return btn
+    }()
+    
+    lazy var textView: UITextView = {
+        let tv = UITextView()
+        tv.backgroundColor = .clear
+        tv.showsHorizontalScrollIndicator = false
+        tv.delegate = self
+        tv.isEditable = false
+        tv.isScrollEnabled = false
+        tv.textContainerInset = .zero
+        tv.textContainer.lineFragmentPadding = 0
+        tv.font = UIFont.systemFont(ofSize: 13)
+        
+        let userAgreement = "《用户协议》"
+        let privacyPolicy = "《隐私政策》"
+        let totalText = String(format: "我已阅读并同意%@和%@", userAgreement, privacyPolicy)
+        var attStr = NSMutableAttributedString(string: totalText)
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 2
+        
+        let userAgreementRange = NSRange(attStr.string.range(of: userAgreement)!, in: attStr.string)
+        let privacyPolicyRange = NSRange(attStr.string.range(of: privacyPolicy)!, in: attStr.string)
+        
+        attStr.addAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14),
+                              NSAttributedString.Key.foregroundColor: UIColor(hexString: "#808080"),
+                              NSAttributedString.Key.paragraphStyle: paragraphStyle], range: NSRange(attStr.string.range(of: attStr.string)!, in: attStr.string))
+        attStr.addAttributes([NSAttributedString.Key.link: kUserAgreementUrl], range: userAgreementRange)
+        attStr.addAttributes([NSAttributedString.Key.link: kPrivacyPolicyUrl], range: privacyPolicyRange)
+        
+        tv.attributedText = attStr
+        tv.linkTextAttributes = [.foregroundColor: SystemColor.main,
+            .font: UIFont.systemFont(ofSize: 14)]
+        return tv
+    }()
+    
     var loginChannelCV: UICollectionView!
+    
+    lazy var otherLoginLab: UILabel = {
+        let lab = UILabel()
+        lab.text = "其它方式登录"
+        lab.textColor = UIColor(hexString: "#B3B3B3")
+        lab.font = UIFont.pingfang(style: .regular, size: 13)
+        return lab
+    }()
     
     var loginChannels: [LoginChannel] = []
     
@@ -173,6 +179,11 @@ extension LoginViewModel: UICollectionViewDelegate, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LoginChannelCell.reuseIdentity(), for: indexPath) as? LoginChannelCell ?? LoginChannelCell()
         cell.channel = loginChannels[indexPath.item]
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let channel = loginChannels[indexPath.item]
+        delegate?.handleOtherLogin(channel: channel)
     }
     
 }
@@ -238,7 +249,7 @@ extension LoginViewModel {
         smsTipLab.isHidden = loginType == .password
         passwordTF.isHidden = loginType == .sms
         passwordLine.isHidden = loginType == .sms
-        loginBtn.setTitle(loginType == .sms ? "获取短信验证码" : "登录", for: .normal)
+        loginBtn.setTitle(loginType == .sms ? "获取验证码" : "登录", for: .normal)
         loginTypeBtn.setTitle(loginType == .sms ? "密码登录" : "验证码登录", for: .normal)
         
         updateConstraints()
@@ -251,11 +262,11 @@ extension LoginViewModel {
         let phoneIsEmpty: Bool = phoneTF.text?.isEmpty ?? true
         let passwordIsEmpty: Bool = passwordTF.text?.isEmpty ?? true
         if loginType == .sms {
-            loginBtn.backgroundColor = phoneIsEmpty ? SystemColor.main.withAlphaComponent(0.3) : SystemColor.main
+            loginBtn.backgroundColor = phoneIsEmpty ? SystemColor.Button.disable : SystemColor.Button.enable
             loginBtn.isEnabled = !phoneIsEmpty
             loginBtn.setTitleColor(phoneIsEmpty ? .black.withAlphaComponent(0.3) : .black, for: .normal)
         } else {
-            loginBtn.backgroundColor = (phoneIsEmpty || passwordIsEmpty) ? SystemColor.main.withAlphaComponent(0.3) : SystemColor.main
+            loginBtn.backgroundColor = (phoneIsEmpty || passwordIsEmpty) ? SystemColor.Button.disable : SystemColor.Button.enable
             loginBtn.isEnabled = !phoneIsEmpty || passwordIsEmpty
             loginBtn.setTitleColor(phoneIsEmpty || passwordIsEmpty ? .black.withAlphaComponent(0.3) : .black, for: .normal)
         }
@@ -273,26 +284,26 @@ extension LoginViewModel {
         layout.scrollDirection = .horizontal
         loginChannelCV = UICollectionView(frame: .zero, collectionViewLayout: layout)
         loginChannelCV.dataSource = self
-        loginChannelCV.backgroundColor = .clear
         loginChannelCV.delegate = self
+        loginChannelCV.backgroundColor = .clear
         loginChannelCV.showsVerticalScrollIndicator = false
         loginChannelCV.showsHorizontalScrollIndicator = false
         loginChannelCV.register(LoginChannelCell.self, forCellWithReuseIdentifier: LoginChannelCell.reuseIdentity())
     }
     
     func updateConstraints() {
-        checkBtn.snp.remakeConstraints { make in
-            make.top.equalTo(loginType == .sms ? phoneLine.snp.bottom : passwordLine.snp.bottom).offset(loginType == .sms ? 55 : 35)
-            make.left.equalTo(phoneTF)
-            make.size.equalTo(30)
+        loginBtn.snp.remakeConstraints { make in
+            make.top.equalTo(loginType == .sms ? smsTipLab.snp.bottom : passwordLine.snp.bottom).offset(20)
+            make.left.right.equalTo(phoneLine)
+            make.height.equalTo(50)
         }
     }
     
     func loadChannelData() {
         let wx = LoginChannel(title: "微信登录", imageStr: "login_channel_wx")
-        let qq = LoginChannel(title: "QQ登录", imageStr: "login_channel_qq")
+//        let qq = LoginChannel(title: "QQ登录", imageStr: "login_channel_qq")
         let apple = LoginChannel(title: "AppleID登录", imageStr: "login_channel_apple")
-        loginChannels = [wx, qq, apple]
+        loginChannels = [wx, apple]
     }
 }
 

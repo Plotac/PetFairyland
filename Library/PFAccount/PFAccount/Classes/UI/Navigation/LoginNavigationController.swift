@@ -6,16 +6,14 @@
 //
 
 import UIKit
+import PFUIKit
 
-class LoginNavigationController: UINavigationController {
+class LoginNavigationController: PFNavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        
-        navigationBar.isTranslucent = false
-        resetNavigationBarAppearance(color: .white)
     }
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {

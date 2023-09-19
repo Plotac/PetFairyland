@@ -18,7 +18,9 @@ class LoginChannelCell: UICollectionViewCell {
     }
     
     lazy var icon: UIImageView = {
-        return UIImageView()
+        let view = UIImageView()
+        view.isUserInteractionEnabled = true
+        return view
     }()
     
     override init(frame: CGRect) {
