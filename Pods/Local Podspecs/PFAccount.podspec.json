@@ -18,24 +18,19 @@
   "platforms": {
     "ios": "13.0"
   },
-  "swift_versions": "5.0",
   "source_files": "PFAccount/Classes/**/*",
-  "resource_bundles": {
-    "PFAccount": [
-      "PFAccount/Assert/*.xcassets"
-    ]
-  },
+  "swift_versions": "5.0",
   "dependencies": {
     "SnapKit": [
-
-    ],
-    "PFNetwork": [
 
     ],
     "PFUtility": [
 
     ],
     "PFUIKit": [
+
+    ],
+    "PFNetwork": [
 
     ]
   },

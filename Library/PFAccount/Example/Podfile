@@ -1,7 +1,13 @@
 use_frameworks!
 
-platform :ios, '13.0'
+platform :ios, '10.0'
 
 target 'PFAccount_Example' do
   pod 'PFAccount', :path => '../'
+
+  target 'PFAccount_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase' , '~> 2.1.4'
+  end
 end

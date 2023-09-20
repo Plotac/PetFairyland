@@ -7,6 +7,7 @@
 
 import UIKit
 @_exported import SnapKit
+@_exported import PFAccount
 @_exported import PFUIKit
 @_exported import PFUtility
 @_exported import PFNetwork
