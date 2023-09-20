@@ -9,7 +9,7 @@ import Foundation
 import SnapKit
 import PFUtility
 
-class LoginViewController: UIViewController {
+class LoginViewController: PFBaseViewController {
     
     private(set) var viewModel: LoginViewModel = LoginViewModel()
     
@@ -38,9 +38,7 @@ extension LoginViewController {
         resetNavigationBarAppearance()
     }
     
-    @objc func help() {
-        
-    }
+    @objc func help() {}
     
     @objc func hideKeyboard() {
         if viewModel.phoneTF.isFirstResponder {
@@ -56,6 +54,23 @@ extension LoginViewController {
 extension LoginViewController: LoginViewModelDelegate {
     func handleOtherLogin(channel: LoginChannel) {
         print(channel.title)
+    }
+    
+    func handleLoginEvent(type: LoginType) {
+        if type == .password {
+            if viewModel.phoneTF.text == "18201884830", viewModel.passwordTF.text == "123456" {
+                let userInfo = UserInfo()
+                userInfo.mobileNumber = viewModel.phoneTF.text!
+                
+                PFAccount.shared.userInfo = userInfo
+                dismiss(animated: true)
+            }
+        } else {
+            if let phoneNumber = viewModel.phoneTF.text {
+                let verifyVC = SMSVerifyViewController(phoneNumber: phoneNumber)
+                navigationController?.pushViewController(verifyVC, animated: true)
+            }
+        }
     }
 }
 

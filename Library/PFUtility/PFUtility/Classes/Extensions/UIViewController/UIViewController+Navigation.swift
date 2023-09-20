@@ -8,7 +8,7 @@
 import UIKit
 
 public extension UIViewController {
-    func setupBackBtn(backImageStr: String = "nav_backicon_white") {
+    func setupBackBtn(backImageStr: String = "nav_backicon_black") {
         let backBtn = UIButton(type: .custom)
         backBtn.setImage(UIImage(named: backImageStr), for: .normal)
         backBtn.addTarget(self, action: #selector(originalBackAction), for: .touchUpInside)

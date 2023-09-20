@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "PFWeakProxy.h"
 
 FOUNDATION_EXPORT double PFUtilityVersionNumber;
 FOUNDATION_EXPORT const unsigned char PFUtilityVersionString[];

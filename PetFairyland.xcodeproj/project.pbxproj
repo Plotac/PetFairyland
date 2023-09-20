@@ -17,7 +17,6 @@
 		09C585172A6F781000D41D3C /* HomeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C585162A6F781000D41D3C /* HomeItem.swift */; };
 		09C588A22A72152C00D41D3C /* AppointmentListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C588A12A72152C00D41D3C /* AppointmentListController.swift */; };
 		09C588A52A72156300D41D3C /* AppointmentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C588A42A72156300D41D3C /* AppointmentListViewModel.swift */; };
-		09C588AB2A721B2500D41D3C /* PFBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C588AA2A721B2500D41D3C /* PFBaseViewController.swift */; };
 		09C979222A79014F00AB20DF /* StoreManagementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C979212A79014F00AB20DF /* StoreManagementController.swift */; };
 		9D66A517BF6E3A125B2E565F /* Pods_PetFairyland.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C9EA8381102C5CB194DEE7 /* Pods_PetFairyland.framework */; };
 /* End PBXBuildFile section */
@@ -35,7 +34,6 @@
 		09C585162A6F781000D41D3C /* HomeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItem.swift; sourceTree = "<group>"; };
 		09C588A12A72152C00D41D3C /* AppointmentListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListController.swift; sourceTree = "<group>"; };
 		09C588A42A72156300D41D3C /* AppointmentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListViewModel.swift; sourceTree = "<group>"; };
-		09C588AA2A721B2500D41D3C /* PFBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PFBaseViewController.swift; sourceTree = "<group>"; };
 		09C979212A79014F00AB20DF /* StoreManagementController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManagementController.swift; sourceTree = "<group>"; };
 		48AF1A4E2B2DEC6F26A2CE92 /* Pods-PetFairyland.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetFairyland.debug.xcconfig"; path = "Target Support Files/Pods-PetFairyland/Pods-PetFairyland.debug.xcconfig"; sourceTree = "<group>"; };
 		51C9EA8381102C5CB194DEE7 /* Pods_PetFairyland.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetFairyland.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,7 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				09C585032A6F6C3D00D41D3C /* Common */,
-				09C584F52A6F623000D41D3C /* Base */,
 				09C584F42A6F622800D41D3C /* App */,
 			);
 			path = srcs;
@@ -104,14 +101,6 @@
 				09C584F62A6F624F00D41D3C /* Home */,
 			);
 			path = App;
-			sourceTree = "<group>";
-		};
-		09C584F52A6F623000D41D3C /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				09C588AA2A721B2500D41D3C /* PFBaseViewController.swift */,
-			);
-			path = Base;
 			sourceTree = "<group>";
 		};
 		09C584F62A6F624F00D41D3C /* Home */ = {
@@ -325,7 +314,6 @@
 				09C584F82A6F626600D41D3C /* HomeViewController.swift in Sources */,
 				09C588A22A72152C00D41D3C /* AppointmentListController.swift in Sources */,
 				09C585112A6F770200D41D3C /* HomeCell.swift in Sources */,
-				09C588AB2A721B2500D41D3C /* PFBaseViewController.swift in Sources */,
 				09C584E02A6F605B00D41D3C /* AppDelegate.swift in Sources */,
 				09C979222A79014F00AB20DF /* StoreManagementController.swift in Sources */,
 				09C588A52A72156300D41D3C /* AppointmentListViewModel.swift in Sources */,

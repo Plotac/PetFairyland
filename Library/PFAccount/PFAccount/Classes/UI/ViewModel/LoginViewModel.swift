@@ -11,6 +11,7 @@ import PFUIKit
 
 protocol LoginViewModelDelegate: NSObjectProtocol {
     func handleOtherLogin(channel: LoginChannel)
+    func handleLoginEvent(type: LoginType)
 }
 
 class LoginViewModel: NSObject {
@@ -108,8 +109,8 @@ class LoginViewModel: NSObject {
     lazy var checkBtn: UIButton = {
         let btn = UIButton(type: .custom)
         btn.imageView?.contentMode = .scaleAspectFill
-        btn.setImage(UIImage(named: "checkBox_unselect"), for: .normal)
-        btn.setImage(UIImage(named: "checkBox_select"), for: .selected)
+        btn.setImage(UIImage(named: "btn_unselect"), for: .normal)
+        btn.setImage(UIImage(named: "btn_select"), for: .selected)
         btn.addTarget(self, action: #selector(check(sender:)), for: .touchUpInside)
         return btn
     }()
@@ -225,17 +226,7 @@ extension LoginViewModel {
     }
     
     @objc func login(sender: UIButton) {
-        if loginType == .password {
-            if phoneTF.text == "18201884830", passwordTF.text == "123456" {
-                let userInfo = UserInfo()
-                userInfo.mobileNumber = phoneTF.text!
-                
-                PFAccount.shared.userInfo = userInfo
-                if let parentVC = delegate as? UIViewController  {
-                    parentVC.dismiss(animated: true)
-                }
-            }
-        }
+        delegate?.handleLoginEvent(type: loginType)
     }
     
     @objc func changeLoginWay(sender: UIButton) {
