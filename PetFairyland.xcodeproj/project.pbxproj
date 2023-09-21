@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		092A6B122ABC222500742302 /* HomeFunctionalZoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092A6B112ABC222500742302 /* HomeFunctionalZoneCell.swift */; };
+		092A6B1E2ABC4F3800742302 /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092A6B1D2ABC4F3800742302 /* MineViewController.swift */; };
 		09C584E02A6F605B00D41D3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C584DF2A6F605B00D41D3C /* AppDelegate.swift */; };
 		09C584E72A6F605B00D41D3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09C584E52A6F605B00D41D3C /* Main.storyboard */; };
 		09C584E92A6F605C00D41D3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09C584E82A6F605C00D41D3C /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		092A6B0A2ABBE7AA00742302 /* PetFairyland-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PetFairyland-Bridging-Header.h"; sourceTree = "<group>"; };
 		092A6B112ABC222500742302 /* HomeFunctionalZoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFunctionalZoneCell.swift; sourceTree = "<group>"; };
+		092A6B1D2ABC4F3800742302 /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
 		09C584DC2A6F605B00D41D3C /* PetFairyland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetFairyland.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C584DF2A6F605B00D41D3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09C584E62A6F605B00D41D3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -55,6 +57,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		092A6B1C2ABC4F2200742302 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				092A6B1D2ABC4F3800742302 /* MineViewController.swift */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
 		09C584D32A6F605B00D41D3C = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +109,7 @@
 		09C584F42A6F622800D41D3C /* App */ = {
 			isa = PBXGroup;
 			children = (
+				092A6B1C2ABC4F2200742302 /* Mine */,
 				09C9791A2A78F2CC00AB20DF /* StaffManagement */,
 				09C979192A78F0A300AB20DF /* StoreManagement */,
 				09C588A02A72150C00D41D3C /* Appointment */,
@@ -324,6 +335,7 @@
 				09C584E02A6F605B00D41D3C /* AppDelegate.swift in Sources */,
 				09C979222A79014F00AB20DF /* StoreManagementController.swift in Sources */,
 				09C588A52A72156300D41D3C /* AppointmentListViewModel.swift in Sources */,
+				092A6B1E2ABC4F3800742302 /* MineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

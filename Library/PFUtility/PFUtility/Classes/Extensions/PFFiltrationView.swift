@@ -24,16 +24,16 @@ public class PFFiltrationView: UIView {
 
 extension PFFiltrationView {
     func setupUI() {
-        tableView = UITableView(frame: .zero, style: .plain)
-        tableView = UITableView(frame: .zero, style: .plain)
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.backgroundColor = .clear
-        tableView.separatorStyle = .none
-        tableView.showsVerticalScrollIndicator = false
-        if #available(iOS 15.0, *) {
-            tableView.sectionHeaderTopPadding = 0
-        }
-        tableView.register(HomeFunctionalZoneCell.self, forCellReuseIdentifier: HomeFunctionalZoneCell.reuseIdentity())
+//        tableView = UITableView(frame: .zero, style: .plain)
+//        tableView = UITableView(frame: .zero, style: .plain)
+//        tableView.delegate = self
+//        tableView.dataSource = self
+//        tableView.backgroundColor = .clear
+//        tableView.separatorStyle = .none
+//        tableView.showsVerticalScrollIndicator = false
+//        if #available(iOS 15.0, *) {
+//            tableView.sectionHeaderTopPadding = 0
+//        }
+//        tableView.register(HomeFunctionalZoneCell.self, forCellReuseIdentifier: HomeFunctionalZoneCell.reuseIdentity())
     }
 }

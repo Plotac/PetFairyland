@@ -11,6 +11,7 @@ def openPods
   pod 'Kingfisher', '~> 7.0'
   pod "FDFullscreenPopGesture"
   pod 'IQKeyboardManager'
+  pod 'CYLTabBarController'
   
 end
 

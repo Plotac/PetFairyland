@@ -12,7 +12,7 @@ open class PFNavigationController: UINavigationController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = SystemColor.viewBackgroundColor
         
         navigationBar.isTranslucent = false
         resetNavigationBarAppearance()

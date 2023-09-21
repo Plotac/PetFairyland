@@ -22,7 +22,7 @@ class HomeViewController: PFBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Home"
+        navigationItem.title = "乐乐派宠物服务预约平台"
         setupUI()
         
         if PFAccount.shared.userInfo.isValid == false {
