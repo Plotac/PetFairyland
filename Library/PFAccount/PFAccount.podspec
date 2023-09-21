@@ -28,16 +28,16 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/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/PFAccount.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '10.0'
-
   s.source_files = 'PFAccount/Classes/**/*'
   
   s.ios.deployment_target = '13.0'
   s.swift_version = '5.0'
   
-   s.dependency 'SnapKit'
-   s.dependency 'PFUtility'
-   s.dependency 'PFUIKit'
-   s.dependency 'PFNetwork'
+  s.dependency 'SnapKit'
+  
+  s.dependency 'PFUtility'
+  s.dependency 'PFUIKit'
+  s.dependency 'PFNetwork'
+   
    
 end

@@ -16,6 +16,8 @@ public final class PFAccount: NSObject {
     
     public static let shared: PFAccount = PFAccount()
     
+    public var isLogin: Bool = false
+    
     public var userInfo: UserInfo {
         get {
             let info = UserInfo()

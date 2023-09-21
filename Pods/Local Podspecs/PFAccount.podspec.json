@@ -15,10 +15,10 @@
     "git": "https://github.com/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/PFAccount.git",
     "tag": "0.1.0"
   },
+  "source_files": "PFAccount/Classes/**/*",
   "platforms": {
     "ios": "13.0"
   },
-  "source_files": "PFAccount/Classes/**/*",
   "swift_versions": "5.0",
   "dependencies": {
     "SnapKit": [

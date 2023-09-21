@@ -66,6 +66,7 @@ extension LoginViewController: LoginViewModelDelegate {
                 dismiss(animated: true)
             }
         } else {
+            view.endEditing(true)
             if let phoneNumber = viewModel.phoneTF.text {
                 let verifyVC = SMSVerifyViewController(phoneNumber: phoneNumber)
                 navigationController?.pushViewController(verifyVC, animated: true)

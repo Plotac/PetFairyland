@@ -1,5 +1,5 @@
 //
-//  HomeCell.swift
+//  HomeFunctionCell.swift
 //  PetFairyland
 //
 //  Created by Ja on 2023/7/25.
@@ -7,13 +7,13 @@
 
 import UIKit
 
-class HomeCell: UICollectionViewCell {
+class HomeFunctionCell: UICollectionViewCell {
     
-    var model: HomeItem? {
+    var item: HomeFunctionItem? {
         didSet {
-            if let model = model {
-                icon.image = UIImage(named: model.imageStr)
-                titleLab.text = model.title
+            if let item = item {
+                icon.image = UIImage(named: item.imageStr)
+                titleLab.text = item.title
             }
         }
     }
@@ -22,28 +22,22 @@ class HomeCell: UICollectionViewCell {
     
     lazy var titleLab: UILabel = {
         let lab = UILabel()
-        lab.font = UIFont.systemFont(ofSize: 16)
+        lab.font = UIFont.pingfang(style: .regular, size: 14)
         return lab
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = UIColor(hexString: "#f2f2f2")
-        layer.cornerRadius = 7
-        layer.masksToBounds = true
-        
         contentView.addSubview(icon)
         icon.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(12)
-            make.centerY.equalToSuperview()
-            make.size.equalTo(28)
+            make.top.centerX.equalToSuperview()
+            make.size.equalTo(40)
         }
         
         contentView.addSubview(titleLab)
         titleLab.snp.makeConstraints { make in
-            make.left.equalTo(self.icon.snp.right).offset(10)
-            make.centerY.equalToSuperview()
+            make.centerX.bottom.equalToSuperview()
         }
         
     }

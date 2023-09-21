@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import PFAccount
-import PFUtility
 
 class HomeViewController: PFBaseViewController {
     
@@ -34,16 +32,14 @@ class HomeViewController: PFBaseViewController {
         }
         
     }
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+        updateConstraints()
+    }
 }
 
 extension HomeViewController: HomeViewModelDelegate {
-    func didSelectHomeItem(item: HomeItem) {
-        if PFAccount.shared.userInfo.isValid == false {
-            PFAccount.login(with: SMSRequest(mobileNumber: "")) {
-
-            }
-            return
-        }
+    func didSelectHomeFunction(item: HomeFunctionItem) {
         switch item.type {
         case .appointment:
             navigationController?.pushViewController(AppointmentListController(), animated: true)
@@ -56,17 +52,45 @@ extension HomeViewController: HomeViewModelDelegate {
 }
 
 private extension HomeViewController {
-    
+    @objc
+    func changeSwitchValue(sw: UISwitch) {
+        PFAccount.shared.isLogin = sw.isOn
+        view.setNeedsUpdateConstraints()
+    }
 }
 
 private extension HomeViewController {
-    func setupUI() {
-        view.backgroundColor = .white
+
+    func updateConstraints() {
         
-        view.addSubview(viewModel.mainCollectinView)
-        viewModel.mainCollectinView.snp.makeConstraints { make in
-            make.top.left.right.equalToSuperview()
+        viewModel.loginBtn.isHidden = PFAccount.shared.isLogin
+        
+        viewModel.mainTableView.snp.remakeConstraints { make in
+            if PFAccount.shared.isLogin {
+                make.top.equalToSuperview().offset(10)
+            } else {
+                make.top.equalTo(viewModel.loginBtn.snp.bottom).offset(10)
+            }
+            make.left.right.equalToSuperview()
             make.bottom.equalToSuperview().inset(kBottomSafeMargin)
         }
+    }
+    
+    func setupUI() {
+        view.addSubview(viewModel.loginBtn)
+        viewModel.loginBtn.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(10)
+            make.left.right.equalToSuperview().inset(35)
+            make.height.equalTo(50)
+        }
+        
+        view.addSubview(viewModel.mainTableView)
+        updateConstraints()
+        
+        let loginSwitch = UISwitch(frame: .zero)
+        loginSwitch.sizeToFit()
+        loginSwitch.isOn = false
+        loginSwitch.addTarget(self, action: #selector(changeSwitchValue), for: .valueChanged)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: loginSwitch)
     }
 }

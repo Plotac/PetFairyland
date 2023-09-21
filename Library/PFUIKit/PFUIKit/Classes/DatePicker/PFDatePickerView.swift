@@ -49,6 +49,14 @@ private extension PFDatePickerView {
         for model in dateList {
             let attriText = NSMutableAttributedString(string: "\(model.exactDate)\n\(model.weekday)")
             
+            let dateRange: NSRange = NSRange(attriText.string.range(of: model.exactDate)!, in: attriText.string)
+            let weekdayRange: NSRange = NSRange(attriText.string.range(of: model.weekday)!, in: attriText.string)
+            
+            attriText.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.black,
+                                     NSAttributedString.Key.font: UIFont.pingfang(style: .medium, size: 14)], range: dateRange)
+            attriText.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.black,
+                                     NSAttributedString.Key.font: UIFont.pingfang(style: .regular, size: 13)], range: weekdayRange)
+            
             format(attriText: attriText, selected: false)
             if let copyAttriText = attriText.copy() as? NSAttributedString {
                 normalTexts.append(copyAttriText)
@@ -86,9 +94,10 @@ private extension PFDatePickerView {
             paragraphStyle.lineSpacing = 5
             paragraphStyle.alignment = .center
             let range = NSRange(attriText.string.range(of: attriText.string)!, in: attriText.string)
-            attriText.addAttributes([NSAttributedString.Key.foregroundColor: selected ? SystemColor.main : UIColor.black,
-                                     NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15),
-                                     NSAttributedString.Key.paragraphStyle: paragraphStyle],
+            attriText.addAttributes([
+//                NSAttributedString.Key.foregroundColor: selected ? SystemColor.main : UIColor.black,
+//                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15),
+                NSAttributedString.Key.paragraphStyle: paragraphStyle],
                                     range: range)
         }
     }

@@ -5,11 +5,12 @@
       "scale" : "1x"
     },
     {
-      "filename" : "产品管理 (2).png",
+      "filename" : "商品管理@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "商品管理@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

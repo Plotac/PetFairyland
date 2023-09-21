@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		092A6B122ABC222500742302 /* HomeFunctionalZoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092A6B112ABC222500742302 /* HomeFunctionalZoneCell.swift */; };
 		09C584E02A6F605B00D41D3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C584DF2A6F605B00D41D3C /* AppDelegate.swift */; };
 		09C584E72A6F605B00D41D3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09C584E52A6F605B00D41D3C /* Main.storyboard */; };
 		09C584E92A6F605C00D41D3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09C584E82A6F605C00D41D3C /* Assets.xcassets */; };
 		09C584EC2A6F605C00D41D3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09C584EA2A6F605C00D41D3C /* LaunchScreen.storyboard */; };
 		09C584F82A6F626600D41D3C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C584F72A6F626600D41D3C /* HomeViewController.swift */; };
 		09C5850E2A6F750B00D41D3C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C5850D2A6F750B00D41D3C /* HomeViewModel.swift */; };
-		09C585112A6F770200D41D3C /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C585102A6F770200D41D3C /* HomeCell.swift */; };
-		09C585172A6F781000D41D3C /* HomeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C585162A6F781000D41D3C /* HomeItem.swift */; };
+		09C585112A6F770200D41D3C /* HomeFunctionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C585102A6F770200D41D3C /* HomeFunctionCell.swift */; };
+		09C585172A6F781000D41D3C /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C585162A6F781000D41D3C /* HomeModel.swift */; };
 		09C588A22A72152C00D41D3C /* AppointmentListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C588A12A72152C00D41D3C /* AppointmentListController.swift */; };
 		09C588A52A72156300D41D3C /* AppointmentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C588A42A72156300D41D3C /* AppointmentListViewModel.swift */; };
 		09C979222A79014F00AB20DF /* StoreManagementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C979212A79014F00AB20DF /* StoreManagementController.swift */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		092A6B0A2ABBE7AA00742302 /* PetFairyland-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PetFairyland-Bridging-Header.h"; sourceTree = "<group>"; };
+		092A6B112ABC222500742302 /* HomeFunctionalZoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFunctionalZoneCell.swift; sourceTree = "<group>"; };
 		09C584DC2A6F605B00D41D3C /* PetFairyland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetFairyland.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C584DF2A6F605B00D41D3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09C584E62A6F605B00D41D3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -30,8 +33,8 @@
 		09C584ED2A6F605C00D41D3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09C584F72A6F626600D41D3C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		09C5850D2A6F750B00D41D3C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		09C585102A6F770200D41D3C /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
-		09C585162A6F781000D41D3C /* HomeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItem.swift; sourceTree = "<group>"; };
+		09C585102A6F770200D41D3C /* HomeFunctionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFunctionCell.swift; sourceTree = "<group>"; };
+		09C585162A6F781000D41D3C /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		09C588A12A72152C00D41D3C /* AppointmentListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListController.swift; sourceTree = "<group>"; };
 		09C588A42A72156300D41D3C /* AppointmentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListViewModel.swift; sourceTree = "<group>"; };
 		09C979212A79014F00AB20DF /* StoreManagementController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManagementController.swift; sourceTree = "<group>"; };
@@ -79,6 +82,7 @@
 				09C584E82A6F605C00D41D3C /* Assets.xcassets */,
 				09C584EA2A6F605C00D41D3C /* LaunchScreen.storyboard */,
 				09C584ED2A6F605C00D41D3C /* Info.plist */,
+				092A6B0A2ABBE7AA00742302 /* PetFairyland-Bridging-Header.h */,
 			);
 			path = PetFairyland;
 			sourceTree = "<group>";
@@ -132,7 +136,8 @@
 		09C5850F2A6F76EE00D41D3C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				09C585102A6F770200D41D3C /* HomeCell.swift */,
+				09C585102A6F770200D41D3C /* HomeFunctionCell.swift */,
+				092A6B112ABC222500742302 /* HomeFunctionalZoneCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -140,7 +145,7 @@
 		09C585152A6F780500D41D3C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				09C585162A6F781000D41D3C /* HomeItem.swift */,
+				09C585162A6F781000D41D3C /* HomeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -228,6 +233,7 @@
 				TargetAttributes = {
 					09C584DB2A6F605B00D41D3C = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1500;
 					};
 				};
 			};
@@ -309,11 +315,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09C585172A6F781000D41D3C /* HomeItem.swift in Sources */,
+				09C585172A6F781000D41D3C /* HomeModel.swift in Sources */,
+				092A6B122ABC222500742302 /* HomeFunctionalZoneCell.swift in Sources */,
 				09C5850E2A6F750B00D41D3C /* HomeViewModel.swift in Sources */,
 				09C584F82A6F626600D41D3C /* HomeViewController.swift in Sources */,
 				09C588A22A72152C00D41D3C /* AppointmentListController.swift in Sources */,
-				09C585112A6F770200D41D3C /* HomeCell.swift in Sources */,
+				09C585112A6F770200D41D3C /* HomeFunctionCell.swift in Sources */,
 				09C584E02A6F605B00D41D3C /* AppDelegate.swift in Sources */,
 				09C979222A79014F00AB20DF /* StoreManagementController.swift in Sources */,
 				09C588A52A72156300D41D3C /* AppointmentListViewModel.swift in Sources */,
@@ -462,11 +469,42 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H9SKD59BJP;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FDFullscreenPopGesture\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManager\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/JXSegmentedView\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MBProgressHUD\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ObjectMapper\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PFAccount\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PFNetwork\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PFUIKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PFUtility\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SnapKit\"",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManager/IQKeyboardManager.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/JXSegmentedView/JXSegmentedView.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher/Kingfisher.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MBProgressHUD/MBProgressHUD.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ObjectMapper/ObjectMapper.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PFAccount/PFAccount.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PFNetwork/PFNetwork.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PFUIKit/PFUIKit.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PFUtility/PFUtility.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SnapKit/SnapKit.framework/Headers\"",
+				);
 				INFOPLIST_FILE = PetFairyland/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -484,6 +522,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "PetFairyland/PetFairyland-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -495,11 +535,27 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H9SKD59BJP;
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManager/IQKeyboardManager.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/JXSegmentedView/JXSegmentedView.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher/Kingfisher.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MBProgressHUD/MBProgressHUD.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ObjectMapper/ObjectMapper.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PFAccount/PFAccount.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PFNetwork/PFNetwork.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PFUIKit/PFUIKit.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PFUtility/PFUtility.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SnapKit/SnapKit.framework/Headers\"",
+				);
 				INFOPLIST_FILE = PetFairyland/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -517,6 +573,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "PetFairyland/PetFairyland-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

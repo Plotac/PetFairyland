@@ -6,11 +6,7 @@
 //
 
 import UIKit
-@_exported import SnapKit
-@_exported import PFAccount
-@_exported import PFUIKit
-@_exported import PFUtility
-@_exported import PFNetwork
+import IQKeyboardManager
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = PFNavigationController(rootViewController: HomeViewController())
         window?.makeKeyAndVisible()
+        
+        IQKeyboardManager.shared().isEnabled = true
         
         return true
     }

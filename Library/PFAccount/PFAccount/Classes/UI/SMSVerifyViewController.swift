@@ -12,12 +12,15 @@ class SMSVerifyViewController: PFBaseViewController {
     
     var phoneNumber: String = ""
     
-    var textFields: [UITextField] = []
+    var textFields: [SMSTextfield] = []
+    var indicators: [UIView] = []
     var refreshCodeBtn: UIButton!
+    
+    let indicatorColor: (normal: UIColor, select: UIColor) = (UIColor(hexString: "F2F2F2"), UIColor(hexString: "#808080"))
     
     var timer: PFTimer?
     
-    var countDown: Int = 60
+    var countDown: Int = 5
     
     required init(phoneNumber: String) {
         super.init(nibName: nil, bundle: nil)
@@ -30,37 +33,25 @@ class SMSVerifyViewController: PFBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         setupUI()
         startTimer()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        timer?.invalidate()
-        timer = nil
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        textFields[0].becomeFirstResponder()
+        indicators[0].backgroundColor = indicatorColor.select
     }
     
-    func startTimer() {
-        if timer == nil {
-            timer = PFTimer(timeInterval: 1, repeats: true, style: .gcd, eventHandler: {
-                self.countDown -= 1
-                if self.countDown < 0 {
-                    self.refreshCodeBtn.setTitle("重新获取验证码", for: .normal)
-                    self.refreshCodeBtn.backgroundColor = SystemColor.Button.enable
-                    self.refreshCodeBtn.isEnabled = true
-                    self.countDown = 60
-                    
-                    self.timer?.invalidate()
-                    self.timer = nil
-                } else {
-                    self.refreshCodeBtn.setTitle("\(self.countDown)秒后重新获取", for: .normal)
-                    self.refreshCodeBtn.backgroundColor = SystemColor.Button.disable
-                    self.refreshCodeBtn.isEnabled = false
-                }
-            })
-            timer?.fire()
-        }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        setRefreshCodeBtn(isCountDown: false)
+        
+        textFields.forEach { $0.text = "" }
+        indicators.forEach { $0.backgroundColor = indicatorColor.normal }
+        
+        view.endEditing(true)
     }
     
     deinit {
@@ -70,8 +61,14 @@ class SMSVerifyViewController: PFBaseViewController {
 
 extension SMSVerifyViewController {
     @objc
-    func refreshVerificationCode() {
-
+    func startTimer() {
+        if timer == nil {
+            timer = PFTimer(timeInterval: 1, repeats: true, style: .gcd, eventHandler: {
+                self.countDown -= 1
+                self.setRefreshCodeBtn(isCountDown: self.countDown >= 0)
+            })
+            timer?.fire()
+        }
     }
     
     func finishInput(code: String) {
@@ -80,14 +77,15 @@ extension SMSVerifyViewController {
     }
 }
 
-extension SMSVerifyViewController: UITextFieldDelegate {
+extension SMSVerifyViewController: UITextFieldDelegate, SMSTextfieldDelegate {
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
+        var index = textField.tag
+        
         if !textField.hasText {
-            
-            let index = textField.tag
+        
             textFields[index].text = string
-            textField.resignFirstResponder()
             
             if index == textFields.count - 1 {
                 var code = ""
@@ -95,13 +93,34 @@ extension SMSVerifyViewController: UITextFieldDelegate {
                     code += tf.text ?? ""
                 }
                 finishInput(code: code)
+                
                 return false
             }
             
             textFields[index + 1].becomeFirstResponder()
+            
+            indicators[index].backgroundColor = indicatorColor.normal
+            indicators[index + 1].backgroundColor = indicatorColor.select
         }
+        
+        
         return false
     }
+    
+    func textFieldDidDeleteBackward(_ textField: SMSTextfield) {
+        var index = textField.tag
+        
+        if textField.hasText == false {
+            indicators[index].backgroundColor = indicatorColor.normal
+            
+            index = max(index - 1, 0)
+            textFields[index].text = ""
+            textFields[index].becomeFirstResponder()
+            
+            indicators[index].backgroundColor = indicatorColor.select
+        }
+    }
+    
 }
 
 extension SMSVerifyViewController {
@@ -129,10 +148,11 @@ extension SMSVerifyViewController {
         
         let textfieldCount: Int = 4
         for index in 0..<textfieldCount {
-            let tf = UITextField()
+            let tf = SMSTextfield()
             tf.tintColor = SystemColor.main
             tf.textAlignment = .center
             tf.delegate = self
+            tf.smsDelegate = self
             tf.font = UIFont.pingfang(style: .semibold, size: 20)
             tf.tag = index
             tf.keyboardType = .numberPad
@@ -146,11 +166,26 @@ extension SMSVerifyViewController {
                 make.top.equalTo(phoneTextLab.snp.bottom).offset(45)
                 make.size.equalTo(CGSize(width: tfWidth, height: 40))
             }
-            if index == 0 {
-                tf.becomeFirstResponder()
-            }
             
             textFields.append(tf)
+            
+            let indicator = UIView()
+            indicator.clipsToBounds = true
+            indicator.layer.cornerRadius = 0.5
+            indicator.backgroundColor = indicatorColor.normal
+            view.addSubview(indicator)
+            indicator.snp.makeConstraints { make in
+                make.left.right.equalTo(tf)
+                make.top.equalTo(tf.snp.bottom)
+                make.height.equalTo(1)
+            }
+            
+            indicators.append(indicator)
+            
+            if index == 0 {
+                tf.becomeFirstResponder()
+                indicator.backgroundColor = indicatorColor.select
+            }
         }
         
         refreshCodeBtn = UIButton(type: .custom)
@@ -160,12 +195,44 @@ extension SMSVerifyViewController {
         refreshCodeBtn.layer.masksToBounds = true
         refreshCodeBtn.titleLabel?.font = UIFont.pingfang(style: .medium, size: 17)
         refreshCodeBtn.setTitleColor(UIColor(hexString: "#B28457"), for: .normal)
-        refreshCodeBtn.addTarget(self, action: #selector(refreshVerificationCode), for: .touchUpInside)
+        refreshCodeBtn.addTarget(self, action: #selector(startTimer), for: .touchUpInside)
         view.addSubview(refreshCodeBtn)
         refreshCodeBtn.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(34)
             make.top.equalTo(textFields.first!.snp.bottom).offset(40)
             make.height.equalTo(50)
         }
+    }
+    
+    func setRefreshCodeBtn(isCountDown: Bool) {
+        if isCountDown == false {
+            refreshCodeBtn.setTitle("重新获取验证码", for: .normal)
+            refreshCodeBtn.setTitleColor(.black, for: .normal)
+            refreshCodeBtn.backgroundColor = SystemColor.Button.enable
+            refreshCodeBtn.isEnabled = true
+            countDown = 5
+            
+            timer?.invalidate()
+            timer = nil
+        } else {
+            refreshCodeBtn.setTitle("\(countDown)秒后重新获取", for: .normal)
+            refreshCodeBtn.setTitleColor(UIColor(hexString: "#B28457"), for: .normal)
+            refreshCodeBtn.backgroundColor = SystemColor.Button.disable
+            refreshCodeBtn.isEnabled = false
+        }
+    }
+}
+
+protocol SMSTextfieldDelegate: NSObjectProtocol {
+    func textFieldDidDeleteBackward(_ textField: SMSTextfield)
+}
+
+class SMSTextfield: UITextField {
+    
+    weak var smsDelegate: SMSTextfieldDelegate?
+    
+    override func deleteBackward() {
+        smsDelegate?.textFieldDidDeleteBackward(self)
+        super.deleteBackward()
     }
 }
