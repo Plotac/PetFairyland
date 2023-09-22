@@ -1,5 +1,5 @@
 //
-//  HomeOrderInfoView.swift
+//  HomeOperatingDataView.swift
 //  PetFairyland
 //
 //  Created by Ja on 2023/9/22.
@@ -7,14 +7,13 @@
 
 import UIKit
 
-class HomeOrderInfoView: UIView {
+class HomeOperatingDataView: UIView {
     
-    var orderInfos: [HomeOrderInfoItem] = [] {
+    var dataItems: [HomeOperatingDataItem] = [] {
         didSet {
             orderCollectionView.reloadData()
         }
     }
-    
     
     lazy var orderCollectionView: UICollectionView = {
         
@@ -28,15 +27,15 @@ class HomeOrderInfoView: UIView {
         cv.dataSource = self
         cv.isPagingEnabled = true
         cv.backgroundColor = .clear
-        cv.register(HomeOrderInfoCell.self, forCellWithReuseIdentifier: HomeOrderInfoCell.reuseIdentity())
+        cv.register(HomeOperatingDataCell.self, forCellWithReuseIdentifier: HomeOperatingDataCell.reuseIdentity())
         
         return cv
     }()
     
-    required init(frame: CGRect, orderInfos: [HomeOrderInfoItem]) {
+    required init(frame: CGRect, dataItems: [HomeOperatingDataItem]) {
         super.init(frame: frame)
         
-        self.orderInfos = orderInfos
+        self.dataItems = dataItems
         
         addSubview(orderCollectionView)
         orderCollectionView.snp.makeConstraints { make in
@@ -49,40 +48,22 @@ class HomeOrderInfoView: UIView {
     }
 }
 
-extension HomeOrderInfoView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { orderInfos.count }
+extension HomeOperatingDataView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { dataItems.count }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeOrderInfoCell.reuseIdentity(), for: indexPath) as? HomeOrderInfoCell ?? HomeOrderInfoCell()
-        cell.item = orderInfos[indexPath.item]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeOperatingDataCell.reuseIdentity(), for: indexPath) as? HomeOperatingDataCell ?? HomeOperatingDataCell()
+        cell.item = dataItems[indexPath.item]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let count = CGFloat(min(Constants.maxVisibleCount, orderInfos.count))
+        let count = CGFloat(min(Constants.maxVisibleCount, dataItems.count))
         
-        return CGSize(width: (Screen.width - Constants.margin * 2 - Constants.minimumInteritemSpacing * CGFloat((orderInfos.count - 1))) / count,
+        return CGSize(width: (Screen.width - Constants.margin * 2 - Constants.minimumInteritemSpacing * CGFloat((dataItems.count - 1))) / count,
                       height: collectionView.bounds.size.height)
     }
-}
-
-
-struct HomeOrderInfoItem {
-    
-    enum ItemType {
-    case orders, turnover, sales
-    }
-    
-    var title: String = ""
-    
-    var quantity: Double = 0
-    
-    var unit: String = "单"
-    
-    var type: HomeOrderInfoItem.ItemType = .orders
-    
-    var colors: (startColor: UIColor, endColor: UIColor) = (.white, .white)
 }
 
 fileprivate struct Constants {

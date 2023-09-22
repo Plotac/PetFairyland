@@ -7,6 +7,24 @@
 
 import Foundation
 
+// MARK: 今日店铺营业数据
+struct HomeOperatingDataItem {
+    
+    enum ItemType {
+    case orders, turnover, sales
+    }
+    
+    var title: String = ""
+    
+    var quantity: Double = 0
+    
+    var unit: String = "单"
+    
+    var type: HomeOperatingDataItem.ItemType = .orders
+    
+    var colors: (startColor: UIColor, endColor: UIColor) = (.white, .white)
+}
+
 struct HomeFunctionZone {
     enum ZoneType {
         case unknown

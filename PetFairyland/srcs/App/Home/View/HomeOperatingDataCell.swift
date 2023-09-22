@@ -1,5 +1,5 @@
 //
-//  HomeOrderInfoCell.swift
+//  HomeOperatingDataCell.swift
 //  PetFairyland
 //
 //  Created by Ja on 2023/9/22.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-class HomeOrderInfoCell: UICollectionViewCell {
+class HomeOperatingDataCell: UICollectionViewCell {
     
-    var item: HomeOrderInfoItem? {
+    var item: HomeOperatingDataItem? {
         didSet {
             if let item = item {
                 titleLab.text = item.title
@@ -74,7 +74,7 @@ class HomeOrderInfoCell: UICollectionViewCell {
     }
 }
 
-extension HomeOrderInfoCell {
+extension HomeOperatingDataCell {
     func setupUI() {
         layer.addSublayer(gradientLayer)
         
