@@ -41,6 +41,6 @@ public extension PFAccount {
     static func login(with request: LoginRequest, completion: PFAccountCompletion?) {
         let login = LoginNavigationController(rootViewController: LoginViewController())
         login.modalPresentationStyle = .fullScreen
-        getRootViewController().present(login, animated: true)
+        getRootTabBarCtrlSubViewController()?.present(login, animated: true)
     }
 }

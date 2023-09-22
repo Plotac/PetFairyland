@@ -37,10 +37,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                               CYLTabBarItemImage: "tabbar_mine_unselect",
                       CYLTabBarItemSelectedImage: "tabbar_mine_select"]
         
-        let tabbarCtrl = CYLTabBarController(viewControllers: [home, mine], tabBarItemsAttributes: [homeAttributes, mineAttributes])
+        let tabbarCtrl = CYLTabBarController(viewControllers: [home, mine],
+                                             tabBarItemsAttributes: [homeAttributes, mineAttributes])
+        tabbarCtrl.tabBar.backgroundColor = .white
+        
         let tabbar = UITabBarItem.appearance()
         tabbar.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SystemColor.main], for: .selected)
         tabbar.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(hexString: "#33322D")], for: .normal)
+        
         return tabbarCtrl
     }
 

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		092A6B122ABC222500742302 /* HomeFunctionalZoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092A6B112ABC222500742302 /* HomeFunctionalZoneCell.swift */; };
 		092A6B1E2ABC4F3800742302 /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092A6B1D2ABC4F3800742302 /* MineViewController.swift */; };
+		092A6B212ABD466C00742302 /* AppointmentListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092A6B202ABD466C00742302 /* AppointmentListCell.swift */; };
+		092A6B232ABD734700742302 /* HomeOrderInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092A6B222ABD734700742302 /* HomeOrderInfoView.swift */; };
+		092A6B252ABD76BB00742302 /* HomeOrderInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092A6B242ABD76BB00742302 /* HomeOrderInfoCell.swift */; };
+		092A6B272ABD851000742302 /* HomeTaskRemindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092A6B262ABD851000742302 /* HomeTaskRemindView.swift */; };
 		09C584E02A6F605B00D41D3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C584DF2A6F605B00D41D3C /* AppDelegate.swift */; };
 		09C584E72A6F605B00D41D3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09C584E52A6F605B00D41D3C /* Main.storyboard */; };
 		09C584E92A6F605C00D41D3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09C584E82A6F605C00D41D3C /* Assets.xcassets */; };
@@ -27,6 +31,10 @@
 		092A6B0A2ABBE7AA00742302 /* PetFairyland-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PetFairyland-Bridging-Header.h"; sourceTree = "<group>"; };
 		092A6B112ABC222500742302 /* HomeFunctionalZoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFunctionalZoneCell.swift; sourceTree = "<group>"; };
 		092A6B1D2ABC4F3800742302 /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
+		092A6B202ABD466C00742302 /* AppointmentListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListCell.swift; sourceTree = "<group>"; };
+		092A6B222ABD734700742302 /* HomeOrderInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOrderInfoView.swift; sourceTree = "<group>"; };
+		092A6B242ABD76BB00742302 /* HomeOrderInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOrderInfoCell.swift; sourceTree = "<group>"; };
+		092A6B262ABD851000742302 /* HomeTaskRemindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTaskRemindView.swift; sourceTree = "<group>"; };
 		09C584DC2A6F605B00D41D3C /* PetFairyland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetFairyland.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C584DF2A6F605B00D41D3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09C584E62A6F605B00D41D3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,6 +71,14 @@
 				092A6B1D2ABC4F3800742302 /* MineViewController.swift */,
 			);
 			path = Mine;
+			sourceTree = "<group>";
+		};
+		092A6B1F2ABD465F00742302 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				092A6B202ABD466C00742302 /* AppointmentListCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		09C584D32A6F605B00D41D3C = {
@@ -149,6 +165,9 @@
 			children = (
 				09C585102A6F770200D41D3C /* HomeFunctionCell.swift */,
 				092A6B112ABC222500742302 /* HomeFunctionalZoneCell.swift */,
+				092A6B222ABD734700742302 /* HomeOrderInfoView.swift */,
+				092A6B242ABD76BB00742302 /* HomeOrderInfoCell.swift */,
+				092A6B262ABD851000742302 /* HomeTaskRemindView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -165,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				09C588A12A72152C00D41D3C /* AppointmentListController.swift */,
+				092A6B1F2ABD465F00742302 /* View */,
 				09C588A32A72153700D41D3C /* ViewModel */,
 			);
 			path = Appointment;
@@ -326,12 +346,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				092A6B212ABD466C00742302 /* AppointmentListCell.swift in Sources */,
 				09C585172A6F781000D41D3C /* HomeModel.swift in Sources */,
+				092A6B252ABD76BB00742302 /* HomeOrderInfoCell.swift in Sources */,
+				092A6B232ABD734700742302 /* HomeOrderInfoView.swift in Sources */,
 				092A6B122ABC222500742302 /* HomeFunctionalZoneCell.swift in Sources */,
 				09C5850E2A6F750B00D41D3C /* HomeViewModel.swift in Sources */,
 				09C584F82A6F626600D41D3C /* HomeViewController.swift in Sources */,
 				09C588A22A72152C00D41D3C /* AppointmentListController.swift in Sources */,
 				09C585112A6F770200D41D3C /* HomeFunctionCell.swift in Sources */,
+				092A6B272ABD851000742302 /* HomeTaskRemindView.swift in Sources */,
 				09C584E02A6F605B00D41D3C /* AppDelegate.swift in Sources */,
 				09C979222A79014F00AB20DF /* StoreManagementController.swift in Sources */,
 				09C588A52A72156300D41D3C /* AppointmentListViewModel.swift in Sources */,

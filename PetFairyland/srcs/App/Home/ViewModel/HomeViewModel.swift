@@ -18,6 +18,8 @@ class HomeViewModel: NSObject {
     
     private(set) var loginBtn: UIButton!
     
+    private(set) var orderInfoView: HomeOrderInfoView!
+    
     private(set) var mainTableView: UITableView!
     
     private(set) var homeZones: [HomeFunctionZone] = []
@@ -104,6 +106,28 @@ extension HomeViewModel {
         homeZones = [businessManagement, memberCenter, storeConfiguration]
     }
     
+    func setupOrderInfo() -> [HomeOrderInfoItem] {
+        let orders = HomeOrderInfoItem(title: "今日下单量",
+                                       quantity: 40,
+                                       unit: "单",
+                                       type: .orders,
+                                       colors: (UIColor(hexString: "#22A3FE"), UIColor(hexString: "#9BD4FD")))
+        
+        let turnover = HomeOrderInfoItem(title: "今日成单量",
+                                         quantity: 32,
+                                         unit: "单",
+                                         type: .turnover,
+                                         colors: (UIColor(hexString: "#758BFE"), UIColor(hexString: "#97A6FB")))
+        
+        let sales = HomeOrderInfoItem(title: "今日销售额",
+                                      quantity: 683.5,
+                                      unit: "元",
+                                      type: .sales,
+                                      colors: (UIColor(hexString: "#FF8771"), UIColor(hexString: "#FDB892")))
+        
+        return [orders, turnover, sales]
+    }
+    
     func buildUI() {
         loginBtn = UIButton(type: .custom)
         loginBtn.titleLabel?.font = UIFont.pingfang(style: .medium, size: 17)
@@ -113,6 +137,8 @@ extension HomeViewModel {
         loginBtn.layer.masksToBounds = true
         loginBtn.layer.cornerRadius = 25
         loginBtn.addTarget(self, action: #selector(login), for: .touchUpInside)
+        
+        orderInfoView = HomeOrderInfoView(frame: .zero, orderInfos: setupOrderInfo())
         
         mainTableView = UITableView(frame: .zero, style: .plain)
         mainTableView.delegate = self

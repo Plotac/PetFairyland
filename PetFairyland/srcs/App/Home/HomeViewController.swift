@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PFAccount
 
 class HomeViewController: PFBaseViewController {
     
@@ -64,15 +65,22 @@ private extension HomeViewController {
     func updateConstraints() {
         
         viewModel.loginBtn.isHidden = PFAccount.shared.isLogin
+        viewModel.orderInfoView.isHidden = !PFAccount.shared.isLogin
+
+        viewModel.orderInfoView.snp.remakeConstraints { make in
+            make.top.equalToSuperview().offset(10)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(80)
+        }
         
         viewModel.mainTableView.snp.remakeConstraints { make in
             if PFAccount.shared.isLogin {
-                make.top.equalToSuperview().offset(10)
+                make.top.equalTo(viewModel.orderInfoView.snp.bottom).offset(10)
             } else {
                 make.top.equalTo(viewModel.loginBtn.snp.bottom).offset(10)
             }
             make.left.right.equalToSuperview()
-            make.bottom.equalToSuperview().inset(kBottomSafeMargin)
+            make.bottom.equalToSuperview().inset(TabBar.height)
         }
     }
     
@@ -83,6 +91,8 @@ private extension HomeViewController {
             make.left.right.equalToSuperview().inset(35)
             make.height.equalTo(50)
         }
+        
+        view.addSubview(viewModel.orderInfoView)
         
         view.addSubview(viewModel.mainTableView)
         updateConstraints()

@@ -21,6 +21,11 @@ public struct Nav {
     public static var height: CGFloat { UIDevice.isiPad() ? 50 : 44 }
 }
 
+public struct TabBar {
+    /// 导航栏高度
+    public static var height: CGFloat { 49 + kBottomSafeMargin }
+}
+
 
 /// 顶部总高度
 public let kTopHeight = fetchStatusBarHeight() + Nav.height
@@ -40,12 +45,19 @@ public func getRootViewController() -> UIViewController {
 }
 
 /// Root Nav
-public func getRootNavigation() -> UINavigationController {
-    if let nav = getRootViewController().navigationController {
-        return nav
+public func getRootNavigation(index: Int = 0) -> UINavigationController? {
+    if let rootTabBarCtrl = getRootViewController() as? UITabBarController {
+        return rootTabBarCtrl.viewControllers?[index] as? UINavigationController
     }
-    return UINavigationController()
+    return nil
 }
+
+/// Root SubViewController
+public func getRootTabBarCtrlSubViewController(index: Int = 0) -> UIViewController? {
+    return getRootNavigation(index: index)?.viewControllers.first
+}
+
+
 
 fileprivate func fetchSafeAreaInsets() -> UIEdgeInsets {
     if #available(iOS 11, *) {
