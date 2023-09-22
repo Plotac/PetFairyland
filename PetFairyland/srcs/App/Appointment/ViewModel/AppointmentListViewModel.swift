@@ -39,15 +39,13 @@ extension AppointmentListViewModel {
         datePicker = PFDatePickerView(frame: .zero, limiteDays: 14)
 
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: Screen.width - 14 * 2, height: 220)
+        layout.itemSize = CGSize(width: Screen.width - 14 * 2, height: 200)
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 0
-
-        layout.sectionInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
+        
         appointmentCV = UICollectionView(frame: .zero, collectionViewLayout: layout)
         appointmentCV.delegate = self
         appointmentCV.dataSource = self
-        appointmentCV.isPagingEnabled = true
         appointmentCV.backgroundColor = .clear
         appointmentCV.register(AppointmentListCell.self, forCellWithReuseIdentifier: AppointmentListCell.reuseIdentity())
     }

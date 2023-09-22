@@ -16,7 +16,7 @@ struct HomeOperatingDataItem {
     
     var title: String = ""
     
-    var quantity: Double = 0
+    var quantity: Float = 0
     
     var unit: String = "单"
     
@@ -25,6 +25,7 @@ struct HomeOperatingDataItem {
     var colors: (startColor: UIColor, endColor: UIColor) = (.white, .white)
 }
 
+// MARK: - 首页功能区域Model
 struct HomeFunctionZone {
     enum ZoneType {
         case unknown
@@ -42,6 +43,7 @@ struct HomeFunctionZone {
     
     var functionItems: [HomeFunctionItem] = []
     
+    /// 功能区域高度
     var zoneHeight: CGFloat {
         let margin: CGFloat = 15
         let titleLabHeight: CGFloat = 23
@@ -49,6 +51,7 @@ struct HomeFunctionZone {
         return margin + titleLabHeight + margin + itemHeight * lineCount + minimumLineSpacing * (lineCount - 1) + margin
     }
     
+    /// 功能区域每行最多显示的item个数
     var maxiNumberOfDisplaysPerRow: Int = 4
     
     var itemHeight: CGFloat = 75
@@ -58,6 +61,7 @@ struct HomeFunctionZone {
     var minimumInteritemSpacing: CGFloat = 0
 }
 
+// MARK: - 首页功能Model
 struct HomeFunctionItem {
     
     enum ItemType {
