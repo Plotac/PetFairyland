@@ -23,6 +23,7 @@
 		09C585172A6F781000D41D3C /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C585162A6F781000D41D3C /* HomeModel.swift */; };
 		09C588A22A72152C00D41D3C /* AppointmentListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C588A12A72152C00D41D3C /* AppointmentListController.swift */; };
 		09C588A52A72156300D41D3C /* AppointmentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C588A42A72156300D41D3C /* AppointmentListViewModel.swift */; };
+		09C6127A2AC127F0008D0803 /* AppointmentListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C612792AC127F0008D0803 /* AppointmentListModel.swift */; };
 		09C979222A79014F00AB20DF /* StoreManagementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C979212A79014F00AB20DF /* StoreManagementController.swift */; };
 		9D66A517BF6E3A125B2E565F /* Pods_PetFairyland.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C9EA8381102C5CB194DEE7 /* Pods_PetFairyland.framework */; };
 /* End PBXBuildFile section */
@@ -47,6 +48,7 @@
 		09C585162A6F781000D41D3C /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		09C588A12A72152C00D41D3C /* AppointmentListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListController.swift; sourceTree = "<group>"; };
 		09C588A42A72156300D41D3C /* AppointmentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListViewModel.swift; sourceTree = "<group>"; };
+		09C612792AC127F0008D0803 /* AppointmentListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListModel.swift; sourceTree = "<group>"; };
 		09C979212A79014F00AB20DF /* StoreManagementController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManagementController.swift; sourceTree = "<group>"; };
 		48AF1A4E2B2DEC6F26A2CE92 /* Pods-PetFairyland.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetFairyland.debug.xcconfig"; path = "Target Support Files/Pods-PetFairyland/Pods-PetFairyland.debug.xcconfig"; sourceTree = "<group>"; };
 		51C9EA8381102C5CB194DEE7 /* Pods_PetFairyland.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetFairyland.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				09C588A12A72152C00D41D3C /* AppointmentListController.swift */,
+				09C612782AC127DF008D0803 /* Model */,
 				092A6B1F2ABD465F00742302 /* View */,
 				09C588A32A72153700D41D3C /* ViewModel */,
 			);
@@ -196,6 +199,14 @@
 				09C588A42A72156300D41D3C /* AppointmentListViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		09C612782AC127DF008D0803 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				09C612792AC127F0008D0803 /* AppointmentListModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		09C979192A78F0A300AB20DF /* StoreManagement */ = {
@@ -354,6 +365,7 @@
 				09C5850E2A6F750B00D41D3C /* HomeViewModel.swift in Sources */,
 				09C584F82A6F626600D41D3C /* HomeViewController.swift in Sources */,
 				09C588A22A72152C00D41D3C /* AppointmentListController.swift in Sources */,
+				09C6127A2AC127F0008D0803 /* AppointmentListModel.swift in Sources */,
 				09C585112A6F770200D41D3C /* HomeFunctionCell.swift in Sources */,
 				092A6B272ABD851000742302 /* HomeTaskRemindView.swift in Sources */,
 				09C584E02A6F605B00D41D3C /* AppDelegate.swift in Sources */,

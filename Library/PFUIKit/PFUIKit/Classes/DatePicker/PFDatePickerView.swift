@@ -9,9 +9,19 @@ import UIKit
 import PFUtility
 import JXSegmentedView
 
+public protocol PFDatePickerViewDelegate: NSObjectProtocol {
+    func datePickerView(_ datePickerView: PFDatePickerView, didSelectedItemAt index: Int)
+}
+
+extension PFDatePickerViewDelegate {
+    func datePickerView(_ datePickerView: PFDatePickerView, didSelectedItemAt index: Int) {}
+}
+
 public class PFDatePickerView: UIView {
     
     public internal(set) var limiteDays: Int = 0
+    
+    public weak var delegate: PFDatePickerViewDelegate?
     
     private(set) var segmentView: JXSegmentedView!
     
@@ -37,7 +47,9 @@ extension PFDatePickerView {
 }
 
 extension PFDatePickerView: JXSegmentedViewDelegate {
-    
+    public func segmentedView(_ segmentedView: JXSegmentedView, didSelectedItemAt index: Int) {
+        delegate?.datePickerView(self, didSelectedItemAt: index)
+    }
 }
 
 private extension PFDatePickerView {

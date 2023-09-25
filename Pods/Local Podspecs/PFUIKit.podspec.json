@@ -29,6 +29,9 @@
     ],
     "JXSegmentedView": [
 
+    ],
+    "MJRefresh": [
+
     ]
   },
   "swift_version": "5.0"

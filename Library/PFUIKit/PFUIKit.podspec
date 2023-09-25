@@ -35,5 +35,6 @@ TODO: Add long description of the pod here.
   s.dependency 'SnapKit'
   s.dependency 'PFUtility'
   s.dependency 'JXSegmentedView'
+  s.dependency 'MJRefresh'
   
 end

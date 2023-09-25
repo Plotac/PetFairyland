@@ -1,5 +1,5 @@
 //
-//  PFFiltrationOption.swift
+//  PFFilterOption.swift
 //  PFUIKit
 //
 //  Created by Ja on 2023/9/21.
@@ -12,7 +12,7 @@ public protocol OptionType {
 //    static var allCases: [EnumType] { get }
 }
 
-open class PFFiltrationOption {
+open class PFFilterOption {
     
     open var title: String = ""
     

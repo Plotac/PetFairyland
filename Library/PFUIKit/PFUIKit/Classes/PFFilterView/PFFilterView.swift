@@ -1,5 +1,5 @@
 //
-//  PFFiltrationView.swift
+//  PFFilterView.swift
 //  PFUIKit
 //
 //  Created by Ja on 2023/9/21.
@@ -7,13 +7,13 @@
 
 import UIKit
 
-public class PFFiltrationView: UIView {
+public class PFFilterView: UIView {
     
-    public var options: [PFFiltrationOption] = []
+    public var options: [PFFilterOption] = []
     
     internal var tableView: UITableView!
     
-    public required init(frame: CGRect, options: [PFFiltrationOption]) {
+    public required init(frame: CGRect, options: [PFFilterOption]) {
         super.init(frame: frame)
     }
     
@@ -22,7 +22,7 @@ public class PFFiltrationView: UIView {
     }
 }
 
-extension PFFiltrationView {
+extension PFFilterView {
     func setupUI() {
 //        tableView = UITableView(frame: .zero, style: .plain)
 //        tableView = UITableView(frame: .zero, style: .plain)

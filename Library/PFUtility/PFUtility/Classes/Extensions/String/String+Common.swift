@@ -53,6 +53,11 @@ public extension String {
     var toDouble: Double? {
         return Double(self)
     }
+    
+    /// 字符串转URL
+    var toURL: URL? {
+        return URL(string: self)
+    }
 
     /// 去除首尾空白字符
     /// - Returns: 处理之后的字符串

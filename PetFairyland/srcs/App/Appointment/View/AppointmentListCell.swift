@@ -6,11 +6,65 @@
 //
 
 import Foundation
+import Kingfisher
+
+protocol AppointmentListCellDelegate: NSObjectProtocol {
+    func canceled(model: AppointmentListModel)
+    func complete(model: AppointmentListModel)
+}
 
 class AppointmentListCell: UICollectionViewCell {
     
+    var model: AppointmentListModel? {
+        didSet {
+            if let model = model {
+                
+                productImageView.kf.setImage(with: model.productUrl.toURL)
+                serverNameValueLab.text = model.productName
+                petNameValueLab.text = model.pet
+                masterNameValueLab.text = model.master
+                serverNameValueLab.text = model.appointmentServer
+                
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd HH:mm"
+                formatter.locale = Locale.current
+                serverTimeValueLab.text = formatter.string(from: Date(timeIntervalSince1970: Double(model.appointmentTime)))
+                
+                remarkValueLab.text = model.remark
+                
+                handleOrder(status: model.status)
+                
+                newOrderImageView.isHidden = model.type == .old
+            }
+            
+            func handleOrder(status: AppointmentListModel.Status) {
+                switch status {
+                case .unfinished:
+                    orderStatusLab.text = "未完成"
+                    orderStatusLab.textColor = UIColor(hexString: "#FF8F1F")
+                case .finished:
+                    orderStatusLab.text = "已完成"
+                    orderStatusLab.textColor = UIColor(hexString: "#1878FF")
+                case .canceled:
+                    orderStatusLab.text = "已取消"
+                    orderStatusLab.textColor = UIColor(hexString: "#FF6565")
+                }
+                orderStatusLab.backgroundColor = orderStatusLab.textColor.withAlphaComponent(0.2)
+                
+                cancelBtn.isHidden = !(status == .unfinished)
+                completeBtn.isHidden = !(status == .unfinished)
+            }
+        }
+    }
+    
+    weak var delegate: AppointmentListCellDelegate?
+    
     lazy var productImageView: UIImageView = {
-        return UIImageView()
+        let view = UIImageView()
+        view.backgroundColor = .lightGray
+        view.layer.cornerRadius = 4
+        view.layer.masksToBounds = true
+        return view
     }()
     
     lazy var orderStatusLab: UILabel = {
@@ -20,6 +74,7 @@ class AppointmentListCell: UICollectionViewCell {
         lab.layer.masksToBounds = true
         lab.textColor = UIColor(hexString: "#FF8F1F")
         lab.font = UIFont.pingfang(style: .semibold, size: 10)
+        lab.textAlignment = .center
         return lab
     }()
     
@@ -88,6 +143,7 @@ class AppointmentListCell: UICollectionViewCell {
         btn.layer.masksToBounds = true
         btn.layer.borderColor = SystemColor.main.cgColor
         btn.layer.borderWidth = 1
+        btn.addTarget(self, action: #selector(cancel), for: .touchUpInside)
         return btn
     }()
     
@@ -99,6 +155,7 @@ class AppointmentListCell: UICollectionViewCell {
         btn.titleLabel?.font = UIFont.pingfang(style: .medium, size: 12)
         btn.layer.cornerRadius = 4
         btn.layer.masksToBounds = true
+        btn.addTarget(self, action: #selector(complete), for: .touchUpInside)
         return btn
     }()
     
@@ -110,6 +167,23 @@ class AppointmentListCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension AppointmentListCell {
+    
+    @objc
+    func cancel() {
+        if let model = model {
+            delegate?.canceled(model: model)
+        }
+    }
+    
+    @objc
+    func complete() {
+        if let model = model {
+            delegate?.complete(model: model)
+        }
     }
 }
 

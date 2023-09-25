@@ -10,6 +10,7 @@ def openPods
   pod 'ObjectMapper'
   pod 'Kingfisher', '~> 7.0'
   pod "FDFullscreenPopGesture"
+  pod 'MJRefresh'
   pod 'IQKeyboardManager'
   pod 'CYLTabBarController'
   

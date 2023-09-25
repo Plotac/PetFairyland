@@ -9,6 +9,8 @@ import UIKit
 import IQKeyboardManager
 import CYLTabBarController
 
+@_exported import Kingfisher
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     

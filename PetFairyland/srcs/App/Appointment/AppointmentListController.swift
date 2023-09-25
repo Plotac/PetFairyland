@@ -11,12 +11,50 @@ class AppointmentListController: PFBaseViewController {
     
     var viewModel: AppointmentListViewModel = AppointmentListViewModel()
     
+    var footerRefreshCount: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.delegate = self
+        
         setupUI()
+        
+        viewModel.appointmentCV.mj_header = refreshHeader
+        refreshHeaderEvent = { [weak self] in
+            guard let self = self else { return }
+            
+            self.refreshHeader.endRefreshing()
+            
+            self.viewModel.listModels.removeAll()
+            self.viewModel.listModels = self.viewModel.generateTestModels()
+            self.viewModel.appointmentCV.reloadData()
+        }
+        
+        viewModel.appointmentCV.mj_footer = refreshFooter
+        refreshFooterEvent = { [weak self] in
+            guard let self = self else { return }
+            
+            if self.footerRefreshCount >= 2 {
+                self.refreshFooter.endRefreshingWithNoMoreData()
+            } else {
+                self.refreshFooter.endRefreshing()
+            }
+            
+            self.viewModel.listModels.append(contentsOf: self.viewModel.generateTestModels())
+            self.viewModel.sort()
+            self.viewModel.appointmentCV.reloadData()
+            
+            self.footerRefreshCount += 1
+        }
     }
     
+}
+
+extension AppointmentListController: AppointmentListViewModelDelegate {
+    func didSelectDatePickView(at index: Int) {
+        refreshHeaderEvent?()
+    }
 }
 
 extension AppointmentListController {
