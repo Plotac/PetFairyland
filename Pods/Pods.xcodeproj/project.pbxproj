@@ -25,6 +25,8 @@
 		08A249506139DCFE3FEC086BC63E97BA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45B27AB808E7B949B80C2BA4ABEDA31 /* LoginViewController.swift */; };
 		094358126E5419D9445110554C32D9A9 /* PFUtility-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 666D787F24FED56F8E1819F98B3E9D0C /* PFUtility-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		09C6127C2AC13A8A008D0803 /* PFFilterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C6127B2AC13A8A008D0803 /* PFFilterBar.swift */; };
+		09C6127E2AC1624E008D0803 /* PFFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C6127D2AC1624E008D0803 /* PFFilterCell.swift */; };
+		09C612812AC179B6008D0803 /* UIButton+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C612802AC179B6008D0803 /* UIButton+Common.swift */; };
 		0A9303EDF570AAEF6A6DD15013F1F24C /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D9AAC533CF1EF9694830CEDF81B90A /* UIViewController+Navigation.swift */; };
 		0A93D725DA34E6ACB26D9B2A714BBEB6 /* UIScrollView+MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C30031EBE3B8DCAE4F7AA0E7504990A /* UIScrollView+MJRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0AA33EBB857A5205F87C09CCB99EAC74 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B8063291033C95A8B2A24FA2AD7A79 /* Foundation.framework */; };
@@ -86,7 +88,7 @@
 		33A4F6D2199266B0F53AB5D2A91FD53C /* MJRefreshStateHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 94C427A7243DA1403D71FB9A4AEA485F /* MJRefreshStateHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		341C92D2E10C8F349C85C4751CD863BD /* JXSegmentedBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EB7437B263667C48041EF712D6AF1 /* JXSegmentedBaseCell.swift */; };
 		376283CB1C2F4FBFDEB918476761CBF2 /* IQKeyboardManagerConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 13BE56A35E736304346971370A3149E4 /* IQKeyboardManagerConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3815B04FF3F4B9686BFD5BA39F984902 /* PFFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C4FA0EB7556D1E799428A2A7968140 /* PFFilterView.swift */; };
+		3815B04FF3F4B9686BFD5BA39F984902 /* PFFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C4FA0EB7556D1E799428A2A7968140 /* PFFilter.swift */; };
 		385BC4B250B6A6DB8AAAEA77D5B7A46F /* Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A4DD7F89F01B746357056417A5937E /* Combine.swift */; };
 		385E4D46738C64EAE240E461717AF06A /* DatePickModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE97B9B5AD7E73C3C81463F944CD475F /* DatePickModel.swift */; };
 		3903F02C80E66E949267B98B41FE452B /* LayoutConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715E8DBAF402B56C949BDFEE90238A8B /* LayoutConstraintItem.swift */; };
@@ -627,6 +629,8 @@
 		098E90057C29B9A75D52C70C13A84ED1 /* IQUIView+Hierarchy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUIView+Hierarchy.m"; path = "IQKeyboardManager/Categories/IQUIView+Hierarchy.m"; sourceTree = "<group>"; };
 		0990601CC17AFC806DA118D1481488C5 /* Array+Common.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Array+Common.swift"; sourceTree = "<group>"; };
 		09C6127B2AC13A8A008D0803 /* PFFilterBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PFFilterBar.swift; sourceTree = "<group>"; };
+		09C6127D2AC1624E008D0803 /* PFFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PFFilterCell.swift; sourceTree = "<group>"; };
+		09C612802AC179B6008D0803 /* UIButton+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Common.swift"; sourceTree = "<group>"; };
 		0A0E25E3487B9E3F8F6A1BD0784E1FA4 /* ImageModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageModifier.swift; path = Sources/Networking/ImageModifier.swift; sourceTree = "<group>"; };
 		0A141670E1676E03BCC817068C729220 /* ToJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToJSON.swift; path = Sources/ToJSON.swift; sourceTree = "<group>"; };
 		0A228144874E5EF1659D7A4CDC1E83FE /* Pods-PetFairyland-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PetFairyland-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -936,7 +940,7 @@
 		A025BE80BF3F8CAE89D900C553C30D40 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		A08C607A5A444C90BFDF6CD35DAA877A /* JXSegmentedBaseItemModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedBaseItemModel.swift; path = Sources/Core/JXSegmentedBaseItemModel.swift; sourceTree = "<group>"; };
 		A19998CFFC70EFD1F6AF4E75D6C1E48D /* JXSegmentedIndicatorDoubleLineView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedIndicatorDoubleLineView.swift; path = Sources/Indicator/JXSegmentedIndicatorDoubleLineView.swift; sourceTree = "<group>"; };
-		A1C4FA0EB7556D1E799428A2A7968140 /* PFFilterView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PFFilterView.swift; sourceTree = "<group>"; };
+		A1C4FA0EB7556D1E799428A2A7968140 /* PFFilter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PFFilter.swift; sourceTree = "<group>"; };
 		A2522EDEA0682B007A5333EA703C5B0D /* IQUIScrollView+Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUIScrollView+Additions.m"; path = "IQKeyboardManager/Categories/IQUIScrollView+Additions.m"; sourceTree = "<group>"; };
 		A266D60AB72AE0A297F6E35A45C3D914 /* ImageTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageTransition.swift; path = Sources/Image/ImageTransition.swift; sourceTree = "<group>"; };
 		A2C5B29D47792345F6E2D74455B2C486 /* ConstraintOffsetTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintOffsetTarget.swift; path = Sources/ConstraintOffsetTarget.swift; sourceTree = "<group>"; };
@@ -1317,6 +1321,14 @@
 				3BA0543D083EB9D4DB8E3F0B308C7DBA /* MJRefresh.bundle */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		09C6127F2AC179A2008D0803 /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+				09C612802AC179B6008D0803 /* UIButton+Common.swift */,
+			);
+			path = UIButton;
 			sourceTree = "<group>";
 		};
 		0AE08E5689A59E57779AC57BC808317E /* UIDevice */ = {
@@ -1841,6 +1853,7 @@
 		8CF21BEBAA89A0CD9254DA9886F620DA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				09C6127F2AC179A2008D0803 /* UIButton */,
 				F9B3DEADC68B5E5ABE03789F828F813B /* Array */,
 				1C74199CD9B0E3C986BBB7B8B5FD80B2 /* NSObject */,
 				A37DF05C6AB238D6E76BF5287A0C7840 /* String */,
@@ -1863,15 +1876,16 @@
 			path = UIImage;
 			sourceTree = "<group>";
 		};
-		8E40BA6C7CC62DBA2E7E0AFE4D28D19F /* PFFilterView */ = {
+		8E40BA6C7CC62DBA2E7E0AFE4D28D19F /* PFFilter */ = {
 			isa = PBXGroup;
 			children = (
 				159C227748906E6495657EA2DDC9034A /* PFFilterOption.swift */,
-				A1C4FA0EB7556D1E799428A2A7968140 /* PFFilterView.swift */,
+				A1C4FA0EB7556D1E799428A2A7968140 /* PFFilter.swift */,
 				09C6127B2AC13A8A008D0803 /* PFFilterBar.swift */,
+				09C6127D2AC1624E008D0803 /* PFFilterCell.swift */,
 			);
-			name = PFFilterView;
-			path = PFUIKit/Classes/PFFilterView;
+			name = PFFilter;
+			path = PFUIKit/Classes/PFFilter;
 			sourceTree = "<group>";
 		};
 		953EAEFE7993CE04AE87D2E441BB8A1D /* PFAccount */ = {
@@ -2320,7 +2334,7 @@
 				6FE1FB182862FA547A86F6028A224A62 /* DatePicker */,
 				C9EA60F515C042DEC1C072D6BB6A2CA6 /* Navigation */,
 				E453EB2B78852F2947A625AE9ED74956 /* PFAlert */,
-				8E40BA6C7CC62DBA2E7E0AFE4D28D19F /* PFFilterView */,
+				8E40BA6C7CC62DBA2E7E0AFE4D28D19F /* PFFilter */,
 				2998BDC0E3EBEC1957E3DF4EB51676B0 /* PFFormView */,
 				470A8CDDE77D4CF98729B738AE9C6759 /* Pod */,
 				6EFA676CC2338BD7382886BCA70EAB57 /* Support Files */,
@@ -3216,13 +3230,15 @@
 				09C6127C2AC13A8A008D0803 /* PFFilterBar.swift in Sources */,
 				F3FC95FD8FDF5F3E27E52CA5715BD5B4 /* PFDatePickerView.swift in Sources */,
 				89889D5C6A042B8D0648AC65B8F5E7B6 /* PFFilterOption.swift in Sources */,
-				3815B04FF3F4B9686BFD5BA39F984902 /* PFFilterView.swift in Sources */,
+				3815B04FF3F4B9686BFD5BA39F984902 /* PFFilter.swift in Sources */,
+				09C6127E2AC1624E008D0803 /* PFFilterCell.swift in Sources */,
 				E6A5B947B6C8C44E414E4B78323A06CF /* PFFormCell.swift in Sources */,
 				B4F43237C98730AD3291BBFDD98A4F6E /* PFFormDataTypes.swift in Sources */,
 				110B0051254ED764798B2259BCB07263 /* PFFormView.swift in Sources */,
 				4AD29853C30AC2B46F7A9C99AB4BA7FE /* PFNavigationController.swift in Sources */,
 				88B7CD0680471CA5E87D8E1A60948CA2 /* PFUIKit-dummy.m in Sources */,
 				57B3EAB5A0A2D78B13CC8905AFD064F8 /* PFWebViewController.swift in Sources */,
+				09C612812AC179B6008D0803 /* UIButton+Common.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

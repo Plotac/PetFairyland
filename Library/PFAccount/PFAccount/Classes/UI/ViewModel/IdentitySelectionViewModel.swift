@@ -176,7 +176,7 @@ extension IdentitySelectionViewModel {
         let identities: [(String, UserInfo.IdentityType)] = [("我是店铺创始人", .originator), ("我是店员", .assistant), ("访客", .visitor)]
         for (index, identity) in identities.enumerated() {
             
-            let spaceBetweenTitleAndImage: CGFloat = 5
+            let spaceBetweenTitleAndImage: CGFloat = 3
             let name = identity.0
             let tag = identity.1.rawValue
             
@@ -187,8 +187,7 @@ extension IdentitySelectionViewModel {
             btn.setTitleColor(.black, for: .normal)
             btn.setImage(UIImage(named: "btn_unselect"), for: .normal)
             btn.setImage(UIImage(named: "btn_select"), for: .selected)
-            btn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -(2 / spaceBetweenTitleAndImage), bottom: 0, right: 2 / spaceBetweenTitleAndImage)
-            btn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 2 / spaceBetweenTitleAndImage, bottom: 0, right: -(2 / spaceBetweenTitleAndImage))
+            btn.setImagePosition(position: .left, space: spaceBetweenTitleAndImage)
             btn.addTarget(self, action: #selector(changeIdentity(sender:)), for: .touchUpInside)
             
             btn.isSelected = index == 0

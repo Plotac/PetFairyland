@@ -5,7 +5,7 @@
 //  Created by Ja on 2023/7/27.
 //
 
-import PFUtility
+@_exported import PFUtility
 import UIKit
 import MJRefresh
 
@@ -15,15 +15,15 @@ open class PFBaseViewController: UIViewController {
     public typealias PFRefreshFooterCompletion = () -> Void
     
     open lazy var refreshHeader: MJRefreshStateHeader = {
-        return MJRefreshStateHeader {
-            self.refreshHeaderEvent?()
+        return MJRefreshStateHeader { [weak self] in
+            self?.refreshHeaderEvent?()
         }
     }()
     open var refreshHeaderEvent: PFRefreshHeaderCompletion?
     
     open lazy var refreshFooter: MJRefreshAutoStateFooter = {
-        return MJRefreshAutoStateFooter {
-            self.refreshFooterEvent?()
+        return MJRefreshAutoStateFooter { [weak self] in
+            self?.refreshFooterEvent?()
         }
     }()
     open var refreshFooterEvent: PFRefreshFooterCompletion?
@@ -31,5 +31,9 @@ open class PFBaseViewController: UIViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = SystemColor.viewBackgroundColor
+    }
+    
+    deinit {
+        print("\(Self.self.description()) ---------- deinit")
     }
 }

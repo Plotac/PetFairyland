@@ -25,6 +25,23 @@ class AppointmentListModel: NSObject {
         case old
     }
     
+    enum IdentityType: Int {
+        /// 会员
+        case memeber = 0
+        /// 次卡
+        case limitCard
+        /// 散客
+        case customer
+        
+        var description: String {
+            switch self {
+            case .memeber: return "会员"
+            case .limitCard: return "次卡用户"
+            case .customer: return "散客"
+            }
+        }
+    }
+    
     var productUrl: String = ""
     
     var productName: String = ""
@@ -42,4 +59,6 @@ class AppointmentListModel: NSObject {
     var status: Status = .unfinished
     
     var type: OrderType = .old
+    
+    var identityType: IdentityType = .customer
 }

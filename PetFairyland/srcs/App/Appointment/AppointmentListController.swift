@@ -57,6 +57,12 @@ extension AppointmentListController: AppointmentListViewModelDelegate {
     }
 }
 
+extension AppointmentListController: PFFilterBarDelegate {
+    func filterBar(_ filterBar: PFFilterBar, didSelected filter: PFFilter, selectedOption option: PFFilterOption) {
+        print("PFFilterBar Selected: \(filter) ---- option: \(option.title)")
+    }
+}
+
 extension AppointmentListController {
     func setupUI() {
         title = "预约列表"
@@ -67,10 +73,18 @@ extension AppointmentListController {
             make.height.equalTo(60)
         }
         
+        viewModel.filterBar.delegate = self
+        view.addSubview(viewModel.filterBar)
+        viewModel.filterBar.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(viewModel.datePicker.snp.bottom)
+            make.height.equalTo(40)
+        }
+        
         view.addSubview(viewModel.appointmentCV)
         viewModel.appointmentCV.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
-            make.top.equalTo(viewModel.datePicker.snp.bottom).offset(10)
+            make.top.equalTo(viewModel.filterBar.snp.bottom).offset(10)
             make.bottom.equalToSuperview().offset(-kBottomSafeMargin)
         }
     }

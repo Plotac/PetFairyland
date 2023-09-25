@@ -27,9 +27,7 @@ class HomeViewController: PFBaseViewController {
         setupUI()
         
         if PFAccount.shared.userInfo.isValid == false {
-            PFAccount.login(with: SMSRequest(mobileNumber: "")) {
-                
-            }
+            loginEvent()
         }
         
     }
@@ -40,6 +38,12 @@ class HomeViewController: PFBaseViewController {
 }
 
 extension HomeViewController: HomeViewModelDelegate {
+    func loginEvent() {
+        PFAccount.login(with: SMSRequest(mobileNumber: "")) {
+            
+        }
+    }
+    
     func didSelectHomeFunction(item: HomeFunctionItem) {
         switch item.type {
         case .appointment:

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import PFUtility
 import JXSegmentedView
 
 public protocol PFDatePickerViewDelegate: NSObjectProtocol {
@@ -54,6 +53,8 @@ extension PFDatePickerView: JXSegmentedViewDelegate {
 
 private extension PFDatePickerView {
     func setupUI() {
+        backgroundColor = .white
+        
         segmentView = JXSegmentedView()
         
         var normalTexts: [NSAttributedString] = []

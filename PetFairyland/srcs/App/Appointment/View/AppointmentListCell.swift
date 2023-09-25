@@ -9,6 +9,7 @@ import Foundation
 import Kingfisher
 
 protocol AppointmentListCellDelegate: NSObjectProtocol {
+    func call(model: AppointmentListModel)
     func canceled(model: AppointmentListModel)
     func complete(model: AppointmentListModel)
 }
@@ -18,18 +19,25 @@ class AppointmentListCell: UICollectionViewCell {
     var model: AppointmentListModel? {
         didSet {
             if let model = model {
-                
+                // 商品图片
                 productImageView.kf.setImage(with: model.productUrl.toURL)
-                serverNameValueLab.text = model.productName
+                // 商品名称
+                serviceTitleLab.text = model.productName
+                // 服务宠物
                 petNameValueLab.text = model.pet
-                masterNameValueLab.text = model.master
+                
+                // 下单用户名称&身份
+                masterNameValueLab.text = "\(model.master)(\(model.identityType.description))"
+                // 服务老师
                 serverNameValueLab.text = model.appointmentServer
                 
+                // 预约时间
                 let formatter = DateFormatter()
                 formatter.dateFormat = "yyyy-MM-dd HH:mm"
                 formatter.locale = Locale.current
                 serverTimeValueLab.text = formatter.string(from: Date(timeIntervalSince1970: Double(model.appointmentTime)))
                 
+                // 备注
                 remarkValueLab.text = model.remark
                 
                 handleOrder(status: model.status)
@@ -105,8 +113,11 @@ class AppointmentListCell: UICollectionViewCell {
         return makeLabel(textColorHex: "#333333")
     }()
     
-    lazy var cellPhoneImageView: UIImageView = {
-        return UIImageView(image: UIImage(named: "home_al_phone"))
+    lazy var cellPhoneBtn: UIButton = {
+        let btn = UIButton(type: .custom)
+        btn.setImage(UIImage(named: "home_al_phone"), for: .normal)
+        btn.addTarget(self, action: #selector(call), for: .touchUpInside)
+        return btn
     }()
     
     lazy var serverNameLab: UILabel = {
@@ -173,6 +184,13 @@ class AppointmentListCell: UICollectionViewCell {
 extension AppointmentListCell {
     
     @objc
+    func call() {
+        if let model = model {
+            delegate?.call(model: model)
+        }
+    }
+    
+    @objc
     func cancel() {
         if let model = model {
             delegate?.canceled(model: model)
@@ -235,6 +253,12 @@ extension AppointmentListCell {
         contentView.addSubview(masterNameValueLab)
         masterNameValueLab.snp.makeConstraints { make in
             make.left.equalTo(masterNameLab.snp.right)
+            make.centerY.equalTo(masterNameLab)
+        }
+        
+        contentView.addSubview(cellPhoneBtn)
+        cellPhoneBtn.snp.makeConstraints { make in
+            make.left.equalTo(masterNameValueLab.snp.right).offset(5)
             make.centerY.equalTo(masterNameLab)
         }
         

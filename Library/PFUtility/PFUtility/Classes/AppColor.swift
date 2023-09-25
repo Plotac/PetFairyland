@@ -11,6 +11,10 @@ public struct SystemColor {
     
     public static var main: UIColor = UIColor(hexString: "#FFC439")
     
+    public static var separator: UIColor = UIColor(hexString: "#EDEDED")
+    
+    public static var mask: UIColor = UIColor(hexString: "#000000", alpha: 0.5)
+    
     public static var viewBackgroundColor: UIColor = UIColor(hexString: "#F9FAF9")
     
     public struct Button {

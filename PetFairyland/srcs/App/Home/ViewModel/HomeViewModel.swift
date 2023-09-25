@@ -9,6 +9,7 @@ import UIKit
 import PFUtility
 
 protocol HomeViewModelDelegate: NSObjectProtocol {
+    func loginEvent()
     func didSelectHomeFunction(item: HomeFunctionItem)
 }
 
@@ -34,7 +35,7 @@ class HomeViewModel: NSObject {
 extension HomeViewModel {
     @objc
     func login() {
-        
+        delegate?.loginEvent()
     }
 }
 

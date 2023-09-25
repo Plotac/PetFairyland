@@ -554,6 +554,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/SnapKit/SnapKit.framework/Headers\"",
 				);
 				INFOPLIST_FILE = PetFairyland/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "乐乐派商家端";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -605,6 +606,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/SnapKit/SnapKit.framework/Headers\"",
 				);
 				INFOPLIST_FILE = PetFairyland/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "乐乐派商家端";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
