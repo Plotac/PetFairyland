@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "AppointmentListController.filterBar(_:didSelected:selectedOption:):AppointmentListController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "selectedOptions">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

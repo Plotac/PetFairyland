@@ -27,6 +27,7 @@ class AppointmentListViewModel: NSObject {
     var appointmentCV: UICollectionView!
     
     var listModels: [AppointmentListModel] = []
+    var originalModels: [AppointmentListModel] = []
     
     let productNames = ["猫咪洗护套餐", "猫咪洁牙套餐", "猫咪洗澡", "狗狗洗护套餐", "猫三联疫苗套装", "猫咪体检套餐", "犬猫抗体检测"]
     
@@ -34,15 +35,11 @@ class AppointmentListViewModel: NSObject {
         super.init()
         buildUI()
         listModels = generateTestModels()
+        originalModels = generateTestModels()
     }
 }
 
-extension AppointmentListViewModel: PFDatePickerViewDelegate {
-    func datePickerView(_ datePickerView: PFUIKit.PFDatePickerView, didSelectedItemAt index: Int) {
-        delegate?.didSelectDatePickView(at: index)
-    }
-}
-
+// MARK: - AppointmentListCellDelegate(打电话/服务完成/取消预约事件处理)
 extension AppointmentListViewModel: AppointmentListCellDelegate {
     func call(model: AppointmentListModel) {
     
@@ -57,6 +54,14 @@ extension AppointmentListViewModel: AppointmentListCellDelegate {
     }
 }
 
+// MARK: - PFDatePickerViewDelegate(日期选择器)
+extension AppointmentListViewModel: PFDatePickerViewDelegate {
+    func datePickerView(_ datePickerView: PFUIKit.PFDatePickerView, didSelectedItemAt index: Int) {
+        delegate?.didSelectDatePickView(at: index)
+    }
+}
+
+// MARK: - UICollectionViewDataSource & UICollectionViewDelegate
 extension AppointmentListViewModel: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { listModels.count }
     
@@ -68,6 +73,7 @@ extension AppointmentListViewModel: UICollectionViewDataSource, UICollectionView
     }
 }
 
+// MARK: - Private
 extension AppointmentListViewModel {
     
     func buildUI() {
@@ -76,27 +82,27 @@ extension AppointmentListViewModel {
         datePicker.delegate = self
         
         let serverOptions = [
-            PFFilterOption(title: "全部老师", selected: true),
-            PFFilterOption(title: "Coco", selected: false),
-            PFFilterOption(title: "Tom", selected: false),
-            PFFilterOption(title: "Jerry", selected: false),
+            PFFilterOption(title: "全部老师", type: AppointmentListFilterOptionType.server, selected: true, isResetAttribute: true),
+            PFFilterOption(title: "Coco", type: AppointmentListFilterOptionType.server, selected: false),
+            PFFilterOption(title: "Tom", type: AppointmentListFilterOptionType.server, selected: false),
+            PFFilterOption(title: "Jerry", type: AppointmentListFilterOptionType.server, selected: false),
         ]
         serverFilter = PFFilter(frame: .zero, options: serverOptions)
         
         let orderOptions = [
-            PFFilterOption(title: "全部状态", selected: true),
-            PFFilterOption(title: "已完成", selected: true),
-            PFFilterOption(title: "未完成", selected: false),
-            PFFilterOption(title: "已取消", selected: false),
+            PFFilterOption(title: "全部状态", type: AppointmentListFilterOptionType.orderStatus, selected: true, isResetAttribute: true),
+            PFFilterOption(title: "已完成", type: AppointmentListFilterOptionType.orderStatus, selected: false),
+            PFFilterOption(title: "未完成", type: AppointmentListFilterOptionType.orderStatus, selected: false),
+            PFFilterOption(title: "已取消", type: AppointmentListFilterOptionType.orderStatus, selected: false),
         ]
         orderFilter = PFFilter(frame: .zero, options: orderOptions)
         
         var serviceOption: [PFFilterOption] = []
         productNames.forEach { name in
-            let option = PFFilterOption(title: name, selected: false)
+            let option = PFFilterOption(title: name, type: AppointmentListFilterOptionType.service, selected: false)
             serviceOption.append(option)
         }
-        serviceOption.insert(PFFilterOption(title: "服务筛选", selected: true), at: 0)
+        serviceOption.insert(PFFilterOption(title: "服务筛选", type: AppointmentListFilterOptionType.service, selected: true, isResetAttribute: true), at: 0)
         serviceFilter = PFFilter(frame: .zero, options: serviceOption)
         
         filterBar = PFFilterBar(frame: .zero, filters: [serverFilter, orderFilter, serviceFilter])
@@ -136,4 +142,43 @@ extension AppointmentListViewModel {
     func sort() {
         listModels.sort { $0.type.rawValue < $1.type.rawValue }
     }
+    
+    func filter(options: [PFFilterOption], resetFlag: Bool) {
+        
+        let source: [AppointmentListModel] = resetFlag == true ? originalModels : listModels
+        options.forEach { option in
+            if let type = option.type as? AppointmentListFilterOptionType {
+                if type == .server {
+                    listModels = source.filter { $0.appointmentServer == option.title }
+                } else if type == .orderStatus {
+                    listModels = source.filter { $0.status.description == option.title }
+                } else if type == .service {
+                    listModels = source.filter { $0.productName == option.title }
+                }
+            }
+        }
+        sort()
+        appointmentCV.reloadData()
+    }
+}
+
+// MARK: - 筛选类型
+enum AppointmentListFilterOptionType: String, PFFilterOptionType {
+    func isEqualTo(_ type: any PFFilterOptionType) -> Bool {
+        guard let currentType = type as? AppointmentListFilterOptionType else { return false }
+        return self.associatedValue == currentType.associatedValue
+    }
+    
+    
+    typealias OptionValueType = String
+    
+    var associatedValue: String {
+        switch self {
+        case .server: return "\(Self.self).server"
+        case .orderStatus: return "\(Self.self).orderStatus"
+        case .service: return "\(Self.self).service"
+        }
+    }
+
+    case server, orderStatus, service
 }

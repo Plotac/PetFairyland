@@ -16,6 +16,14 @@ class AppointmentListModel: NSObject {
         case finished
         /// 已取消
         case canceled
+        
+        var description: String {
+            switch self {
+            case .unfinished: return "未完成"
+            case .finished: return "已完成"
+            case .canceled: return "已取消"
+            }
+        }
     }
     
     enum OrderType: Int {

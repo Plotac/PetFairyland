@@ -42,6 +42,41 @@ public class PFFilter: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        if let title = mainBtn.titleLabel?.text {
+            // 左右最小边距
+            let minMargin: CGFloat = 10
+            // titleLabel和imageView中间的距离
+            let space: CGFloat = 5
+            // imageView的宽高
+            let arrowWH: CGFloat = 16
+            
+            var titleWidth = title.strWidth(font: .pingfang(style: .regular, size: 14), size: CGSize(width: CGFLOAT_MAX, height: mainBtn.bounds.size.height))
+            var startX: CGFloat = (mainBtn.bounds.size.width - arrowWH - space - titleWidth) / 2
+            
+            if startX < minMargin {
+                startX = minMargin
+                titleWidth = mainBtn.bounds.size.width - arrowWH - space - minMargin * 2
+            }
+            
+            mainBtn.titleLabel?.snp.remakeConstraints({ make in
+                make.centerY.equalToSuperview()
+                make.left.equalToSuperview().offset(startX)
+                make.right.equalTo(mainBtn.imageView!.snp.left).offset(-space)
+                make.size.equalTo(CGSize(width: titleWidth, height: mainBtn.bounds.size.height))
+            })
+
+            mainBtn.imageView?.snp.remakeConstraints({ make in
+                make.centerY.equalTo(mainBtn.titleLabel!)
+                make.left.equalTo(mainBtn.titleLabel!.snp.left).offset(titleWidth + space)
+                make.size.equalTo(arrowWH)
+            })
+        }
+
+    }
 }
 
 extension PFFilter {
@@ -92,15 +127,15 @@ extension PFFilter {
         let defaultSelectedOption = options.first { $0.selected == true }
         
         mainBtn = UIButton(type: .custom)
+        
         mainBtn.titleLabel?.font = .pingfang(style: .regular, size: 14)
         mainBtn.titleLabel?.lineBreakMode = .byTruncatingTail
         let title = defaultSelectedOption?.title ?? "-"
         mainBtn.setTitle(title, for: .normal)
         mainBtn.setTitleColor(SystemColor.main, for: .selected)
         mainBtn.setTitleColor(UIColor(hexString: "#808080"), for: .normal)
-        mainBtn.setImage(UIImage(named: "btn_unselect"), for: .normal)
-        mainBtn.setImage(UIImage(named: "btn_select"), for: .selected)
-        mainBtn.setImagePosition(position: .right, space: 8.5)
+        mainBtn.setImage(UIImage(named: "filter_arrow_unselected"), for: .normal)
+        mainBtn.setImage(UIImage(named: "filter_arrow_selected"), for: .selected)
         mainBtn.addTarget(self, action: #selector(open(sender:)), for: .touchUpInside)
         addSubview(mainBtn)
         mainBtn.snp.makeConstraints { make in
@@ -154,6 +189,6 @@ extension PFFilter {
             maskBgView.removeFromSuperview()
         }
         
-        mainBtn.setImagePosition(position: .right, space: 8.5)
+        setNeedsLayout()
     }
 }

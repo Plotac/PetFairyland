@@ -11,6 +11,8 @@ class AppointmentListController: PFBaseViewController {
     
     var viewModel: AppointmentListViewModel = AppointmentListViewModel()
     
+    var filterOptions: [PFFilterOption] = []
+    
     var footerRefreshCount: Int = 0
     
     override func viewDidLoad() {
@@ -60,6 +62,18 @@ extension AppointmentListController: AppointmentListViewModelDelegate {
 extension AppointmentListController: PFFilterBarDelegate {
     func filterBar(_ filterBar: PFFilterBar, didSelected filter: PFFilter, selectedOption option: PFFilterOption) {
         print("PFFilterBar Selected: \(filter) ---- option: \(option.title)")
+        
+        var resetFlag: Bool = false
+        if filterOptions.contains(where: { $0.title == option.title }) == false {
+            if option.isResetAttribute == false {
+                filterOptions.append(option)
+            } else {
+                resetFlag = true
+                filterOptions.removeAll { $0.type.isEqualTo(option.type) }
+            }
+        }
+        
+        viewModel.filter(options: filterOptions, resetFlag: resetFlag)
     }
 }
 
