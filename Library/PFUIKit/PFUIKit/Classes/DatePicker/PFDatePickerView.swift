@@ -128,10 +128,9 @@ private extension PFDatePickerView {
                    let weekday = dateData.components(separatedBy: ":").last, weekday.isEmpty == false {
                     let localDateStr = transLocal(exactDate: exactDate, weekday: weekday)
                     if localDateStr.isEmpty == false {
-                        let model = DatePickModel()
-                        model.exactDate = exactDate
-                        model.weekday = localDateStr
-                        model.selected = formatDate(date: Date()).components(separatedBy: ":").first == exactDate
+                        var model = DatePickModel(exactDate: exactDate,
+                                                  weekday: localDateStr,
+                                                  selected: formatDate(date: Date()).components(separatedBy: ":").first == exactDate)
                         dateList.append(model)
                     }
                 }

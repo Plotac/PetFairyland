@@ -19,17 +19,29 @@ public extension UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    func resetNavigationBarAppearance(color: UIColor? = nil) {
+    func resetNavigationBarAppearance(color: UIColor? = nil, gradientColors: (startColor: UIColor, endColor: UIColor)? = nil, resetCurrentNav: Bool = false) {
         
         let appearance = UINavigationBarAppearance()
         if let color = color {
             appearance.backgroundColor = color
+            appearance.backgroundImage = nil
+            appearance.shadowImage = nil
         } else {
-            appearance.backgroundImage = UIImage(gradientColors: (SystemColor.nav.startColor, SystemColor.nav.endColor), size: CGSize(width: Screen.width, height: kTopHeight))
+            var gColors = (SystemColor.nav.startColor, SystemColor.nav.endColor)
+            if let gradientColors = gradientColors {
+                gColors = gradientColors
+            }
+            appearance.backgroundImage = UIImage(gradientColors: gColors, size: CGSize(width: Screen.width, height: kTopHeight))
+            appearance.shadowImage = UIImage(color: SystemColor.nav.endColor)
         }
-        appearance.shadowImage = UIImage(color: SystemColor.nav.endColor)
         appearance.titleTextAttributes = [.foregroundColor: UIColor.black, .font: UIFont.boldSystemFont(ofSize: 18)]
-        UINavigationBar.appearance().standardAppearance = appearance
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        
+        if resetCurrentNav {
+            navigationController?.navigationBar.standardAppearance = appearance
+            navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        } else {
+            UINavigationBar.appearance().standardAppearance = appearance
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        }
     }
 }

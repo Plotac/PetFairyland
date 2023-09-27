@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DatePickModel: NSObject {
+struct DatePickModel {
     
     var exactDate: String = ""
     

@@ -39,7 +39,7 @@ public final class PFAccount: NSObject {
 public extension PFAccount {
     
     static func login(with request: LoginRequest, completion: PFAccountCompletion?) {
-        let login = LoginNavigationController(rootViewController: LoginViewController())
+        let login = PFNavigationController(rootViewController: LoginViewController())
         login.modalPresentationStyle = .fullScreen
         getRootTabBarCtrlSubViewController()?.present(login, animated: true)
     }

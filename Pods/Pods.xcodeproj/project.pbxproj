@@ -83,7 +83,6 @@
 		29FF13E23FD52E46D30530549410AD7C /* ImageTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A266D60AB72AE0A297F6E35A45C3D914 /* ImageTransition.swift */; };
 		2A10433962A8BF78DF33FF24F7D40672 /* IQKeyboardReturnKeyHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB16601102BC8CCAB05180944B6CFCB /* IQKeyboardReturnKeyHandler.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		2BE89C24BFD3FB663E37C607C289B3B6 /* RedirectHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67177CAAA0CB9C1579D2E47F0C999D07 /* RedirectHandler.swift */; };
-		2C6B53233970C1C0AF0784CEDCEB0DED /* LoginNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578B0F2059C6F6A0EAD19718EE07FAFF /* LoginNavigationController.swift */; };
 		2D4465CB0F97E77AA93325E4B7366EC5 /* JXSegmentedDotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF0A6730B822CD7A8C992534289667D /* JXSegmentedDotCell.swift */; };
 		2DBA3EBF9138795BF487751527499F20 /* DateFormatterTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746DEEE37D44214DAAB2E99A879D7DFE /* DateFormatterTransform.swift */; };
 		2DDD70DC13B9EA22E094CD266F435E06 /* SnapKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BA24B1EE4BDB99CE41A855A5DE36BD25 /* SnapKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -781,7 +780,6 @@
 		55F2CFE3782B2A22DFB27F4287645EE2 /* Filter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Filter.swift; path = Sources/Image/Filter.swift; sourceTree = "<group>"; };
 		565AC9FD3E2413651CD5A80B84D479D9 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
 		5671443873AE91C341E6C4A7DA47A747 /* String+MD5.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+MD5.swift"; path = "Sources/Utility/String+MD5.swift"; sourceTree = "<group>"; };
-		578B0F2059C6F6A0EAD19718EE07FAFF /* LoginNavigationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginNavigationController.swift; sourceTree = "<group>"; };
 		57BB9847254D1E4D2F6CC6A7285A199A /* ImageDownloader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageDownloader.swift; path = Sources/Networking/ImageDownloader.swift; sourceTree = "<group>"; };
 		57C4218C28341859C36ABEDEF23631F9 /* UIViewController+Navigation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIViewController+Navigation.swift"; sourceTree = "<group>"; };
 		58428CA9AFBCB3979329FB5E4546CDB7 /* MJRefresh.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MJRefresh.modulemap; sourceTree = "<group>"; };
@@ -1613,14 +1611,6 @@
 			path = Array;
 			sourceTree = "<group>";
 		};
-		54C462C7DD5DE7A49273DA3B2FEBA8BE /* Navigation */ = {
-			isa = PBXGroup;
-			children = (
-				578B0F2059C6F6A0EAD19718EE07FAFF /* LoginNavigationController.swift */,
-			);
-			path = Navigation;
-			sourceTree = "<group>";
-		};
 		569A5EFE09D1D9D1FCC3CAE9E3B69941 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1787,7 +1777,6 @@
 				D6F29AA3BC57ACA348A987D196FC2298 /* LoginViewController.swift */,
 				102F5C50E044885DDBB0014A03FE0CC1 /* SMSVerifyViewController.swift */,
 				EC60A786E11BDC8AADAC6944D705A52C /* Model */,
-				54C462C7DD5DE7A49273DA3B2FEBA8BE /* Navigation */,
 				606E1052D0C478ADE613C10190EA7693 /* View */,
 				A0A76D9952CEB4716402437CBBB87736 /* ViewModel */,
 			);
@@ -3347,7 +3336,6 @@
 				BF818A86713837DD230DBB574895294B /* LoginChannel.swift in Sources */,
 				F6F2725D41762F23CB25F68A52756B16 /* LoginChannelCell.swift in Sources */,
 				C7D066CDF0D18BB2A4306F934B6214FF /* LoginCode.swift in Sources */,
-				2C6B53233970C1C0AF0784CEDCEB0DED /* LoginNavigationController.swift in Sources */,
 				08A249506139DCFE3FEC086BC63E97BA /* LoginViewController.swift in Sources */,
 				E072F6542A73793B780F8909FE55EBB0 /* LoginViewModel.swift in Sources */,
 				C84CCA552A8370CF7923DE24EEC430F4 /* PFAccount.swift in Sources */,
