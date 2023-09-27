@@ -83,6 +83,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		09792D372AC41C2100292721 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				09C9791A2A78F2CC00AB20DF /* StaffManagement */,
+				09C979192A78F0A300AB20DF /* StoreManagement */,
+				09C588A02A72150C00D41D3C /* Appointment */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
 		09C584D32A6F605B00D41D3C = {
 			isa = PBXGroup;
 			children = (
@@ -128,9 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				092A6B1C2ABC4F2200742302 /* Mine */,
-				09C9791A2A78F2CC00AB20DF /* StaffManagement */,
-				09C979192A78F0A300AB20DF /* StoreManagement */,
-				09C588A02A72150C00D41D3C /* Appointment */,
 				09C584F62A6F624F00D41D3C /* Home */,
 			);
 			path = App;
@@ -140,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				09C584F72A6F626600D41D3C /* HomeViewController.swift */,
+				09792D372AC41C2100292721 /* Features */,
 				09C5850C2A6F74FB00D41D3C /* ViewModel */,
 				09C5850F2A6F76EE00D41D3C /* View */,
 				09C585152A6F780500D41D3C /* Model */,
