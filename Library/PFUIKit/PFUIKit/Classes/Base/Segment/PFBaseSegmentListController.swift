@@ -9,13 +9,9 @@ import UIKit
 import JXPagingView
 
 open class PFBaseSegmentListController: PFBaseViewController, JXPagingViewListViewDelegate {
-    open func listView() -> UIView {
-        self.view
-    }
+    open func listView() -> UIView { self.view }
     
-    open func listScrollView() -> UIScrollView {
-        UIScrollView()
-    }
+    open func listScrollView() -> UIScrollView { UIScrollView() }
     
     open func listViewDidScrollCallback(callback: @escaping (UIScrollView) -> ()) {}
 }

@@ -11,53 +11,24 @@ class ProductManageListViewModel: NSObject {
     
     var manageTableView: UITableView!
     
-    var productModels: [ProductManageModel] = []
+    var models: [ProductManageModel] = []
     
-    var onlineModels: [ProductManageModel] {
-        productModels.filter { $0.status == .online }
-    }
-    
-    var offlineModels: [ProductManageModel] {
-        productModels.filter { $0.status == .offline }
-    }
-    
-    var currentSelectedStatus: ProductManageModel.Status = .online
-    
-    override init() {
+    required init(models: [ProductManageModel]) {
         super.init()
+        self.models = models
         buildUI()
-        productModels = generateTestModels()
-    }
-    
-    func generateTestModels() -> [ProductManageModel] {
-        var models: [ProductManageModel] = []
-        
-        let productNames = ["猫咪洗护套餐", "猫咪绝育套餐", "猫咪疫苗三联", "狗狗洗护套餐", "狗狗洁牙套餐", "猫咪洗澡服务", "猫咪体检"]
-        productNames.forEach { name in
-            let model = ProductManageModel()
-            model.name = name
-            model.price = min(100, CGFloat(arc4random() % 500))
-            model.membershipPrice = min(80, CGFloat(arc4random() % 500))
-            model.serviceTime = 0.5
-            model.salesVolume = Int(arc4random() % 1000)
-            model.status = ProductManageModel.Status.init(rawValue: Int(arc4random() % 2)) ?? .online
-            models.append(model)
-        }
-        
-        return models
-    }
-    
-    func reloadTabData(status: ProductManageModel.Status) {
-        currentSelectedStatus = status
-        manageTableView.reloadData()
     }
 }
 
+extension ProductManageListViewModel: ProductManageCellDelegate {
+    func execute(operation: ProductManageCell.Operation, model: ProductManageModel) {
+        print("\(model.name)-------\(operation.rawValue)")
+    }
+}
+ 
 extension ProductManageListViewModel: UITableViewDataSource, UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentSelectedStatus == .online ? onlineModels.count : offlineModels.count
-    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { models.count }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ProductManageCell.reuseIdentity(), for: indexPath) as? ProductManageCell ?? ProductManageCell()
@@ -65,7 +36,8 @@ extension ProductManageListViewModel: UITableViewDataSource, UITableViewDelegate
         cell.backgroundColor = .white
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
-        cell.model = currentSelectedStatus == .online ? onlineModels[indexPath.row] : offlineModels[indexPath.row]
+        cell.delegate = self
+        cell.model = models[indexPath.row]
         return cell
     }
 

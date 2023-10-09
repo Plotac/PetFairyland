@@ -14,10 +14,11 @@
 		092A6B252ABD76BB00742302 /* HomeOperatingDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092A6B242ABD76BB00742302 /* HomeOperatingDataCell.swift */; };
 		092A6B272ABD851000742302 /* HomeTaskRemindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092A6B262ABD851000742302 /* HomeTaskRemindView.swift */; };
 		09C0065B2AD3A2E300C73B48 /* ProductManageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C0065A2AD3A2E300C73B48 /* ProductManageController.swift */; };
-		09C006602AD3A76400C73B48 /* ProductManageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C0065F2AD3A76400C73B48 /* ProductManageListViewModel.swift */; };
+		09C006602AD3A76400C73B48 /* ProductManageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C0065F2AD3A76400C73B48 /* ProductManageViewModel.swift */; };
 		09C006622AD3A83200C73B48 /* ProductManageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C006612AD3A83200C73B48 /* ProductManageModel.swift */; };
 		09C006642AD3A8D700C73B48 /* ProductManageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C006632AD3A8D700C73B48 /* ProductManageCell.swift */; };
 		09C0066C2AD3F1A000C73B48 /* ProductManageListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C0066B2AD3F1A000C73B48 /* ProductManageListController.swift */; };
+		09C0066E2AD4064C00C73B48 /* ProductManageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C0066D2AD4064C00C73B48 /* ProductManageListViewModel.swift */; };
 		09C584E02A6F605B00D41D3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C584DF2A6F605B00D41D3C /* AppDelegate.swift */; };
 		09C584E72A6F605B00D41D3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09C584E52A6F605B00D41D3C /* Main.storyboard */; };
 		09C584E92A6F605C00D41D3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09C584E82A6F605C00D41D3C /* Assets.xcassets */; };
@@ -42,10 +43,11 @@
 		092A6B242ABD76BB00742302 /* HomeOperatingDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOperatingDataCell.swift; sourceTree = "<group>"; };
 		092A6B262ABD851000742302 /* HomeTaskRemindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTaskRemindView.swift; sourceTree = "<group>"; };
 		09C0065A2AD3A2E300C73B48 /* ProductManageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManageController.swift; sourceTree = "<group>"; };
-		09C0065F2AD3A76400C73B48 /* ProductManageListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManageListViewModel.swift; sourceTree = "<group>"; };
+		09C0065F2AD3A76400C73B48 /* ProductManageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManageViewModel.swift; sourceTree = "<group>"; };
 		09C006612AD3A83200C73B48 /* ProductManageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManageModel.swift; sourceTree = "<group>"; };
 		09C006632AD3A8D700C73B48 /* ProductManageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManageCell.swift; sourceTree = "<group>"; };
 		09C0066B2AD3F1A000C73B48 /* ProductManageListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManageListController.swift; sourceTree = "<group>"; };
+		09C0066D2AD4064C00C73B48 /* ProductManageListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManageListViewModel.swift; sourceTree = "<group>"; };
 		09C584DC2A6F605B00D41D3C /* PetFairyland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetFairyland.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C584DF2A6F605B00D41D3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09C584E62A6F605B00D41D3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -135,7 +137,8 @@
 		09C0065E2AD3A6F200C73B48 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				09C0065F2AD3A76400C73B48 /* ProductManageListViewModel.swift */,
+				09C0065F2AD3A76400C73B48 /* ProductManageViewModel.swift */,
+				09C0066D2AD4064C00C73B48 /* ProductManageListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				09C585172A6F781000D41D3C /* HomeModel.swift in Sources */,
 				092A6B252ABD76BB00742302 /* HomeOperatingDataCell.swift in Sources */,
 				092A6B232ABD734700742302 /* HomeOperatingDataView.swift in Sources */,
+				09C0066E2AD4064C00C73B48 /* ProductManageListViewModel.swift in Sources */,
 				092A6B122ABC222500742302 /* HomeFunctionalZoneCell.swift in Sources */,
 				09C5850E2A6F750B00D41D3C /* HomeViewModel.swift in Sources */,
 				09C0066C2AD3F1A000C73B48 /* ProductManageListController.swift in Sources */,
@@ -428,7 +432,7 @@
 				092A6B272ABD851000742302 /* HomeTaskRemindView.swift in Sources */,
 				09C006642AD3A8D700C73B48 /* ProductManageCell.swift in Sources */,
 				09C584E02A6F605B00D41D3C /* AppDelegate.swift in Sources */,
-				09C006602AD3A76400C73B48 /* ProductManageListViewModel.swift in Sources */,
+				09C006602AD3A76400C73B48 /* ProductManageViewModel.swift in Sources */,
 				09C979222A79014F00AB20DF /* StoreManageController.swift in Sources */,
 				09C588A52A72156300D41D3C /* AppointmentListViewModel.swift in Sources */,
 				092A6B1E2ABC4F3800742302 /* MineViewController.swift in Sources */,

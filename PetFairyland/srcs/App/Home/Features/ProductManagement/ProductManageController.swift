@@ -11,6 +11,16 @@ import JXPagingView
 
 class ProductManageController: PFBaseSegmentController {
     
+    var viewModel = ProductManageViewModel()
+    
+    private lazy var onlineController: ProductManageListController = {
+        return ProductManageListController(models: viewModel.onlineModels)
+    }()
+    
+    private lazy var offlineController: ProductManageListController = {
+        return ProductManageListController(models: viewModel.offlineModels)
+    }()
+    
     override init() {
         super.init()
         dataSource = self
@@ -38,9 +48,9 @@ extension ProductManageController {
 extension ProductManageController: PFBaseSegmentDataSource {
     func segmentPagingController(at index: Int) -> JXPagingViewListViewDelegate {
         if index == 0 {
-            return ProductManageListController(status: .online)
+            return onlineController
         }
-        return ProductManageListController(status: .offline)
+        return offlineController
     }
     
     func segmentTitles() -> [String] {

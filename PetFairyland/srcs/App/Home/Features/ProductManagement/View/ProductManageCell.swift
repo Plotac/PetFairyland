@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol ProductManageCellDelegate: NSObjectProtocol {
+    func execute(operation: ProductManageCell.Operation, model: ProductManageModel)
+}
+
 class ProductManageCell: PFBaseTableViewCell {
     
     var model: ProductManageModel? {
@@ -14,7 +18,7 @@ class ProductManageCell: PFBaseTableViewCell {
             if let model = model {
                 titleLab.text = model.name
                 priceLab.text = "¥\(model.price)"
-                membershipPriceLab.text = "¥\(model.membershipPrice)"
+                membershipPriceLab.text = "¥\(model.membershipPrice)(\(model.membershipType == .price ? "会员价" : "会员折扣"))"
                 membershipPriceLab.isHidden = model.membershipPrice == 0
                 serverTimeValueLab.text = "\(model.serviceTime)"
                 salesVolumeValueLab.text = "\(model.salesVolume)"
@@ -22,6 +26,12 @@ class ProductManageCell: PFBaseTableViewCell {
                 addButtons(status: model.status)
             }
         }
+    }
+    
+    weak var delegate: ProductManageCellDelegate?
+    
+    enum Operation: String {
+    case preview, edit, offline, backOnline, delete
     }
     
     override var cellMargin: CGFloat { 12 }
@@ -86,6 +96,26 @@ class ProductManageCell: PFBaseTableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension ProductManageCell {
+    @objc
+    func operation(sender: UIButton) {
+        guard let model = model else { return }
+        
+        let title = sender.title(for: .normal)
+        if title == "用户端预览" {
+            delegate?.execute(operation: .preview, model: model)
+        } else if title == "编辑" {
+            delegate?.execute(operation: .edit, model: model)
+        } else if title == "下线" {
+            delegate?.execute(operation: .offline, model: model)
+        } else if title == "重新上线" {
+            delegate?.execute(operation: .backOnline, model: model)
+        } else if title == "删除" {
+            delegate?.execute(operation: .delete, model: model)
+        }
     }
 }
 
@@ -167,6 +197,7 @@ extension ProductManageCell {
             btn.setTitle(title, for: .normal)
             btn.setTitleColor(.black, for: .normal)
             btn.titleLabel?.font = .pingfang(style: .medium, size: 14)
+            btn.addTarget(self, action: #selector(operation(sender:)), for: .touchUpInside)
             contentView.addSubview(btn)
             btn.snp.remakeConstraints { make in
                 make.left.equalToSuperview().offset(CGFloat(index) * (btnWidth + 1))

@@ -13,11 +13,17 @@ class ProductManageModel: NSObject {
     case online = 0, offline
     }
     
+    enum MembershipType: Int {
+    case price = 0, discount
+    }
+    
     var name: String = ""
     
     var price: CGFloat = 0
     
     var membershipPrice: CGFloat = 0
+    
+    var membershipType: ProductManageModel.MembershipType = .price
     
     var serviceTime: CGFloat = 0
     
