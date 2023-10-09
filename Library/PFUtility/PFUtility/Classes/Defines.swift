@@ -22,7 +22,7 @@ public struct Nav {
 }
 
 public struct TabBar {
-    /// 导航栏高度
+    /// TabBar高度
     public static var height: CGFloat { 49 + kBottomSafeMargin }
 }
 

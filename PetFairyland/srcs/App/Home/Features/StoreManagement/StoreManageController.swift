@@ -1,5 +1,5 @@
 //
-//  StoreManagementController.swift
+//  StoreManageController.swift
 //  PetFairyland
 //
 //  Created by Ja on 2023/8/1.
@@ -8,7 +8,7 @@
 import Foundation
 import PFUIKit
 
-class StoreManagementController: PFBaseViewController {
+class StoreManageController: PFBaseViewController {
     
     enum FormType: PFFormType {
         case storeName
@@ -19,7 +19,7 @@ class StoreManagementController: PFBaseViewController {
         case storeLocation
         
         var typeDescription: String {
-            let prefix: String = "StoreManagementController.FormType."
+            let prefix: String = "StoreManageController.FormType."
             switch self {
             case .storeName:
                 return prefix + "storeName"
@@ -48,45 +48,45 @@ class StoreManagementController: PFBaseViewController {
     }
 }
 
-extension StoreManagementController {
+extension StoreManageController {
     
     func generateformModels() {
         let storeName = PFFormModel()
         storeName.isNecessary = true
         storeName.title = "店铺名称"
         storeName.placeholder = "请输入店铺名称"
-        storeName.type = StoreManagementController.FormType.storeName
+        storeName.type = StoreManageController.FormType.storeName
         
         let linkman = PFFormModel()
         linkman.isNecessary = true
         linkman.title = "联系人"
         linkman.placeholder = "请输入联系人名称"
-        linkman.type = StoreManagementController.FormType.linkman
+        linkman.type = StoreManageController.FormType.linkman
         
         let linkmanPhoneNumber = PFFormModel()
         linkmanPhoneNumber.isNecessary = true
         linkmanPhoneNumber.title = "联系人电话"
         linkmanPhoneNumber.placeholder = "请输入联系人电话"
-        linkmanPhoneNumber.type = StoreManagementController.FormType.linkmanPhoneNumber
+        linkmanPhoneNumber.type = StoreManageController.FormType.linkmanPhoneNumber
         
         let storePhoneNumer = PFFormModel()
         storePhoneNumer.title = "门店电话"
         storePhoneNumer.placeholder = "请输入门店电话"
-        storePhoneNumer.type = StoreManagementController.FormType.storePhoneNumer
+        storePhoneNumer.type = StoreManageController.FormType.storePhoneNumer
         
         let storeIntroduction = PFFormModel()
         storeIntroduction.rightViewMode = .textView
         storeIntroduction.rowHeight = 100
         storeIntroduction.title = "门店介绍"
         storeIntroduction.placeholder = "请输入门店介绍"
-        storeIntroduction.type = StoreManagementController.FormType.storeIntroduction
+        storeIntroduction.type = StoreManageController.FormType.storeIntroduction
         
         let storeLocation = PFFormModel()
         storeLocation.rightViewMode = .textView
         storeLocation.rowHeight = 80
         storeLocation.title = "门店位置"
         storeLocation.placeholder = "请输入门店位置"
-        storeLocation.type = StoreManagementController.FormType.storeLocation
+        storeLocation.type = StoreManageController.FormType.storeLocation
         
         formModels = [storeName, linkman, linkmanPhoneNumber, storePhoneNumer, storeIntroduction, storeLocation]
     }

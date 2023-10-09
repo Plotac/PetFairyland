@@ -11,21 +11,9 @@ protocol HomeFunctionalZoneCellDelegate: NSObjectProtocol {
     func didSelect(item: HomeFunctionItem)
 }
 
-class HomeFunctionalZoneCell: UITableViewCell {
+class HomeFunctionalZoneCell: PFBaseTableViewCell {
     
-    let cellMargin: CGFloat = 12
-    
-    override var frame: CGRect {
-        get {
-            return super.frame
-        }
-        set {
-            var frame = newValue
-            frame.origin.x += cellMargin
-            frame.size.width -= 2 * cellMargin
-            super.frame = frame
-        }
-    }
+    override var cellMargin: CGFloat { 12 }
     
     var zone: HomeFunctionZone? {
         didSet {

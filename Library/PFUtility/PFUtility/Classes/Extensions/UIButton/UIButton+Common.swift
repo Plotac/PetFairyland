@@ -37,8 +37,8 @@ public extension UIButton {
         let imageWith: CGFloat = imgView.intrinsicContentSize.width
         let imageHeight: CGFloat = imgView.intrinsicContentSize.height
         
-        var labelWidth: CGFloat = titleLab.intrinsicContentSize.width
-        var labelHeight: CGFloat = titleLab.intrinsicContentSize.height
+        let labelWidth: CGFloat = titleLab.intrinsicContentSize.width
+        let labelHeight: CGFloat = titleLab.intrinsicContentSize.height
         
         var imageEdgeInsets: UIEdgeInsets = UIEdgeInsets()
         var labelEdgeInsets: UIEdgeInsets = UIEdgeInsets()

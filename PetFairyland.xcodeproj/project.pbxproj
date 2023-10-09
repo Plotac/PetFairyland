@@ -13,6 +13,11 @@
 		092A6B232ABD734700742302 /* HomeOperatingDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092A6B222ABD734700742302 /* HomeOperatingDataView.swift */; };
 		092A6B252ABD76BB00742302 /* HomeOperatingDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092A6B242ABD76BB00742302 /* HomeOperatingDataCell.swift */; };
 		092A6B272ABD851000742302 /* HomeTaskRemindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092A6B262ABD851000742302 /* HomeTaskRemindView.swift */; };
+		09C0065B2AD3A2E300C73B48 /* ProductManageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C0065A2AD3A2E300C73B48 /* ProductManageController.swift */; };
+		09C006602AD3A76400C73B48 /* ProductManageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C0065F2AD3A76400C73B48 /* ProductManageListViewModel.swift */; };
+		09C006622AD3A83200C73B48 /* ProductManageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C006612AD3A83200C73B48 /* ProductManageModel.swift */; };
+		09C006642AD3A8D700C73B48 /* ProductManageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C006632AD3A8D700C73B48 /* ProductManageCell.swift */; };
+		09C0066C2AD3F1A000C73B48 /* ProductManageListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C0066B2AD3F1A000C73B48 /* ProductManageListController.swift */; };
 		09C584E02A6F605B00D41D3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C584DF2A6F605B00D41D3C /* AppDelegate.swift */; };
 		09C584E72A6F605B00D41D3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09C584E52A6F605B00D41D3C /* Main.storyboard */; };
 		09C584E92A6F605C00D41D3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09C584E82A6F605C00D41D3C /* Assets.xcassets */; };
@@ -24,7 +29,7 @@
 		09C588A22A72152C00D41D3C /* AppointmentListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C588A12A72152C00D41D3C /* AppointmentListController.swift */; };
 		09C588A52A72156300D41D3C /* AppointmentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C588A42A72156300D41D3C /* AppointmentListViewModel.swift */; };
 		09C6127A2AC127F0008D0803 /* AppointmentListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C612792AC127F0008D0803 /* AppointmentListModel.swift */; };
-		09C979222A79014F00AB20DF /* StoreManagementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C979212A79014F00AB20DF /* StoreManagementController.swift */; };
+		09C979222A79014F00AB20DF /* StoreManageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C979212A79014F00AB20DF /* StoreManageController.swift */; };
 		9D66A517BF6E3A125B2E565F /* Pods_PetFairyland.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C9EA8381102C5CB194DEE7 /* Pods_PetFairyland.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +41,11 @@
 		092A6B222ABD734700742302 /* HomeOperatingDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOperatingDataView.swift; sourceTree = "<group>"; };
 		092A6B242ABD76BB00742302 /* HomeOperatingDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOperatingDataCell.swift; sourceTree = "<group>"; };
 		092A6B262ABD851000742302 /* HomeTaskRemindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTaskRemindView.swift; sourceTree = "<group>"; };
+		09C0065A2AD3A2E300C73B48 /* ProductManageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManageController.swift; sourceTree = "<group>"; };
+		09C0065F2AD3A76400C73B48 /* ProductManageListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManageListViewModel.swift; sourceTree = "<group>"; };
+		09C006612AD3A83200C73B48 /* ProductManageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManageModel.swift; sourceTree = "<group>"; };
+		09C006632AD3A8D700C73B48 /* ProductManageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManageCell.swift; sourceTree = "<group>"; };
+		09C0066B2AD3F1A000C73B48 /* ProductManageListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManageListController.swift; sourceTree = "<group>"; };
 		09C584DC2A6F605B00D41D3C /* PetFairyland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetFairyland.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C584DF2A6F605B00D41D3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09C584E62A6F605B00D41D3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -49,7 +59,7 @@
 		09C588A12A72152C00D41D3C /* AppointmentListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListController.swift; sourceTree = "<group>"; };
 		09C588A42A72156300D41D3C /* AppointmentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListViewModel.swift; sourceTree = "<group>"; };
 		09C612792AC127F0008D0803 /* AppointmentListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListModel.swift; sourceTree = "<group>"; };
-		09C979212A79014F00AB20DF /* StoreManagementController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManagementController.swift; sourceTree = "<group>"; };
+		09C979212A79014F00AB20DF /* StoreManageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManageController.swift; sourceTree = "<group>"; };
 		48AF1A4E2B2DEC6F26A2CE92 /* Pods-PetFairyland.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetFairyland.debug.xcconfig"; path = "Target Support Files/Pods-PetFairyland/Pods-PetFairyland.debug.xcconfig"; sourceTree = "<group>"; };
 		51C9EA8381102C5CB194DEE7 /* Pods_PetFairyland.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetFairyland.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91D8C0AD1854FB4618D3B25E /* Pods-PetFairyland.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetFairyland.release.xcconfig"; path = "Target Support Files/Pods-PetFairyland/Pods-PetFairyland.release.xcconfig"; sourceTree = "<group>"; };
@@ -86,11 +96,48 @@
 		09792D372AC41C2100292721 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				09C006592AD3A2C900C73B48 /* ProductManagement */,
 				09C9791A2A78F2CC00AB20DF /* StaffManagement */,
 				09C979192A78F0A300AB20DF /* StoreManagement */,
 				09C588A02A72150C00D41D3C /* Appointment */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		09C006592AD3A2C900C73B48 /* ProductManagement */ = {
+			isa = PBXGroup;
+			children = (
+				09C0065A2AD3A2E300C73B48 /* ProductManageController.swift */,
+				09C0066B2AD3F1A000C73B48 /* ProductManageListController.swift */,
+				09C0065E2AD3A6F200C73B48 /* ViewModel */,
+				09C0065D2AD3A6DE00C73B48 /* Model */,
+				09C0065C2AD3A6D800C73B48 /* View */,
+			);
+			path = ProductManagement;
+			sourceTree = "<group>";
+		};
+		09C0065C2AD3A6D800C73B48 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				09C006632AD3A8D700C73B48 /* ProductManageCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		09C0065D2AD3A6DE00C73B48 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				09C006612AD3A83200C73B48 /* ProductManageModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		09C0065E2AD3A6F200C73B48 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				09C0065F2AD3A76400C73B48 /* ProductManageListViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		09C584D32A6F605B00D41D3C = {
@@ -220,7 +267,7 @@
 		09C979192A78F0A300AB20DF /* StoreManagement */ = {
 			isa = PBXGroup;
 			children = (
-				09C979212A79014F00AB20DF /* StoreManagementController.swift */,
+				09C979212A79014F00AB20DF /* StoreManageController.swift */,
 			);
 			path = StoreManagement;
 			sourceTree = "<group>";
@@ -371,13 +418,18 @@
 				092A6B232ABD734700742302 /* HomeOperatingDataView.swift in Sources */,
 				092A6B122ABC222500742302 /* HomeFunctionalZoneCell.swift in Sources */,
 				09C5850E2A6F750B00D41D3C /* HomeViewModel.swift in Sources */,
+				09C0066C2AD3F1A000C73B48 /* ProductManageListController.swift in Sources */,
 				09C584F82A6F626600D41D3C /* HomeViewController.swift in Sources */,
 				09C588A22A72152C00D41D3C /* AppointmentListController.swift in Sources */,
 				09C6127A2AC127F0008D0803 /* AppointmentListModel.swift in Sources */,
 				09C585112A6F770200D41D3C /* HomeFunctionCell.swift in Sources */,
+				09C006622AD3A83200C73B48 /* ProductManageModel.swift in Sources */,
+				09C0065B2AD3A2E300C73B48 /* ProductManageController.swift in Sources */,
 				092A6B272ABD851000742302 /* HomeTaskRemindView.swift in Sources */,
+				09C006642AD3A8D700C73B48 /* ProductManageCell.swift in Sources */,
 				09C584E02A6F605B00D41D3C /* AppDelegate.swift in Sources */,
-				09C979222A79014F00AB20DF /* StoreManagementController.swift in Sources */,
+				09C006602AD3A76400C73B48 /* ProductManageListViewModel.swift in Sources */,
+				09C979222A79014F00AB20DF /* StoreManageController.swift in Sources */,
 				09C588A52A72156300D41D3C /* AppointmentListViewModel.swift in Sources */,
 				092A6B1E2ABC4F3800742302 /* MineViewController.swift in Sources */,
 			);

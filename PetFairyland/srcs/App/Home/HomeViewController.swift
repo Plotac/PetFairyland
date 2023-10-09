@@ -48,8 +48,10 @@ extension HomeViewController: HomeViewModelDelegate {
         switch item.type {
         case .appointment:
             navigationController?.pushViewController(AppointmentListController(), animated: true)
+        case .productManagement:
+            navigationController?.pushViewController(ProductManageController(), animated: true)
         case .storeManagement:
-            navigationController?.pushViewController(StoreManagementController(), animated: true)
+            navigationController?.pushViewController(StoreManageController(), animated: true)
         default:
             break
         }
