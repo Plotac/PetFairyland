@@ -41,16 +41,13 @@ class ProductManageController: PFBaseSegmentController {
 extension ProductManageController {
     @objc
     func addNewProduct() {
-        
+        navigationController?.pushViewController(ProductProcessController(type: .add), animated: true)
     }
 }
 
 extension ProductManageController: PFBaseSegmentDataSource {
-    func segmentPagingController(at index: Int) -> JXPagingViewListViewDelegate {
-        if index == 0 {
-            return onlineController
-        }
-        return offlineController
+    func segmentPagingControllers() -> [PFBaseViewController & JXPagingViewListViewDelegate] {
+        return [onlineController, offlineController]
     }
     
     func segmentTitles() -> [String] {

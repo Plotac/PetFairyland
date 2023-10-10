@@ -11,7 +11,7 @@ import JXSegmentedView
 
 public protocol PFBaseSegmentDataSource: NSObjectProtocol {
     func segmentTitles() -> [String]
-    func segmentPagingController(at index: Int) -> JXPagingViewListViewDelegate
+    func segmentPagingControllers() -> [JXPagingViewListViewDelegate & PFBaseViewController]
 }
 
 extension JXPagingListContainerView: JXSegmentedViewListContainer {}
@@ -47,8 +47,8 @@ open class PFBaseSegmentController: PFBaseViewController, JXSegmentedViewDelegat
 
 extension PFBaseSegmentController: JXPagingViewDelegate {
     public func pagingView(_ pagingView: JXPagingView, initListAtIndex index: Int) -> JXPagingViewListViewDelegate {
-        assert(dataSource?.segmentPagingController(at: index) != nil)
-        return dataSource?.segmentPagingController(at: index) ?? PFBaseSegmentListController()
+        assert(dataSource?.segmentPagingControllers().isEmpty == false)
+        return dataSource?.segmentPagingControllers()[index] ?? PFBaseSegmentListController()
     }
     
     public func tableHeaderViewHeight(in pagingView: JXPagingView) -> Int { 0 }

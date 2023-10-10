@@ -8,12 +8,12 @@
 import UIKit
 
 public protocol PFFilterDelegate: NSObjectProtocol {
-    func filterMainButtonTouched(_ filter: PFFilter)
+    func filterTouched(_ filter: PFFilter)
     func filter(_ filter: PFFilter, didSelected option: PFFilterOption)
 }
 
 extension PFFilterDelegate {
-    func filterMainButtonTouched(_ filter: PFFilter) {}
+    func filterTouched(_ filter: PFFilter) {}
     func filter(_ filter: PFFilter, didSelected option: PFFilterOption) {}
 }
 
@@ -86,7 +86,7 @@ extension PFFilter {
         
         processTableViewDisplay(show: sender.isSelected)
         
-        delegate?.filterMainButtonTouched(self)
+        delegate?.filterTouched(self)
     }
     
     @objc

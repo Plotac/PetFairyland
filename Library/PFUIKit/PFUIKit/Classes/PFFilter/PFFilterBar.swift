@@ -89,7 +89,7 @@ extension PFFilterBar: PFFilterDelegate {
         delegate?.filterBar(self, didSelected: filter, selectedOption: option)
     }
     
-    public func filterMainButtonTouched(_ filter: PFFilter) {
+    public func filterTouched(_ filter: PFFilter) {
         filters.forEach { f in
             if f != filter {
                 f.processTableViewDisplay(show: false)

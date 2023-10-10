@@ -15,6 +15,12 @@ extension PFFormType {
     var typeDescription: String { "unknown" }
 }
 
+public class PFFormSectionModel: NSObject {
+    public var title: String = ""
+    
+    public var models: [PFFormModel]?
+}
+
 public class PFFormModel: NSObject {
     
     public enum RightViewMode {
