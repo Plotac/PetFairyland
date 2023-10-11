@@ -15,6 +15,8 @@ class ProductProcessController: PFBaseViewController {
     
     var type: ProcessType = .add
     
+    var viewModel: ProductProcessViewModel = ProductProcessViewModel()
+    
     required init(type: ProcessType) {
         super.init(nibName: nil, bundle: nil)
         self.type = type
@@ -33,5 +35,10 @@ class ProductProcessController: PFBaseViewController {
 extension ProductProcessController {
     func setupUI() {
         title = type == .add ? "新增商品" : "编辑商品"
+        
+        view.addSubview(viewModel.formView)
+        viewModel.formView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
 }

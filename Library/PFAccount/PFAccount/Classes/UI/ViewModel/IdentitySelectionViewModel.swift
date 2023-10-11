@@ -173,7 +173,9 @@ extension IdentitySelectionViewModel {
         chooseIdentityLab.textColor = UIColor(hexString: "#000000")
         chooseIdentityLab.font = UIFont.pingfang(style: .medium, size: 16)
         
-        let identities: [(String, UserInfo.IdentityType)] = [("我是店铺创始人", .originator), ("我是店员", .assistant), ("访客", .visitor)]
+        let identities: [(String, UserInfo.IdentityType)] = [("我是店铺创始人", .originator),
+                                                             ("我是店员", .assistant),
+                                                             ("访客", .visitor)]
         for (index, identity) in identities.enumerated() {
             
             let spaceBetweenTitleAndImage: CGFloat = 3

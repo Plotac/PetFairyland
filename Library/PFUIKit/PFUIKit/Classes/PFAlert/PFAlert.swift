@@ -303,6 +303,8 @@ private extension PFAlert {
         messageTextView.isEditable = false
         messageTextView.textContainerInset = .zero
         messageTextView.textAlignment = messageAlignment
+        messageTextView.showsVerticalScrollIndicator = false
+        messageTextView.showsHorizontalScrollIndicator = false
         bgView.addSubview(messageTextView)
 
         var height: CGFloat = 0
