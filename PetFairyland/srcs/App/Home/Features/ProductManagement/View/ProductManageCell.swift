@@ -89,38 +89,7 @@ class ProductManageCell: PFBaseTableViewCell {
         return view
     }()
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupUI()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-extension ProductManageCell {
-    @objc
-    func operation(sender: UIButton) {
-        guard let model = model else { return }
-        
-        let title = sender.title(for: .normal)
-        if title == "用户端预览" {
-            delegate?.execute(operation: .preview, model: model)
-        } else if title == "编辑" {
-            delegate?.execute(operation: .edit, model: model)
-        } else if title == "下线" {
-            delegate?.execute(operation: .offline, model: model)
-        } else if title == "重新上线" {
-            delegate?.execute(operation: .backOnline, model: model)
-        } else if title == "删除" {
-            delegate?.execute(operation: .delete, model: model)
-        }
-    }
-}
-
-extension ProductManageCell {
-    func setupUI() {
+    override func setupUI() {
         contentView.addSubview(productImageView)
         productImageView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(15)
@@ -177,9 +146,31 @@ extension ProductManageCell {
             make.height.equalTo(1)
         }
     }
+}
+
+extension ProductManageCell {
+    @objc
+    func operation(sender: UIButton) {
+        guard let model = model else { return }
+        
+        let title = sender.title(for: .normal)
+        if title == "用户端预览" {
+            delegate?.execute(operation: .preview, model: model)
+        } else if title == "编辑" {
+            delegate?.execute(operation: .edit, model: model)
+        } else if title == "下线" {
+            delegate?.execute(operation: .offline, model: model)
+        } else if title == "重新上线" {
+            delegate?.execute(operation: .backOnline, model: model)
+        } else if title == "删除" {
+            delegate?.execute(operation: .delete, model: model)
+        }
+    }
+}
+
+extension ProductManageCell {
     
     func addButtons(status: ProductManageModel.Status) {
-        
         
         var titles = ["用户端预览", "编辑", "下线"]
         if status == .offline {

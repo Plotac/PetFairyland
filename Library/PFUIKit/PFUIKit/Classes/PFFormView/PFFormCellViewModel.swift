@@ -49,8 +49,8 @@ class PFFormCellViewModel: NSObject  {
         let tv = PFFormTextView()
         tv.delegate = self
         tv.textColor = .black
+        tv.tintColor = SystemColor.main
         tv.font = .pingfang(style: .regular, size: 14)
-        tv.textContainerInset = UIEdgeInsets(top: 15, left: 0, bottom: -15, right: -5)
         tv.textContainer.lineFragmentPadding = 0
         return tv
     }()

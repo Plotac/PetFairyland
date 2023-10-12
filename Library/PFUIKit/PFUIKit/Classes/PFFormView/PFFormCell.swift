@@ -7,13 +7,13 @@
 
 import UIKit
 
-open class PFFormCell: PFBaseTableViewCell {
+class PFFormCell: PFBaseTableViewCell {
     
     var viewModel: PFFormCellViewModel!
     
-    open override var cellMargin: CGFloat { 12 }
+    override var cellMargin: CGFloat { 12 }
     
-    open var model: PFFormModel? {
+    var model: PFFormModel? {
         didSet {
             if let model = model {
                 viewModel.update(with: model)
@@ -22,20 +22,9 @@ open class PFFormCell: PFBaseTableViewCell {
         }
     }
     
-    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        selectionStyle = .none
+    override func setupUI() {
+        
         viewModel = PFFormCellViewModel()
-        setupUI()
-    }
-    
-    public required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-private extension PFFormCell {
-    func setupUI() {
         
         contentView.addSubview(viewModel.titleLab)
         viewModel.titleLab.snp.makeConstraints { make in
@@ -66,7 +55,10 @@ private extension PFFormCell {
             make.size.equalTo(16)
         }
     }
-    
+}
+
+private extension PFFormCell {
+
     func addRightView(model: PFFormModel) {
         
         let classes = [PFFormTextField.self,
@@ -112,8 +104,8 @@ private extension PFFormCell {
             contentView.addSubview(viewModel.textField)
             viewModel.textField.snp.makeConstraints { make in
                 make.centerY.equalToSuperview()
-                make.left.equalToSuperview().offset(model.rightViewLeftOffset)
-                make.right.equalToSuperview().inset(15)
+                make.left.equalToSuperview().offset(model.rightViewConstraintsValue.leftInset)
+                make.right.equalToSuperview().inset(model.rightViewConstraintsValue.rightInset)
                 make.height.equalTo(model.rowHeight)
             }
         }
@@ -130,8 +122,8 @@ private extension PFFormCell {
             }
             viewModel.textView.snp.makeConstraints { make in
                 make.centerY.equalToSuperview()
-                make.left.equalToSuperview().offset(model.rightViewLeftOffset)
-                make.right.equalToSuperview().inset(15)
+                make.left.equalToSuperview().offset(model.rightViewConstraintsValue.leftInset)
+                make.right.equalToSuperview().inset(model.rightViewConstraintsValue.rightInset)
                 make.height.equalTo(model.rowHeight)
             }
         }

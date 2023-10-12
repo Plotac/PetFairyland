@@ -28,6 +28,8 @@ public class PFFormSectionModel: NSObject {
 
 public class PFFormModel: NSObject {
     
+    public var type: PFFormType!
+    
     public enum RightViewMode: Equatable {
         case unknown
         
@@ -84,11 +86,18 @@ public class PFFormModel: NSObject {
         }
     }
     
-    public var type: PFFormType!
-    
     public var rightViewMode: RightViewMode = .unknown
     
-    public var rightViewLeftOffset: CGFloat = 200
+    public struct RightViewConstraintsValue {
+        public var topInset: CGFloat = 0
+        public var leftInset: CGFloat = 200
+        public var rightInset: CGFloat = 15
+        public var bottomInset: CGFloat = 0
+        public var height: CGFloat = 0
+        public var width: CGFloat = 0
+    }
+    
+    public var rightViewConstraintsValue: RightViewConstraintsValue = RightViewConstraintsValue()
     
     public var rowHeight: CGFloat = 50.0
     

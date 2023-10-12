@@ -46,13 +46,19 @@ class HomeFunctionalZoneCell: PFBaseTableViewCell {
         return cv
     }()
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupUI()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    override func setupUI() {
+        contentView.addSubview(zoneTitleLab)
+        zoneTitleLab.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(15)
+            make.left.equalToSuperview().offset(12)
+        }
+        
+        contentView.addSubview(collectinView)
+        collectinView.snp.makeConstraints { make in
+            make.top.equalTo(zoneTitleLab.snp.bottom).offset(15)
+            make.left.right.equalToSuperview()
+            make.bottom.equalToSuperview().inset(15)
+        }
     }
 }
 
@@ -85,21 +91,4 @@ extension HomeFunctionalZoneCell: UICollectionViewDataSource, UICollectionViewDe
         return zone?.minimumInteritemSpacing ?? 0
     }
     
-}
-
-extension HomeFunctionalZoneCell {
-    func setupUI() {
-        contentView.addSubview(zoneTitleLab)
-        zoneTitleLab.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(15)
-            make.left.equalToSuperview().offset(12)
-        }
-        
-        contentView.addSubview(collectinView)
-        collectinView.snp.makeConstraints { make in
-            make.top.equalTo(zoneTitleLab.snp.bottom).offset(15)
-            make.left.right.equalToSuperview()
-            make.bottom.equalToSuperview().inset(15)
-        }
-    }
 }

@@ -29,11 +29,17 @@ extension PFSelectOptionsViewDelegate {
 public class PFSelectOptionsView: UIView {
     
     public enum SelectionStyle {
-    case single, multiple
+        // 单选
+        case single
+        // 多选
+        case multiple
     }
     
     public enum ContentAlignment {
-    case left, right
+        // 左对齐
+        case left
+        // 右对齐
+        case right
     }
     
     public weak var delegate: PFSelectOptionsViewDelegate?

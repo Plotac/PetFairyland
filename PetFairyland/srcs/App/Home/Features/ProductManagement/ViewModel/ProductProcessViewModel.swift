@@ -7,7 +7,13 @@
 
 import Foundation
 
+protocol ProductProcessViewModelDelegate: NSObjectProtocol {
+    func handleSelectEvent(type: ProductProcessViewModel.FormType)
+}
+
 class ProductProcessViewModel: NSObject {
+    
+    weak var delegate: ProductProcessViewModelDelegate?
         
     enum FormType: PFFormType {
         case productName
@@ -57,10 +63,52 @@ class ProductProcessViewModel: NSObject {
     
     var formView: PFFormView!
     
+    var pickerTitles: [String] = []
+    
     override init() {
         super.init()
         formSectionModels = generateSectionModels()
         buildUI()
+    }
+    
+}
+
+extension ProductProcessViewModel: PFFormViewDelegate {
+    func formView(_ formView: PFFormView, didSelectAt indexPath: IndexPath, formModel: PFFormModel) {
+        delegate?.handleSelectEvent(type: .memberBenefits)
+        
+        if formModel.rightViewMode == .picker(defaultText: nil) {
+            
+            if formModel.type.typeDescription == FormType.memberBenefits.typeDescription {
+                pickerTitles = ["统一会员价", "统一折扣"]
+            }
+            
+            let view = PFPickerView(title: "选择会员优惠", selectionStyle: .single) {
+                
+            } comformHandler: {
+                
+            }
+            view.delegate = self
+            view.show(animated: true)
+        }
+    }
+}
+
+extension ProductProcessViewModel: PFPickerViewDelegate, PFPickerCellDelegate {
+    func numberOfRows(inSection section: Int) -> Int { pickerTitles.count }
+    
+    func pickerView(_ pickerView: PFPickerView, cell: PFPickerCell, at indexPath: IndexPath) {
+        cell.delegate = self
+        cell.titleLab.text = pickerTitles[indexPath.row]
+    }
+    
+    func pickerView(_ pickerView: PFPickerView, didSelectRowAt indexPath: IndexPath, select cell: PFPickerCell) {
+        selected(cell: cell)
+    }
+    
+    func selected(cell: PFPickerCell) {
+        cell.titleLab.textColor = cell.isSelected ? UIColor(hexString: "#000000") : UIColor(hexString: "#999999")
+        cell.titleLab.font = .pingfang(style: cell.isSelected ? .semibold: .regular, size: 14)
     }
     
 }
@@ -131,5 +179,6 @@ extension ProductProcessViewModel {
     
     func buildUI() {
         formView = PFFormView(frame: .zero, sectionModels: formSectionModels)
+        formView.delegate = self
     }
 }

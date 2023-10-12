@@ -19,6 +19,7 @@ class ProductProcessController: PFBaseViewController {
     
     required init(type: ProcessType) {
         super.init(nibName: nil, bundle: nil)
+        viewModel.delegate = self
         self.type = type
     }
     
@@ -29,6 +30,12 @@ class ProductProcessController: PFBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    }
+}
+
+extension ProductProcessController: ProductProcessViewModelDelegate {
+    func handleSelectEvent(type: ProductProcessViewModel.FormType) {
+        
     }
 }
 

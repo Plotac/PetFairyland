@@ -30,4 +30,18 @@ open class PFBaseTableViewCell: UITableViewCell {
             super.frame = frame
         }
     }
+    
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        selectionStyle = .none
+        
+        setupUI()
+    }
+    
+    public required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    open func setupUI() {}
 }

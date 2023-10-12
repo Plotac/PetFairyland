@@ -7,7 +7,13 @@
 
 import UIKit
 
+public protocol PFFormViewDelegate: NSObjectProtocol {
+    func formView(_ formView: PFFormView, didSelectAt indexPath: IndexPath, formModel: PFFormModel)
+}
+
 open class PFFormView: UIView {
+    
+    public weak var delegate: PFFormViewDelegate?
     
     public internal(set) var tableView: UITableView!
     
@@ -34,6 +40,12 @@ extension PFFormView: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: PFFormCell.reuseIdentity(), for: indexPath) as? PFFormCell ?? PFFormCell()
         cell.model = sectionModels[indexPath.section].formModels?[indexPath.row]
         return cell
+    }
+    
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let model = sectionModels[indexPath.section].formModels?[indexPath.row] {
+            delegate?.formView(self, didSelectAt: indexPath, formModel: model)
+        }
     }
     
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
