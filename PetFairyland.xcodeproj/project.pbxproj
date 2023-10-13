@@ -21,6 +21,8 @@
 		09C0066E2AD4064C00C73B48 /* ProductManageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C0066D2AD4064C00C73B48 /* ProductManageListViewModel.swift */; };
 		09C006702AD5268B00C73B48 /* ProductProcessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C0066F2AD5268B00C73B48 /* ProductProcessController.swift */; };
 		09C006742AD5543400C73B48 /* ProductProcessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C006732AD5543400C73B48 /* ProductProcessViewModel.swift */; };
+		09C006852AD93D1900C73B48 /* ProductDiscountCouponCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C006842AD93D1900C73B48 /* ProductDiscountCouponCell.swift */; };
+		09C006892AD93E8000C73B48 /* DiscountCouponModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C006882AD93E8000C73B48 /* DiscountCouponModel.swift */; };
 		09C584E02A6F605B00D41D3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C584DF2A6F605B00D41D3C /* AppDelegate.swift */; };
 		09C584E72A6F605B00D41D3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09C584E52A6F605B00D41D3C /* Main.storyboard */; };
 		09C584E92A6F605C00D41D3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09C584E82A6F605C00D41D3C /* Assets.xcassets */; };
@@ -52,6 +54,8 @@
 		09C0066D2AD4064C00C73B48 /* ProductManageListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManageListViewModel.swift; sourceTree = "<group>"; };
 		09C0066F2AD5268B00C73B48 /* ProductProcessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductProcessController.swift; sourceTree = "<group>"; };
 		09C006732AD5543400C73B48 /* ProductProcessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductProcessViewModel.swift; sourceTree = "<group>"; };
+		09C006842AD93D1900C73B48 /* ProductDiscountCouponCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDiscountCouponCell.swift; sourceTree = "<group>"; };
+		09C006882AD93E8000C73B48 /* DiscountCouponModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCouponModel.swift; sourceTree = "<group>"; };
 		09C584DC2A6F605B00D41D3C /* PetFairyland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetFairyland.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C584DF2A6F605B00D41D3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09C584E62A6F605B00D41D3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 		09792D372AC41C2100292721 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				09C006862AD93E6E00C73B48 /* DiscountCoupon */,
 				09C006592AD3A2C900C73B48 /* ProductManagement */,
 				09C9791A2A78F2CC00AB20DF /* StaffManagement */,
 				09C979192A78F0A300AB20DF /* StoreManagement */,
@@ -127,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				09C006632AD3A8D700C73B48 /* ProductManageCell.swift */,
+				09C006842AD93D1900C73B48 /* ProductDiscountCouponCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -147,6 +153,22 @@
 				09C006732AD5543400C73B48 /* ProductProcessViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		09C006862AD93E6E00C73B48 /* DiscountCoupon */ = {
+			isa = PBXGroup;
+			children = (
+				09C006872AD93E7500C73B48 /* Model */,
+			);
+			path = DiscountCoupon;
+			sourceTree = "<group>";
+		};
+		09C006872AD93E7500C73B48 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				09C006882AD93E8000C73B48 /* DiscountCouponModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		09C584D32A6F605B00D41D3C = {
@@ -421,6 +443,7 @@
 				092A6B122ABC222500742302 /* HomeFunctionalZoneCell.swift in Sources */,
 				09C5850E2A6F750B00D41D3C /* HomeViewModel.swift in Sources */,
 				09C0066C2AD3F1A000C73B48 /* ProductManageListController.swift in Sources */,
+				09C006852AD93D1900C73B48 /* ProductDiscountCouponCell.swift in Sources */,
 				09C584F82A6F626600D41D3C /* HomeViewController.swift in Sources */,
 				09C588A22A72152C00D41D3C /* AppointmentListController.swift in Sources */,
 				09C6127A2AC127F0008D0803 /* AppointmentListModel.swift in Sources */,
@@ -433,6 +456,7 @@
 				09C006642AD3A8D700C73B48 /* ProductManageCell.swift in Sources */,
 				09C584E02A6F605B00D41D3C /* AppDelegate.swift in Sources */,
 				09C006602AD3A76400C73B48 /* ProductManageViewModel.swift in Sources */,
+				09C006892AD93E8000C73B48 /* DiscountCouponModel.swift in Sources */,
 				09C979222A79014F00AB20DF /* StoreManageController.swift in Sources */,
 				09C588A52A72156300D41D3C /* AppointmentListViewModel.swift in Sources */,
 				092A6B1E2ABC4F3800742302 /* MineViewController.swift in Sources */,

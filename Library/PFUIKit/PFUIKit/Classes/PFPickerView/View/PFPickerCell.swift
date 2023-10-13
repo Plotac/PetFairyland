@@ -15,20 +15,22 @@ open class PFPickerCell: PFBaseTableViewCell {
     
     public weak var delegate: PFPickerCellDelegate?
     
-    public lazy var titleLab: UILabel = {
+    internal var indexPath: IndexPath = IndexPath()
+    
+    open lazy var titleLab: UILabel = {
         let lab = UILabel()
         lab.textColor = UIColor(hexString: "#999999")
         lab.font = UIFont.pingfang(style: .regular, size: 14)
         return lab
     }()
     
-    public lazy var separatorLine: UIView = {
+    open lazy var separatorLine: UIView = {
         let view = UIView()
         view.backgroundColor = SystemColor.separator
         return view
     }()
     
-    public lazy var selectBtn: UIButton = {
+    open lazy var selectBtn: UIButton = {
         let btn = UIButton(type: .custom)
         btn.setImage(UIImage(named: "btn_unselect"), for: .normal)
         btn.setImage(UIImage(named: "btn_select"), for: .selected)
@@ -59,9 +61,6 @@ open class PFPickerCell: PFBaseTableViewCell {
     }
     
     @objc func select(sender: UIButton) {
-        sender.isSelected = !sender.isSelected
-        self.isSelected = sender.isSelected
-        
         delegate?.selected(cell: self)
     }
 }

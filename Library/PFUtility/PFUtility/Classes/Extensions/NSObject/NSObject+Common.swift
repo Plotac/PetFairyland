@@ -9,6 +9,6 @@ import Foundation
 
 public extension NSObject {
     class func reuseIdentity() -> String {
-        return NSStringFromClass(self.classForCoder()) + self.description() + "reuseIdentity"
+        return NSStringFromClass(self.classForCoder()) + self.description() + ".reuseIdentity"
     }
 }

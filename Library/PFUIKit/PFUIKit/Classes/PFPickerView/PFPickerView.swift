@@ -34,25 +34,35 @@ public class PFPickerView: UIView {
         case multiple
     }
     
-    public typealias PFPickerViewEventHandler = () -> Void
+    public typealias PFPickerViewCancelEventHandler = () -> Void
+    public typealias PFPickerViewConfirmEventHandler = (_ selectedIndexPaths: [IndexPath]) -> Void
     
     public weak var delegate: PFPickerViewDelegate? {
         didSet {
+            var tabHeight: CGFloat = 0
             if let delegate = delegate {
-                var totalHeight: CGFloat = 0
                 for section in 0..<(delegate.numberOfSections?() ?? 1) {
+                    var selectedSection: [Bool] = []
                     for row in 0..<delegate.numberOfRows(inSection: section) {
+                        // 计算tableview高度
                         let indexPath = IndexPath(row: row, section: section)
                         let height = delegate.pickerView?(self, heightForRowAt: indexPath) ?? Constants.defaultRowHeight
-                        totalHeight += height
+                        tabHeight += height
+                        
+                        selectedSection.append(false)
                     }
+                    selectedStatus.append(selectedSection)
                 }
-                whiteBgView.bounds.size.height = Constants.commonMargin +  Constants.titleHeight +  Constants.commonMargin + totalHeight
             }
+            whiteBgView.bounds.size.height = min(maxHeight, Constants.topHeight + tabHeight)
         }
     }
     
-    public private(set) var sectionModels: [PFPickerSectionModel]!
+    public var maxHeight: CGFloat = 450 {
+        didSet {
+            whiteBgView.bounds.size.height = min(maxHeight, whiteBgView.bounds.size.height)
+        }
+    }
     
     public private(set) var titleLab: UILabel!
     public private(set) var tableView: UITableView!
@@ -61,21 +71,23 @@ public class PFPickerView: UIView {
     
     var title: String?
     var selectionStyle: SelectionStyle = .single
-    var cancelHandler: PFPickerViewEventHandler?
-    var comformHandler: PFPickerViewEventHandler?
+    var cancelHandler: PFPickerViewCancelEventHandler?
+    var conformHandler: PFPickerViewConfirmEventHandler?
     
     var cellClass: PFPickerCell.Type?
     var identifier: String?
     
+    private var selectedStatus: [[Bool]] = []
+    
     public required init(title: String?,
                          selectionStyle: PFPickerView.SelectionStyle,
-                         cancelHandler: PFPickerViewEventHandler?,
-                         comformHandler: PFPickerViewEventHandler?) {
+                         cancelHandler: PFPickerViewCancelEventHandler?,
+                         conformHandler: PFPickerViewConfirmEventHandler?) {
         super.init(frame: UIScreen.main.bounds)
         self.title = title
         self.selectionStyle = selectionStyle
         self.cancelHandler = cancelHandler
-        self.comformHandler = comformHandler
+        self.conformHandler = conformHandler
         setupUI()
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapEvent))
@@ -95,29 +107,44 @@ public class PFPickerView: UIView {
     }
 }
 
-extension PFPickerView: UITableViewDataSource, UITableViewDelegate {
-    
+extension PFPickerView: UITableViewDataSource, UITableViewDelegate, PFPickerCellDelegate {
+
     public func numberOfSections(in tableView: UITableView) -> Int { delegate?.numberOfSections?() ?? 1 }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { delegate?.numberOfRows(inSection: section) ?? 0 }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let cellClass = cellClass, let identifier = identifier {
-            let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? PFPickerCell ?? PFPickerCell()
-            delegate?.pickerView(self, cell: cell, at: indexPath)
-            return cell
-        }
+        var cell = tableView.dequeueReusableCell(withIdentifier: PFPickerCell.reuseIdentity()) as? PFPickerCell ?? PFPickerCell()
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: PFPickerCell.reuseIdentity(), for: indexPath) as? PFPickerCell ?? PFPickerCell()
+        if let cellClass = cellClass, let identifier = identifier {
+            cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? PFPickerCell ?? PFPickerCell()
+        }
+        cell.delegate = self
+        cell.indexPath = indexPath
+        cell.selectBtn.isSelected = selectedStatus[indexPath.section][indexPath.row]
         delegate?.pickerView(self, cell: cell, at: indexPath)
+        
         return cell
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) as? PFPickerCell {
             cell.selectBtn.isSelected = !cell.selectBtn.isSelected
-            cell.isSelected = cell.selectBtn.isSelected
+            
+            if selectionStyle == .single {
+                selectedStatus.removeAll()
+                for section in 0..<(delegate!.numberOfSections?() ?? 1) {
+                    var selectedSection: [Bool] = []
+                    for row in 0..<delegate!.numberOfRows(inSection: section) {
+                        selectedSection.append(false)
+                    }
+                    selectedStatus.append(selectedSection)
+                }
+            }
+            selectedStatus[indexPath.section][indexPath.row] = cell.selectBtn.isSelected
+
+            tableView.reloadData()
             delegate?.pickerView?(self, didSelectRowAt: indexPath, select: cell)
         }
     }
@@ -141,6 +168,10 @@ extension PFPickerView: UITableViewDataSource, UITableViewDelegate {
     public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         delegate?.pickerView?(self, heightForFooterInSection: section) ?? 0
     }
+    
+    public func selected(cell: PFPickerCell) {
+        tableView(tableView, didSelectRowAt: cell.indexPath)
+    }
 }
 
 public extension PFPickerView {
@@ -149,14 +180,14 @@ public extension PFPickerView {
 
         window?.addSubview(self)
         window?.bringSubviewToFront(self)
-
+        whiteBgView.layoutIfNeeded()
         if animated {
             UIView.animate(withDuration: 0.3) {
                 self.backgroundColor = SystemColor.mask
-                self.whiteBgView.frame.origin.y = self.bounds.size.height - self.whiteBgView.bounds.size.height
+                self.whiteBgView.frame.origin.y = self.bounds.size.height - min(self.maxHeight, self.whiteBgView.bounds.size.height)
             }
         } else {
-            whiteBgView.frame.origin.y = self.bounds.size.height - whiteBgView.bounds.size.height
+            whiteBgView.frame.origin.y = self.bounds.size.height - min(self.maxHeight, self.whiteBgView.bounds.size.height) 
         }
     }
     
@@ -178,11 +209,26 @@ public extension PFPickerView {
 extension PFPickerView {
     @objc
     func cancelEvent() {
+        cancelHandler?()
         hide(animated: true)
     }
     
     @objc
     func confirmEvent() {
+        
+        var selectedIndexPaths: [IndexPath] = []
+        
+        for section in 0..<selectedStatus.count {
+            let sectionStatuses = selectedStatus[section]
+            for row in 0..<sectionStatuses.count {
+                let rowStatuses = sectionStatuses[row]
+                if rowStatuses == true {
+                    let indexPath = IndexPath(row: row, section: section)
+                    selectedIndexPaths.append(indexPath)
+                }
+            }
+        }
+        conformHandler?(selectedIndexPaths)
         hide(animated: true)
     }
     
@@ -264,5 +310,8 @@ extension PFPickerView {
 fileprivate struct Constants {
     static let commonMargin: CGFloat = 15
     static let titleHeight: CGFloat = 20
+    
+    static let topHeight: CGFloat = commonMargin * 2 + 15
+    
     static let defaultRowHeight: CGFloat = 50
 }

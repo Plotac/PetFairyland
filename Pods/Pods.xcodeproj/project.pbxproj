@@ -24,7 +24,6 @@
 		079F0820555C5B86C9FBD5EC6344137F /* Protected.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D849B7177D07D7BD4F894A48C918F6 /* Protected.swift */; };
 		082EDC820D76DF95C71A5018112DE512 /* UIButton+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202007C49D239CA772998AB5AB08C94D /* UIButton+Kingfisher.swift */; };
 		0949847BC9332C85258A4425AB264A46 /* ConstraintOffsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3305C7DBB387A0DE5DE94B161EC392A5 /* ConstraintOffsetTarget.swift */; };
-		09C0067F2AD7C46E00C73B48 /* PFPickerSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C0067E2AD7C46E00C73B48 /* PFPickerSectionModel.swift */; };
 		09C006832AD7C5D100C73B48 /* PFPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C006822AD7C5D100C73B48 /* PFPickerCell.swift */; };
 		0A3EE18839C967D0903ED4E6527B637D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B8063291033C95A8B2A24FA2AD7A79 /* Foundation.framework */; };
 		0A93D725DA34E6ACB26D9B2A714BBEB6 /* UIScrollView+MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = F26BAA188E1A427816F26FEAC6F417D9 /* UIScrollView+MJRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -664,7 +663,6 @@
 		09131CB82290015ADC1F2C51119A261C /* MJRefreshAutoStateFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoStateFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoStateFooter.h; sourceTree = "<group>"; };
 		092A96C80CD5B6A66125783010318EA3 /* Kingfisher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kingfisher.release.xcconfig; sourceTree = "<group>"; };
 		0995FFBAF8D6E8E68177639171F9404C /* CYLTabBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CYLTabBar.h; path = CYLTabBarController/CYLTabBar.h; sourceTree = "<group>"; };
-		09C0067E2AD7C46E00C73B48 /* PFPickerSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PFPickerSectionModel.swift; sourceTree = "<group>"; };
 		09C006822AD7C5D100C73B48 /* PFPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PFPickerCell.swift; sourceTree = "<group>"; };
 		0A228144874E5EF1659D7A4CDC1E83FE /* Pods-PetFairyland-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PetFairyland-acknowledgements.plist"; sourceTree = "<group>"; };
 		0A55B13BDD2409D8DA48AC0EC3508EF8 /* KFOptionsSetter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KFOptionsSetter.swift; path = Sources/General/KFOptionsSetter.swift; sourceTree = "<group>"; };
@@ -1320,7 +1318,6 @@
 			isa = PBXGroup;
 			children = (
 				A35FCEB151A1287229741ED79A8C328F /* PFPickerView.swift */,
-				09C006812AD7C5BE00C73B48 /* Model */,
 				09C006802AD7C5B700C73B48 /* View */,
 			);
 			name = PFPickerView;
@@ -1333,14 +1330,6 @@
 				09C006822AD7C5D100C73B48 /* PFPickerCell.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		09C006812AD7C5BE00C73B48 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				09C0067E2AD7C46E00C73B48 /* PFPickerSectionModel.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		0D339A426E994BDC2E4E558E8215CDFD /* IQKeyboardManager */ = {
@@ -3376,7 +3365,6 @@
 				4A77DBC3BCAEEE9C1CFF097979D0F353 /* PFBaseViewController.swift in Sources */,
 				DE366D4624618BDB714898EE25B244DD /* PFDatePickerView.swift in Sources */,
 				1626FC24DD6616DBFFB58662FFED2048 /* PFFilter.swift in Sources */,
-				09C0067F2AD7C46E00C73B48 /* PFPickerSectionModel.swift in Sources */,
 				09C006832AD7C5D100C73B48 /* PFPickerCell.swift in Sources */,
 				0207866DCE1C51123EEBC2C87EA0DA5B /* PFFilterBar.swift in Sources */,
 				5503B721F36FE013197482F7B2CBFE58 /* PFFilterCell.swift in Sources */,

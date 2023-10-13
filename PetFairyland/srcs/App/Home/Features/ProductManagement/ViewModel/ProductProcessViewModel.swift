@@ -60,14 +60,18 @@ class ProductProcessViewModel: NSObject {
     }
     
     var formSectionModels: [PFFormSectionModel] = []
+    var couponModels: [DiscountCouponModel] = []
     
     var formView: PFFormView!
+    
+    var selectedFormModel: PFFormModel?
     
     var pickerTitles: [String] = []
     
     override init() {
         super.init()
-        formSectionModels = generateSectionModels()
+        formSectionModels = generateFormSectionModels()
+        couponModels = generateCouponModels()
         buildUI()
     }
     
@@ -77,44 +81,64 @@ extension ProductProcessViewModel: PFFormViewDelegate {
     func formView(_ formView: PFFormView, didSelectAt indexPath: IndexPath, formModel: PFFormModel) {
         delegate?.handleSelectEvent(type: .memberBenefits)
         
+        selectedFormModel = formModel
+        
         if formModel.rightViewMode == .picker(defaultText: nil) {
             
+            var title = ""
+            pickerTitles.removeAll()
+            
             if formModel.type.typeDescription == FormType.memberBenefits.typeDescription {
+                title = "选择会员优惠"
                 pickerTitles = ["统一会员价", "统一折扣"]
+            } else if formModel.type.typeDescription == FormType.discountCoupon.typeDescription {
+                title = "选择优惠券"
+                pickerTitles = couponModels.map({ $0.title })
+            } else if formModel.type.typeDescription == FormType.serviceTime.typeDescription {
+                title = "选择服务时间"
+                pickerTitles = ["0.5", "1.0", "1.5", "2.0","2.5", "3.0", "3.5", "4.0"]
             }
             
-            let view = PFPickerView(title: "选择会员优惠", selectionStyle: .single) {
+            let view = PFPickerView(title: title, selectionStyle: .single) {
                 
-            } comformHandler: {
-                
+            } conformHandler: { selectedIndexPaths in
+                selectedIndexPaths.forEach { indexPath in
+                    print("选中了------- \(self.pickerTitles[indexPath.row])")
+                }
             }
+            if formModel.type.typeDescription == FormType.discountCoupon.typeDescription {
+                view.register(ProductDiscountCouponCell.self, forCellReuseIdentifier: ProductDiscountCouponCell.reuseIdentity())
+            }
+            
             view.delegate = self
             view.show(animated: true)
         }
     }
 }
 
-extension ProductProcessViewModel: PFPickerViewDelegate, PFPickerCellDelegate {
+extension ProductProcessViewModel: PFPickerViewDelegate {
     func numberOfRows(inSection section: Int) -> Int { pickerTitles.count }
     
     func pickerView(_ pickerView: PFPickerView, cell: PFPickerCell, at indexPath: IndexPath) {
-        cell.delegate = self
-        cell.titleLab.text = pickerTitles[indexPath.row]
+        if selectedFormModel?.type.typeDescription == FormType.memberBenefits.typeDescription {
+            cell.titleLab.text = pickerTitles[indexPath.row]
+            cell.titleLab.textColor = cell.selectBtn.isSelected ? UIColor(hexString: "#000000") : UIColor(hexString: "#999999")
+            cell.titleLab.font = .pingfang(style: cell.selectBtn.isSelected ? .semibold : .regular, size: 14)
+        } else if selectedFormModel?.type.typeDescription == FormType.discountCoupon.typeDescription, let couponCell = cell as? ProductDiscountCouponCell {
+            couponCell.model = couponModels[indexPath.row]
+        }
     }
     
-    func pickerView(_ pickerView: PFPickerView, didSelectRowAt indexPath: IndexPath, select cell: PFPickerCell) {
-        selected(cell: cell)
+    func pickerView(_ pickerView: PFPickerView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if selectedFormModel?.type.typeDescription == FormType.discountCoupon.typeDescription {
+            return 115
+        }
+        return 50
     }
-    
-    func selected(cell: PFPickerCell) {
-        cell.titleLab.textColor = cell.isSelected ? UIColor(hexString: "#000000") : UIColor(hexString: "#999999")
-        cell.titleLab.font = .pingfang(style: cell.isSelected ? .semibold: .regular, size: 14)
-    }
-    
 }
 
 extension ProductProcessViewModel {
-    func generateSectionModels() -> [PFFormSectionModel] {
+    func generateFormSectionModels() -> [PFFormSectionModel] {
         let info = PFFormSectionModel()
         info.title = "商品信息"
         
@@ -175,6 +199,47 @@ extension ProductProcessViewModel {
         image.formModels = [productImage, suitablePets, productDetail]
         
         return [info, image]
+    }
+    
+    func generateCouponModels() -> [DiscountCouponModel] {
+        let coupon1 = DiscountCouponModel()
+        coupon1.discount = 30
+        coupon1.type = .moneyOff
+        coupon1.status = .enable
+        coupon1.targetAmount = 100
+        coupon1.validityType = .forever
+        coupon1.sharedWithMemberPrice = true
+        
+        let coupon2 = DiscountCouponModel()
+        coupon2.discount = 50
+        coupon2.type = .moneyOff
+        coupon2.status = .enable
+        coupon2.targetAmount = 300
+        coupon2.validityType = .beforeExpirationDate(1703952000)
+        
+        let coupon3 = DiscountCouponModel()
+        coupon3.discount = 8.5
+        coupon3.type = .discount
+        coupon3.status = .enable
+        coupon3.targetAmount = 200
+        coupon3.validityType = .limitDays(30)
+        
+        let coupon4 = DiscountCouponModel()
+        coupon4.discount = 20
+        coupon4.type = .moneyOff
+        coupon4.status = .disabled
+        coupon4.targetAmount = 100
+        coupon4.validityType = .timePeriod(1693497600, 1696003200)
+        coupon1.sharedWithMemberPrice = true
+        
+        let coupon5 = DiscountCouponModel()
+        coupon5.discount = 9.5
+        coupon5.type = .discount
+        coupon5.status = .disabled
+        coupon5.targetAmount = 100
+        coupon5.validityType = .timePeriod(1696089600, 1698681600)
+        
+        return [coupon1, coupon2, coupon3, coupon4, coupon5]
     }
     
     func buildUI() {
