@@ -43,14 +43,24 @@ public class PFPickerView: UIView {
             if let delegate = delegate {
                 for section in 0..<(delegate.numberOfSections?() ?? 1) {
                     var selectedSection: [Bool] = []
+                    
+                    // 计算tableview高度
+                    let headerHeight = delegate.pickerView?(self, heightForHeaderInSection: section) ?? 0
+                    tabHeight += headerHeight
+                    
+                    let footerHeight = delegate.pickerView?(self, heightForFooterInSection: section) ?? 0
+                    tabHeight += footerHeight
+                    
                     for row in 0..<delegate.numberOfRows(inSection: section) {
-                        // 计算tableview高度
+                        
                         let indexPath = IndexPath(row: row, section: section)
-                        let height = delegate.pickerView?(self, heightForRowAt: indexPath) ?? Constants.defaultRowHeight
-                        tabHeight += height
+                        
+                        let rowHeight = delegate.pickerView?(self, heightForRowAt: indexPath) ?? Constants.defaultRowHeight
+                        tabHeight += rowHeight
                         
                         selectedSection.append(false)
                     }
+                    
                     selectedStatus.append(selectedSection)
                 }
             }
@@ -70,6 +80,7 @@ public class PFPickerView: UIView {
     private var whiteBgView: UIView!
     
     var title: String?
+    var tableVieStyle: UITableView.Style = .plain
     var selectionStyle: SelectionStyle = .single
     var cancelHandler: PFPickerViewCancelEventHandler?
     var conformHandler: PFPickerViewConfirmEventHandler?
@@ -80,11 +91,13 @@ public class PFPickerView: UIView {
     private var selectedStatus: [[Bool]] = []
     
     public required init(title: String?,
+                         tableViewStyle: UITableView.Style = .plain,
                          selectionStyle: PFPickerView.SelectionStyle,
                          cancelHandler: PFPickerViewCancelEventHandler?,
                          conformHandler: PFPickerViewConfirmEventHandler?) {
         super.init(frame: UIScreen.main.bounds)
         self.title = title
+        self.tableVieStyle = tableViewStyle
         self.selectionStyle = selectionStyle
         self.cancelHandler = cancelHandler
         self.conformHandler = conformHandler
@@ -154,7 +167,7 @@ extension PFPickerView: UITableViewDataSource, UITableViewDelegate, PFPickerCell
     }
     
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        delegate?.pickerView?(self, viewForFooterInSection: section)
+        delegate?.pickerView?(self, viewForHeaderInSection: section)
     }
     
     public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -166,7 +179,7 @@ extension PFPickerView: UITableViewDataSource, UITableViewDelegate, PFPickerCell
     }
     
     public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        delegate?.pickerView?(self, heightForFooterInSection: section) ?? 0
+        delegate?.pickerView?(self, heightForFooterInSection: section) ?? 0.01
     }
     
     public func selected(cell: PFPickerCell) {
@@ -262,8 +275,19 @@ extension PFPickerView {
         titleLab = UILabel()
         titleLab.frame.origin.y = Constants.commonMargin
         titleLab.textAlignment = .center
-        titleLab.text = self.title
         titleLab.font = .pingfang(style: .medium, size: 15)
+        if selectionStyle == .single {
+            titleLab.text = self.title
+        } else {
+            if let title = title {
+                let attText = NSMutableAttributedString(string: "\(title)(可多选)")
+                let titleRange =  NSRange(attText.string.range(of: title)!, in: attText.string)
+                let multipleRange = NSRange(attText.string.range(of: "(可多选)")!, in: attText.string)
+                attText.addAttributes([NSAttributedString.Key.font: UIFont.pingfang(style: .medium, size: 15)], range: titleRange)
+                attText.addAttributes([NSAttributedString.Key.font: UIFont.pingfang(style: .regular, size: 14)], range: multipleRange)
+                titleLab.attributedText = attText
+            }
+        }
         titleLab.sizeToFit()
         titleLab.bounds.size.height = Constants.titleHeight
         titleLab.frame.origin.x = center.x - (titleLab.bounds.size.width) / 2
@@ -289,12 +313,14 @@ extension PFPickerView {
         separatorLine.backgroundColor = SystemColor.separator
         whiteBgView.addSubview(separatorLine)
         
-        tableView = UITableView(frame: .zero, style: .plain)
+        tableView = UITableView(frame: .zero, style: tableVieStyle)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
+        tableView.showsHorizontalScrollIndicator = false
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: bounds.size.width, height: 0.01))
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = 0
         }
