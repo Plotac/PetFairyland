@@ -26,7 +26,7 @@ class HomeViewController: PFBaseViewController {
         navigationItem.title = "乐乐派宠物服务预约平台"
         setupUI()
         
-        if PFAccount.shared.userInfo.isValid == false {
+        if PFAccount.shared.isLogin == false {
             loginEvent()
         }
         
@@ -105,7 +105,7 @@ private extension HomeViewController {
         
         let loginSwitch = UISwitch(frame: .zero)
         loginSwitch.sizeToFit()
-        loginSwitch.isOn = false
+        loginSwitch.isOn = PFAccount.shared.isLogin
         loginSwitch.addTarget(self, action: #selector(changeSwitchValue), for: .valueChanged)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: loginSwitch)
     }

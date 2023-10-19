@@ -16,6 +16,7 @@ class IdentitySelectionController: PFBaseViewController {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
         viewModel = IdentitySelectionViewModel(type: .originator)
+        viewModel.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -25,6 +26,14 @@ class IdentitySelectionController: PFBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    }
+}
+
+extension IdentitySelectionController: IdentitySelectionViewModelDelegate {
+    func handleConfirmEvent() {
+        dismiss(animated: true) {
+            PFAccount.shared.isLogin = true
+        }
     }
 }
 

@@ -8,7 +8,13 @@
 import Foundation
 import PFUtility
 
+protocol IdentitySelectionViewModelDelegate: NSObjectProtocol {
+    func handleConfirmEvent()
+}
+
 class IdentitySelectionViewModel: NSObject {
+    
+    weak var delegate: IdentitySelectionViewModelDelegate?
     
     var type: UserInfo.IdentityType!
     
@@ -75,7 +81,7 @@ extension IdentitySelectionViewModel {
     
     @objc
     func confirmEvent() {
-        
+        delegate?.handleConfirmEvent()
     }
 }
 
